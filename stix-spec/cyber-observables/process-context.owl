@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY process "http://docs.oasis-open.org/cti/ns/stix/process#">
+	<!ENTITY processCtx "http://docs.oasis-open.org/cti/ns/stix/process-context#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stixCoreCtx "http://docs.oasis-open.org/cti/ns/stix/stix-core-context#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/process-context"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:process="http://docs.oasis-open.org/cti/ns/stix/process#"
+	xmlns:processCtx="http://docs.oasis-open.org/cti/ns/stix/process-context#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stixCoreCtx="http://docs.oasis-open.org/cti/ns/stix/stix-core-context#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/process-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/process"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#Process">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:hasValue>process</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;command_line"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;create_time"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;creator_user_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;cwd"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;image_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;is_hidden"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;parent_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;pid"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;extensions"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:oneOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&process;WindowsProcessExtension">
+							</rdf:Description>
+							<rdf:Description rdf:about="&process;WindowsServiceExtension">
+							</rdf:Description>
+						</owl:oneOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;WindowsProcessExtension">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:hasValue>windows-process-ext</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;aslr_enabled"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;dep_enabled"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;integrity_level"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;owner_sid"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;priority"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;windows_title"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;WindowsServiceExtension">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:hasValue>windows-service-ext</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;display_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;group_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;service_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;service_status"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;service_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&process;start_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;aslr_enabled">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;child_refs">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;command_line">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;create_time">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;creator_user_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;cwd">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;dep_enabled">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;descriptions">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;display_name">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;environment_variables">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;group_name">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;image_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;integrity_level">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;is_hidden">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;opened_connection_refs">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;owner_sid">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;parent_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;pid">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Process"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;priority">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;service_dll_refs">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;service_name">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;service_status">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;service_type">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;start_type">
+		<rdfs:domain rdf:resource="&process;WindowsServiceExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;startup_info">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&process;windows_title">
+		<rdfs:domain rdf:resource="&process;WindowsProcessExtension"/>
+	</rdf:Description>
+
+</rdf:RDF>

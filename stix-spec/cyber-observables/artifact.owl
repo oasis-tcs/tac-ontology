@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY artifact "http://docs.oasis-open.org/cti/ns/stix/artifact#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/artifact"
+	xmlns:artifact="http://docs.oasis-open.org/cti/ns/stix/artifact#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/artifact">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Artifact">
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Artifact object permits capturing an array of bytes (8-bits), as a base64-encoded string, or linking to a file-like payload.\n\nOne of payload_bin or url MUST be provided. It is incumbent on object creators to ensure that the URL is accessible for downstream consumers.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&artifact;decryption_key">
+		<rdfs:label>decryption_key</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the decryption key for the encrypted binary data (either via payload_bin or url). For example, this may be useful in cases of sharing malware samples, which are often encoded in an encrypted archive.\n\nThis property MUST NOT be present when the encryption_algorithm property is absent.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&artifact;encryption_algorithm">
+		<rdfs:label>encryption algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the type of encryption algorithm the binary data (either via payload_bin or url) is encoded in, if the artifact is encrypted.\n\nIf both mime_type and encryption_algorithm are included, this signifies that the artifact represents an encrypted archive.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>AES-256-GCM</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>ChaCha20-Poly1035</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>mime-type-indicated</rdf:first>
+										<rdf:rest rdf:resource="&rdf;nil"/>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&artifact;payload_bin">
+		<rdfs:label>payload_bin</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the binary data contained in the artifact as a base64-encoded string.\n\nThis property MUST NOT be present if url is provided.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;base64Binary"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

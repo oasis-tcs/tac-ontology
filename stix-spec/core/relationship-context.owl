@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY relationship "http://docs.oasis-open.org/cti/ns/stix/relationship#">
+	<!ENTITY relationshipCtx "http://docs.oasis-open.org/cti/ns/stix/relationship-context#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/relationship-context"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:relationship="http://docs.oasis-open.org/cti/ns/stix/relationship#"
+	xmlns:relationshipCtx="http://docs.oasis-open.org/cti/ns/stix/relationship-context#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/relationship-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/relationship"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&stix;Relationship">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&relationship;relationship_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&relationship;source_ref"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&relationship;target_ref"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:hasValue>relationship</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;confidence"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;start_time"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;stop_time"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;confidence">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;created">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;created_by_ref">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;description">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;external_references">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;id">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;labels">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;lang">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;modified">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;revoked">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;spec_version">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;start_time">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;stop_time">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;type">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&relationship;relationship_type">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&relationship;source_ref">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&relationship;target_ref">
+		<rdfs:domain rdf:resource="&stix;Relationship"/>
+	</rdf:Description>
+
+</rdf:RDF>

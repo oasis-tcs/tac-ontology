@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY adversaryCtx "http://docs.oasis-open.org/cti/ns/stix/adversary-context#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/adversary-context"
+	xmlns:adversaryCtx="http://docs.oasis-open.org/cti/ns/stix/adversary-context#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:hasValue>intrusion-set</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary#primary_motivation"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary#resource_level"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#confidence"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#first_seen"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#last_seen"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#ThreatActor">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:hasValue>threat-actor</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary#primary_motivation"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary#resource_level"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary#sophistication"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#confidence"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#first_seen"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#last_seen"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#goals">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#personal_motivations">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#primary_motivation">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#resource_level">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#roles">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#secondary_motivations">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#sophistication">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary#threat_action_types">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#aliases">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#created">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#description">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#external_references">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#first_seen">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#last_seen">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#name">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</rdf:Description>
+
+</rdf:RDF>

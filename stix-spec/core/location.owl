@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY location "http://docs.oasis-open.org/cti/ns/stix/location#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/location"
+	xmlns="http://docs.oasis-open.org/cti/ns/stix/location#"
+	xmlns:location="http://docs.oasis-open.org/cti/ns/stix/location#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/location">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="http://docs.oasis-open.org/cti/ns/stix#Location">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#STIXDomainObject"/>
+		<rdfs:label>Location</rdfs:label>
+		<rdfs:comment xml:lang="en-us">A Location represents a geographic location. The location may be described as any, some or all of the following: region (e.g., North America), civic address (e.g. New York, US), latitude and longitude.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&location;latitude">
+		<rdfs:label>latitude</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The WGS84 latitude of a SpatialThing (decimal degrees).\n\nPositive numbers describe latitudes north of the equator, and negative numbers describe latitudes south of the equator. The value of this property MUST be between -90.0 and 90.0, inclusive.\n\nIf the longitude property is present, this property MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&location;longitude">
+		<rdfs:label>longitude</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The WGS84 longitude of a SpatialThing (decimal degrees).\n\nPositive numbers describe longitudes east of the prime meridian and negative numbers describe longitudes west of the prime meridian. The value of this property MUST be between -180.0 and 180.0, inclusive.\n\nIf the latitude property is present, this property MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&location;precision">
+		<rdfs:label>precision</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Defines the precision of the coordinates specified by the latitude and longitude properties. This is measured in meters. The actual Location may be anywhere up to precision meters from the defined point.\n\nIf this property is not present, then the precision is unspecified.\n\nIf this property is present, the latitude and longitude properties MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&location;region">
+		<rdfs:label>region</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The region that this Location describes.\n\nThe value for this property SHOULD come from the region-ov open vocabulary.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WorldRegionOpenVocab">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WorldRegionVocab">
+					</rdf:Description>
+				</owl:unionOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

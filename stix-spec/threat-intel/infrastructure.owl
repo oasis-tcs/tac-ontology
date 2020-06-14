@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY infrastructure "http://docs.oasis-open.org/cti/ns/stix/infrastructure#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/infrastructure"
+	xmlns="http://docs.oasis-open.org/cti/ns/stix/infrastructure#"
+	xmlns:infrastructure="http://docs.oasis-open.org/cti/ns/stix/infrastructure#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/infrastructure">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Infrastructure">
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
+		<rdfs:label>Infrastructure</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The Infrastructure SDO represents a type of TTP and describes any systems, software services and any associated physical or virtual resources intended to support some purpose (e.g., C2 servers used as part of an attack, device or server that are part of defense, database servers targeted by an attack, etc.). While elements of an attack can be represented by other SDOs or SCOs, the Infrastructure SDO represents a named group of related data that constitutes the infrastructure.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&infrastructure;infrastructure_types">
+		<rdfs:label>infrastructure_types</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the type of infrastructure being described. The values for this property SHOULD come from the infrastructure-type-ov open vocabulary.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#InfrastructureTypeOpenVocab">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#InfrastructureTypeVocab">
+					</rdf:Description>
+				</owl:unionOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

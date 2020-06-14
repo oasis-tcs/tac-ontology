@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY network-traffic "http://docs.oasis-open.org/cti/ns/stix/network-traffic#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/network-traffic"
+	xmlns:network-traffic="http://docs.oasis-open.org/cti/ns/stix/network-traffic#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/network-traffic">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/artifact"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/domain-name"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/ip-address"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mac-address"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="http://docs.oasis-open.org/cti/ns/stix#NetworkTraffic">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#STIXCyberObservableObject"/>
+		<rdfs:label>NetworkTraffic</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Network Traffic object represents arbitrary network traffic that originates from a source and is addressed to a destination. The network traffic MAY or MAY NOT constitute a valid unicast, multicast, or broadcast network connection. This MAY also include traffic that is not established, such as a SYN flood.\n\nTo allow for use cases where a source or destination address may be sensitive and not suitable for sharing, such as addresses that are internal to an organization’s network, the source and destination properties (src_ref and dst_ref, respectively) are defined as optional in the properties table below. However, a Network Traffic object MUST contain the protocols property and at least one of the src_ref or dst_ref properties and SHOULD contain the src_port and dst_port properties.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&network-traffic;HttpRequestExtension">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#Extension"/>
+		<rdfs:label>HTTP Request Extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The HTTP request extension specifies a default extension for capturing network traffic properties specific to HTTP requests.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&network-traffic;IcmpExtension">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#Extension"/>
+		<rdfs:label>ICMP Extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The ICMP extension specifies a default extension for capturing network traffic properties specific to ICMP.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&network-traffic;SocketExtension">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#Extension"/>
+		<rdfs:label>Socket extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&network-traffic;TcpExtension">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#Extension"/>
+		<rdfs:label>Tcp extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;address_family">
+		<rdfs:label>address_family</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the address family (AF_*) that the socket is configured for. The values of this property MUST come from the network-socket-address-family-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>AF_UNSPEC</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>AF_INET</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>AF_IPX</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>AF_APPLETALK</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>AF_NETBIOS</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>AF_INET6</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>AF_IRDA</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>AF_BTH</rdf:first>
+																				<rdf:rest rdf:resource="&rdf;nil"/>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;dst_byte_count">
+		<rdfs:label>dst_byte_count</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the number of bytes, as a positive integer, sent from the destination to the source.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;dst_flags_hex">
+		<rdfs:label>dst_flags_hex</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the destination TCP flags, as the union of all TCP flags observed between the start of the traffic (as defined by the start property) and the end of the traffic (as defined by the end property).\n\nIf the start and end times of the traffic are not specified, this property SHOULD be interpreted as the union of all TCP flags observed over the entirety of the network traffic being reported upon.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;hexBinary"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;dst_packets">
+		<rdfs:label>dst_packets</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the number of packets, as a positive integer, sent from the destination to the source.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;dst_payload_ref">
+		<rdfs:label>dst_payload_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the bytes sent from the destination to the source.\n\nThe object referenced in this property MUST be of type artifact.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Artifact"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;dst_port">
+		<rdfs:label>dst_port</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the destination port used in the network traffic, as an integer. The port value MUST be in the range of 0 - 65535.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:onDatatype rdf:resource="&xsd;nonNegativeInteger"/>
+				<owl:withRestrictions rdf:parseType="Collection">
+					<rdf:Description>
+						<xsd:maxInclusive rdf:datatype="&xsd;nonNegativeInteger">65535</xsd:maxInclusive>
+					</rdf:Description>
+				</owl:withRestrictions>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;dst_ref">
+		<rdfs:label>dst_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the destination of the network traffic, as a reference to a Cyber-observable Object.\n\nThe object referenced MUST be of type ipv4-addr, ipv6-addr, mac-addr, or domain-name (for cases where the IP address for a domain name is unknown).</rdfs:comment>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#IPv4Address">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#IPv6Address">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#MACAddress">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#DomainName">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;encapsulated_by_ref">
+		<rdfs:label>encapsulated_by_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Links to another network-traffic object which encapsulates this object.\n\nThe object referenced in this property MUST be of type network-traffic.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#NetworkTraffic"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;encapsulates_refs">
+		<rdfs:label>encapsulates_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Links to other network-traffic objects encapsulated by this network-traffic object.\n\nThe objects referenced in this property MUST be of type network-traffic.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#NetworkTraffic"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;end">
+		<rdfs:label>end</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the date/time the network traffic ended, if known.\n\nIf the is_active property is true, then the end property MUST NOT be included.\n\nIf start and end are both defined, then end MUST be later than the start value.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;icmp_code_hex">
+		<rdfs:label>icmp_code_hex</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the ICMP code byte.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;hexBinary"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;icmp_type_hex">
+		<rdfs:label>icmp_type_hex</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the ICMP type byte.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;hexBinary"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;ipfix">
+		<rdfs:label>ipfix</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies any IP Flow Information Export [IPFIX] data for the traffic, as a dictionary. Each key/value pair in the dictionary represents the name/value of a single IPFIX element. Accordingly, each dictionary key SHOULD be a case-preserved version of the IPFIX element name, e.g., octetDeltaCount. Each dictionary value MUST be either an integer or a string, as well as a valid IPFIX property.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#KeyValuePair"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;is_active">
+		<rdfs:label>is_active</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Indicates whether the network traffic is still ongoing.\n\nIf the end property is provided, this property MUST be false.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;is_blocking">
+		<rdfs:label>is_blocking</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies whether the socket is in blocking mode.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;is_listening">
+		<rdfs:label>is_listening</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies whether the socket is in listening mode.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;message_body_data_ref">
+		<rdfs:label>message_body_data_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the data contained in the HTTP message body, if included.\n\nThe object referenced in this property MUST be of type artifact.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Artifact"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;message_body_length">
+		<rdfs:label>message_body_length</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the length of the HTTP message body, if included, in bytes.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;options">
+		<rdfs:label>options</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies any options (e.g., SO_*) that may be used by the socket, as a dictionary. Each key in the dictionary SHOULD be a case-preserved version of the option name, e.g., SO_ACCEPTCONN. Each key value in the dictionary MUST be the value for the corresponding options key. Each dictionary value MUST be an integer. For SO_RCVTIMEO, SO_SNDTIMEO and SO_LINGER the value represents the number of milliseconds. If the SO_LINGER key is present, it indicates that the SO_LINGER option is active.</rdfs:comment>
+		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#KeyValuePair"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;protocols">
+		<rdfs:label>protocols</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the protocols observed in the network traffic, along with their corresponding state.\n\nProtocols MUST be listed in low to high order, from outer to inner in terms of packet encapsulation. That is, the protocols in the outer level of the packet, such as IP, MUST be listed first.\n\nThe protocol names SHOULD come from the service names defined in the Service Name column of the IANA Service Name and Port Number Registry [Port Numbers]. In cases where there is variance in the name of a network protocol not included in the IANA Registry, content producers should exercise their best judgement, and it is recommended that lowercase names be used for consistency with the IANA registry.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;request_header">
+		<rdfs:label>request_header</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies all of the HTTP header fields that may be found in the HTTP client request, as a dictionary.\n\nEach key in the dictionary MUST be the name of the header field and SHOULD preserve case, e.g., User-Agent. The corresponding value for each dictionary key MUST always be a list of type string to support when a header field is repeated.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#KeyValuePair"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;request_method">
+		<rdfs:label>request_method</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the HTTP method portion of the HTTP request line, as a lowercase string.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>get</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>post</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>put</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>delete</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>patch</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;request_value">
+		<rdfs:label>request_value</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the value (typically a resource path) portion of the HTTP request line.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;request_version">
+		<rdfs:label>request_version</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the HTTP version portion of the HTTP request line, as a lowercase string.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;socket_descriptor">
+		<rdfs:label>socket_descriptor</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the socket file descriptor value associated with the socket, as a non-negative integer.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;positiveInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;socket_handle">
+		<rdfs:label>socket_handle</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the handle or inode value associated with the socket.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;positiveInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;socket_type">
+		<rdfs:label>socket_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the type of the socket.\n\nThe values of this property MUST come from the network-socket-type-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>SOCK_STREAM</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>SOCK_DGRAM</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>SOCK_RAW</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>SOCK_RDM</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>SOCK_SEQPACKET</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;src_byte_count">
+		<rdfs:label>src_type_count</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the number of bytes, as a positive integer, sent from the source to the destination.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;src_flags_hex">
+		<rdfs:label>src_flags_hex</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the source TCP flags, as the union of all TCP flags observed between the start of the traffic (as defined by the start property) and the end of the traffic (as defined by the end property).\n\nIf the start and end times of the traffic are not specified, this property SHOULD be interpreted as the union of all TCP flags observed over the entirety of the network traffic being reported upon.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;hexBinary"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;src_packets">
+		<rdfs:label>src_packets</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the number of packets, as a positive integer, sent from the source to the destination.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;src_payload_ref">
+		<rdfs:label>src_payload_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the bytes sent from the source to the destination.\n\nThe object referenced in this property MUST be of type artifact.</rdfs:comment>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Artifact"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;src_port">
+		<rdfs:label>src port</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the source port used in the network traffic, as an integer. The port value MUST be in the range of 0 - 65535.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:onDatatype rdf:resource="&xsd;nonNegativeInteger"/>
+				<owl:withRestrictions rdf:parseType="Collection">
+					<rdf:Description>
+						<xsd:maxInclusive rdf:datatype="&xsd;nonNegativeInteger">65535</xsd:maxInclusive>
+					</rdf:Description>
+				</owl:withRestrictions>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&network-traffic;src_ref">
+		<rdfs:label>src_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the source of the network traffic, as a reference to a Cyber-observable Object.\n\nThe object referenced MUST be of type ipv4-addr, ipv6-addr, mac-addr, or domain-name (for cases where the IP address for a domain name is unknown).</rdfs:comment>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#IPv4Address">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#IPv6Address">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#MACAddress">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#DomainName">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&network-traffic;start">
+		<rdfs:label>start</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the date/time the network traffic was initiated, if known.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

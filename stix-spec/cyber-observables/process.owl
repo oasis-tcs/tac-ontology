@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY process "http://docs.oasis-open.org/cti/ns/stix/process#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/process"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:process="http://docs.oasis-open.org/cti/ns/stix/process#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/process">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/network-traffic"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Process">
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
+		<rdfs:label>Process</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Process object represents common properties of an instance of a computer program as executed on an operating system. A Process object MUST contain at least one property (other than type) from this object (or one of its extensions).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&process;WindowsProcessExtension">
+		<rdfs:subClassOf rdf:resource="&stixCore;Extension"/>
+		<rdfs:label>Windows Process Extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Windows Process extension specifies a default extension for capturing properties specific to Windows processes.\n\nAn object using the Windows Process Extension MUST contain at least one property from this extension.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&process;WindowsServiceExtension">
+		<rdfs:subClassOf rdf:resource="&stixCore;Extension"/>
+		<rdfs:label>Windows Service Extension</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Windows Service extension specifies a default extension for capturing properties specific to Windows services.\n\nAs all properties of this extension are optional, at least one of the properties defined below MUST be included when using this extension.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&process;aslr_enabled">
+		<rdfs:label>aslr_enabled</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies whether Address Space Layout Randomization (ASLR) is enabled for the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;child_refs">
+		<rdfs:label>child_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the other processes that were spawned by (i.e. children of) this process, as a reference to one or more other Process objects.\n\nThe objects referenced in this list MUST be of type process.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;Process"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;command_line">
+		<rdfs:label>command_line</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the full command line used in executing the process, including the process name (which may be specified individually via the image_ref.name property) and any arguments.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;create_time">
+		<rdfs:label>create_time</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the date and time at which the process was created.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;creator_user_ref">
+		<rdfs:label>creator_user_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the user that created the process, as a reference to a User Account object.\n\n
+The object referenced in this property MUST be of type user-account.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;UserAccount"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;cwd">
+		<rdfs:label>cwd</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the current working directory of the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;dep_enabled">
+		<rdfs:label>dep_enabled</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies whether Data Execution Prevention (DEP) is enabled for the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;descriptions">
+		<rdfs:label>descriptions</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the descriptions defined for the service.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;display_name">
+		<rdfs:label>display_name</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the display name of the service in Windows GUI controls.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;environment_variables">
+		<rdfs:label>environment_variables</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the list of environment variables associated with the process as a dictionary. Each key in the dictionary MUST be a case preserved version of the name of the environment variable, and each corresponding value MUST be the environment variable value as a string.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;KeyValuePair"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;group_name">
+		<rdfs:label>group_name</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the name of the load ordering group of which the service is a member.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;image_ref">
+		<rdfs:label>image_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the executable binary that was executed as the process image, as a reference to a File object.\n\nThe object referenced in this property MUST be of type file.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;File"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;integrity_level">
+		<rdfs:label>integrity_level</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the Windows integrity level, or trustworthiness, of the process.\n\nThe values of this property MUST come from the windows-integrity-level-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>low</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>medium</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>high</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>system</rdf:first>
+												<rdf:rest rdf:resource="&rdf;nil"/>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;is_hidden">
+		<rdfs:label>is_hidden</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies whether the process is hidden.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;opened_connection_refs">
+		<rdfs:label>opened_connection_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the list of network connections opened by the process, as a reference to one or more Network Traffic objects.\n\nThe objects referenced in this list MUST be of type network-traffic.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;NetworkTraffic"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;owner_sid">
+		<rdfs:label>owner_sid</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the Security ID (SID) value of the owner of the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;parent_ref">
+		<rdfs:label>parent_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the other process that spawned (i.e. is the parent of) this one, as a reference to a Process object.\n\nThe object referenced in this property MUST be of type process.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;Process"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;pid">
+		<rdfs:label>pid</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the Process ID, or PID, of the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;positiveInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;priority">
+		<rdfs:label>priority</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the current priority class of the process in Windows.\n\nThis value SHOULD be a string that ends in _CLASS.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;service_dll_refs">
+		<rdfs:label>service_dll_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the DLLs loaded by the service, as a reference to one or more File objects.\n\nThe objects referenced in this property MUST be of type file.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;File"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;service_name">
+		<rdfs:label>service_name</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the name of the service.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;service_status">
+		<rdfs:label>service_status</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the current status of the service.\n\nThe values of this property MUST come from the windows-service-status-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>SERVICE_CONTINUE_PENDING</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>SERVICE_PAUSE_PENDING</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>SERVICE_PAUSED</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>SERVICE_RUNNING</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>SERVICE_START_PENDING</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>SERVICE_STOP_PENDING</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>SERVICE_STOPPED</rdf:first>
+																		<rdf:rest rdf:resource="&rdf;nil"/>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;service_type">
+		<rdfs:label>service_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the type of the service.\n\nThe values of this property MUST come from the windows-service-type-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>SERVICE_KERNEL_DRIVER</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>SERVICE_FILE_SYSTEM_DRIVER</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>SERVICE_WIN32_OWN_PROCESS</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>SERVICE_WIN32_SHARE_PROCESS</rdf:first>
+												<rdf:rest rdf:resource="&rdf;nil"/>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;start_type">
+		<rdfs:label>start_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the start options defined for the service.\n\nThe values of this property MUST come from the windows-service-start-type-enum enumeration.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>SERVICE_AUTO_START</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>SERVICE_BOOT_START</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>SERVICE_DEMAND_START</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>SERVICE_DISABLED</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>SERVICE_SYSTEM_ALERT</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&process;startup_info">
+		<rdfs:label>startup_info</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the STARTUP_INFO struct used by the process, as a dictionary.\n\nEach name/value pair in the struct MUST be represented as a key/value pair in the dictionary, where each key MUST be a case-preserved version of the original name. For example, given a name of &quot;lpDesktop&quot; the corresponding key would be lpDesktop.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;KeyValuePair"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&process;windows_title">
+		<rdfs:label>windows_title</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the title of the main window of the process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

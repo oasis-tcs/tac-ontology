@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY domain-name "http://docs.oasis-open.org/cti/ns/stix/domain-name#">
+	<!ENTITY ip-addr "http://docs.oasis-open.org/cti/ns/stix/ip-address#">
+	<!ENTITY mac-addr "http://docs.oasis-open.org/cti/ns/stix/mac-address#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/domain-name"
+	xmlns:domain-name="http://docs.oasis-open.org/cti/ns/stix/domain-name#"
+	xmlns:ip-addr="http://docs.oasis-open.org/cti/ns/stix/ip-address#"
+	xmlns:mac-addr="http://docs.oasis-open.org/cti/ns/stix/mac-address#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/domain-name">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/ip-address"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;DomainName">
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
+		<rdfs:label>Domain Name</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Domain Name object represents the properties of a network domain name.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&domain-name;resolved_to_refs">
+		<rdfs:label>resolved_to_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of references to one or more IP addresses or domain names that the domain name resolves to.\n\nThe objects referenced in this list MUST be of type ipv4-addr or ipv6-addr or domain-name (for cases such as CNAME records).</rdfs:comment>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&stix;DomainName">
+					</rdf:Description>
+					<rdf:Description rdf:about="&stix;IPv4Address">
+					</rdf:Description>
+					<rdf:Description rdf:about="&stix;IPv6Address">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&domain-name;value">
+		<rdfs:label>value</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the value of the domain name.\n\nThe value of this property MUST conform to [RFC1034], and each domain and sub-domain contained within the domain name MUST conform to [RFC5890].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

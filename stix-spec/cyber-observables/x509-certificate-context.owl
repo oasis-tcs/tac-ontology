@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY x509-cert "http://docs.oasis-open.org/cti/ns/stix/x509-certificate#">
+	<!ENTITY x509CertCtx "http://docs.oasis-open.org/cti/ns/stix/x509-certificate-context#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/x509-certificate-context"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:x509-cert="http://docs.oasis-open.org/cti/ns/stix/x509-certificate#"
+	xmlns:x509CertCtx="http://docs.oasis-open.org/cti/ns/stix/x509-certificate-context#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/x509-certificate-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/x509-certificate"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&stix;X509Certificate">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:hasValue>x509-certificate</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stixCore;version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;is_self_signed"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;issuer"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;serial_number"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;signature_algorithm"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_public_key_algorithm"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_public_key_exponent"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_public_key_modulus"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;validity_not_after"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;validity_not_before"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;x509_v3_extensions"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;hashes">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;version">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;X509v3Extensions">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;authority_key_identifier"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;basic_constraints"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;certificate_policies"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;crl_distribution_points"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;extended_key_usage"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;inhibit_any_policy"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;issuer_alternative_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;key_usage"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;name_constraints"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;policy_constraints"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;policy_mappings"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;private_key_usage_period_not_after"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;private_key_usage_period_not_before"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_alternative_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_directory_attributes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&x509-cert;subject_key_identifier"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;authority_key_identifier">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;basic_constraints">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;certificate_policies">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;crl_distribution_points">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;extended_key_usage">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;inhibit_any_policy">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;is_self_signed">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;issuer">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;issuer_alternative_name">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;key_usage">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;name_constraints">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;policy_constraints">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;policy_mappings">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;private_key_usage_period_not_after">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;private_key_usage_period_not_before">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;serial_number">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;signature_algorithm">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_alternative_name">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_directory_attributes">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_key_identifier">
+		<rdfs:domain rdf:resource="&x509-cert;X509v3Extensions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_public_key_algorithm">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_public_key_exponent">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;subject_public_key_modulus">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;validity_not_after">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;validity_not_before">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&x509-cert;x509_v3_extensions">
+		<rdfs:domain rdf:resource="&stix;X509Certificate"/>
+	</rdf:Description>
+
+</rdf:RDF>

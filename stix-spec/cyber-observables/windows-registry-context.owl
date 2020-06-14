@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY winRegCtx "http://docs.oasis-open.org/cti/ns/stix/windows-registry-context#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/windows-registry-context"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:winRegCtx="http://docs.oasis-open.org/cti/ns/stix/windows-registry-context#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:hasValue>windows-registry-key</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#creator_user_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#key"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#modified_time"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#number_of_subkeys"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/core#name">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#WindowsRegistryValue"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#WindowsRegistryValue">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#data"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#data_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#creator_user_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#data">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#WindowsRegistryValue"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#data_type">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry#WindowsRegistryValue"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#key">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#modified_time">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#number_of_subkeys">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/windows-registry#values">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#WindowsRegistryKey"/>
+	</rdf:Description>
+
+</rdf:RDF>

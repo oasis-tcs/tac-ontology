@@ -304,6 +304,24 @@ https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/unders
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasBindingMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasCoMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasDefiningMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
 				<owl:onProperty rdf:resource="&tal;hasLimitsAttribute"/>
 				<owl:someValuesFrom rdf:resource="&tal;Limits"/>
 			</owl:Restriction>
@@ -328,6 +346,12 @@ https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/unders
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasPersonalMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
 				<owl:onProperty rdf:resource="&tal;hasResourcesAttribute"/>
 				<owl:someValuesFrom rdf:resource="&tal;Resources"/>
 			</owl:Restriction>
@@ -336,6 +360,12 @@ https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/unders
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&tal;hasSkillsAttribute"/>
 				<owl:someValuesFrom rdf:resource="&tal;Skills"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasSubordinateMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
@@ -372,8 +402,22 @@ https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/unders
 		<rdfs:range rdf:resource="&tal;InternalAccess"/>
 	</owl:ObjectProperty>
 	
+	<owl:ObjectProperty rdf:about="&tal;hasBindingMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+		<rdfs:range rdf:resource="&tal;Motivation"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasCoMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+		<rdfs:range rdf:resource="&tal;Motivation"/>
+	</owl:ObjectProperty>
+	
 	<owl:ObjectProperty rdf:about="&tal;hasDefiningAttribute">
 		<rdfs:range rdf:resource="&tal;DefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasDefiningMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tal;hasLimitsAttribute">
@@ -396,12 +440,20 @@ https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/unders
 		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
 	</owl:ObjectProperty>
 	
+	<owl:ObjectProperty rdf:about="&tal;hasPersonalMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+	</owl:ObjectProperty>
+	
 	<owl:ObjectProperty rdf:about="&tal;hasResourcesAttribute">
 		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tal;hasSkillsAttribute">
 		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasSubordinateMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tal;hasVisibilityAttribute">

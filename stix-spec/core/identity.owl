@@ -39,9 +39,9 @@
 		<rdfs:range>
 			<rdfs:Datatype>
 				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error1">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassOpenVocab">
 					</rdf:Description>
-					<rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error2">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassVocab">
 					</rdf:Description>
 				</owl:unionOf>
 			</rdfs:Datatype>
@@ -58,25 +58,13 @@
 		<rdfs:range>
 			<rdfs:Datatype>
 				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error3">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorOpenVocab">
 					</rdf:Description>
-					<rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error4">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorVocab">
 					</rdf:Description>
 				</owl:unionOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
-	
-	<rdfs:Datatype rdf:about="http://org.semanticweb.owlapi/error#Error1">
-	</rdfs:Datatype>
-	
-	<rdfs:Datatype rdf:about="http://org.semanticweb.owlapi/error#Error2">
-	</rdfs:Datatype>
-	
-	<rdfs:Datatype rdf:about="http://org.semanticweb.owlapi/error#Error3">
-	</rdfs:Datatype>
-	
-	<rdfs:Datatype rdf:about="http://org.semanticweb.owlapi/error#Error4">
-	</rdfs:Datatype>
 
 </rdf:RDF>

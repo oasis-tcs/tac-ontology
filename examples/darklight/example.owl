@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY example "http://www.co-ode.org/ontologies/ont.owl#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY ta-library "http://www.intel.com/ns/ta-library#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://www.co-ode.org/ontologies/ont.owl"
+	xmlns="http://www.co-ode.org/ontologies/ont.owl#"
+	xmlns:example="http://www.co-ode.org/ontologies/ont.owl#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:ta-library="http://www.intel.com/ns/ta-library#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://www.co-ode.org/ontologies/ont.owl">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/tac/ns/tac"/>
+	</owl:Ontology>
+	
+	<owl:NamedIndividual rdf:about="&example;AdeptSkills-UUID-2468">
+		<rdf:type rdf:resource="&ta-library;AdeptSkills"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;CopyObjective-UUID-654">
+		<rdf:type rdf:resource="&ta-library;CopyObjective"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;CovertVisability-UUID-666">
+		<rdf:type rdf:resource="&ta-library;CovertVisibility"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;EmbarrassmentOutcome-UUID-00">
+		<rdf:type rdf:resource="&ta-library;EmbarrassmentOutcome"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;ExternalAccess-UUID-123">
+		<rdf:type rdf:resource="&ta-library;ExternalAccess"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;MinorExtraLegalLimits-UUID-567">
+		<rdf:type rdf:resource="&ta-library;MinorExtraLegalLimits"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;Nyar-Remihoh-123456789">
+		<rdf:type rdf:resource="&ta-library;ThreatActor"/>
+		<ta-library:hasAccessAttribute rdf:resource="&example;ExternalAccess-UUID-123"/>
+		<ta-library:hasLimitsAttribute rdf:resource="&example;MinorExtraLegalLimits-UUID-567"/>
+		<ta-library:hasObjectiveAttribute rdf:resource="&example;CopyObjective-UUID-654"/>
+		<ta-library:hasOutcomeAttribute rdf:resource="&example;EmbarrassmentOutcome-UUID-00"/>
+		<ta-library:hasResourcesAttribute rdf:resource="&example;OrganizationResources-UUID-345"/>
+		<ta-library:hasSkillsAttribute rdf:resource="&example;AdeptSkills-UUID-2468"/>
+		<ta-library:hasVisibilityAttribute rdf:resource="&example;CovertVisability-UUID-666"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="&example;OrganizationResources-UUID-345">
+		<rdf:type rdf:resource="&ta-library;OrganizationResources"/>
+	</owl:NamedIndividual>
+
+</rdf:RDF>

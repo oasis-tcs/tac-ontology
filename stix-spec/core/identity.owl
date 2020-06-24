@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY identity "http://docs.oasis-open.org/cti/ns/stix/identity#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/identity"
+	xmlns="http://docs.oasis-open.org/cti/ns/stix/identity#"
+	xmlns:identity="http://docs.oasis-open.org/cti/ns/stix/identity#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/identity">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="http://docs.oasis-open.org/cti/ns/stix#Identity">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#STIXDomainObject"/>
+		<rdfs:label>Identity</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Identities can represent actual individuals, organizations, or groups (e.g., ACME, Inc.) as well as classes of individuals, organizations, systems or groups (e.g., the finance sector).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&identity;contact_information">
+		<rdfs:label>contact_information</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The contact information (e-mail, phone number, etc.) for this Identity. No format for this information is currently defined by this specification.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&identity;identity_class">
+		<rdfs:label>identity_class</rdfs:label>
+		<rdfs:comment xml:lang="en-us">provides a vocabulary of terms describing the nature of the type of Identity</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassOpenVocab">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassVocab">
+					</rdf:Description>
+				</owl:unionOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&identity;roles">
+		<rdfs:label>roles</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The list of roles that this Identity performs (e.g., CEO, Domain Administrators, Doctors, Hospital, or Retailer). No open vocabulary is yet defined for this property.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&identity;sectors">
+		<rdfs:label>sectors</rdfs:label>
+		<rdfs:comment xml:lang="en-us">terms of industry this identity is in</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorOpenVocab">
+					</rdf:Description>
+					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorVocab">
+					</rdf:Description>
+				</owl:unionOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY marking "http://docs.oasis-open.org/cti/ns/stix/marking#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/marking"
+	xmlns:marking="http://docs.oasis-open.org/cti/ns/stix/marking#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/marking">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&marking;GranularMarking">
+		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:label>GranularMarking</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies how the marking-definition object referenced by the marking_ref property or a language specified by the lang property applies to a set of content identified by the list of selectors in the selectors property.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&marking;Marking">
+		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:label>Marking</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Represents the specific marking to be applied.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&marking;MarkingDefinition">
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXObject"/>
+		<rdfs:label>MarkingDefinition</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Represents a specific marking. Data markings typically represent handling or sharing requirements for data and are applied in the object_marking_refs and granular_markings properties on STIX Objects.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&marking;StatementMarking">
+		<rdfs:subClassOf rdf:resource="&marking;Marking"/>
+		<rdfs:label>StatementMarking</rdfs:label>
+		<rdfs:comment>The Statement marking type defines the representation of a textual marking statement (e.g., copyright, terms of use, etc.) in a definition.@[en-US}</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&marking;TLPMarking">
+		<rdfs:subClassOf rdf:resource="&marking;Marking"/>
+		<rdfs:label>TLPMarking</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Represent a Traffic Light Protocol (TLP) marking in a definition property. The value of the definition_type property MUST be tlp when using this marking type.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&marking;definition">
+		<rdfs:label>definition</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the marking object itself.</rdfs:comment>
+		<rdfs:range rdf:resource="&marking;Marking"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&marking;definition_type">
+		<rdfs:label>definition_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identifies the type of Marking Definition.</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&marking;granular_markings">
+		<rdfs:label>granular_markings</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of granular markings applied to this object.\n\nIn some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same Marking Definition object (i.e., it cannot contain any circular references).</rdfs:comment>
+		<rdfs:range rdf:resource="&marking;GranularMarking"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&marking;marking_ref">
+		<rdfs:label>marking_ref</rdfs:label>
+		<rdfs:comment>Specifies a reference to the marking-definition object that describes the marking.\n\nIf the lang property is not present, this property MUST be present. If the lang property is present, this property MUST NOT be present.@[en-US}</rdfs:comment>
+		<rdfs:range rdf:resource="&marking;MarkingDefinition"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&marking;object_marking_refs">
+		<rdfs:label>object_marking_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of id properties of marking-definition objects that apply to this object.\n\nIn some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same Marking Definition object (i.e., it cannot contain any circular references).</rdfs:comment>
+		<rdfs:range rdf:resource="&marking;MarkingDefinition"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&marking;selectors">
+		<rdfs:label>selectors</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of selectors for content contained within the STIX Object in which this property appears.\n\nThe marking-definition referenced in the marking_ref property is applied to the content selected by the selectors in this list.\n\nThe [RFC5646] language code specified by the lang property is applied to the content selected by the selectors in this list.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&marking;statement">
+		<rdfs:label>statement</rdfs:label>
+		<rdfs:comment xml:lang="en-US">A Statement (e.g., copyright, terms of use) applied to the content marked by this marking definition.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&marking;tlp">
+		<rdfs:label>tlp</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the TLP level [TLP] of the content marked by this marking definition.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>white</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>green</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>amber</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>red</rdf:first>
+												<rdf:rest rdf:resource="&rdf;nil"/>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

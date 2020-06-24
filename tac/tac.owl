@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY tac "http://docs.oasis-open.org/tac/ns/tac#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/tac/ns/tac"
+	xmlns="http://docs.oasis-open.org/tac/ns/tac#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:tac="http://docs.oasis-open.org/tac/ns/tac#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/tac/ns/tac">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix-semex"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/tac/ns/ta-classification-axioms"/>
+		<owl:imports rdf:resource="http://www.intel.com/ns/ta-library"/>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet">
+		<rdfs:subClassOf rdf:resource="&tac;Adversary"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#ThreatActor">
+		<rdfs:subClassOf rdf:resource="&tac;Adversary"/>
+	</rdf:Description>
+	
+	<owl:Class rdf:about="&tac;Adversary">
+		<rdfs:comment>There has been some ambiguity with respect to the differentiation of stix:IntrusionSet and stix:ThreatActor. They are different, and the tac:Adversary class is intended to clarify the differences.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tac;Casebook">
+		<rdfs:comment>The Casebook class is a container class. It is a receptical of the set of objects that provide information about a specific tac:Adversary. The Casebook holds infromation about a stix:IntrusionSet or a stix:ThreatActor. The &quot;Threat Actor&quot; may be an individual or an organization.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasAdversary">
+		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
+		<rdfs:range rdf:resource="&tac;Adversary"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasAttackPattern">
+		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasCampaign">
+		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Campaign"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasContributor">
+		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Identity"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasIntrusionSet">
+		<rdfs:subPropertyOf rdf:resource="&tac;hasAdversary"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasOriginator">
+		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Identity"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasThreatActor">
+		<rdfs:subPropertyOf rdf:resource="&tac;hasAdversary"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;topTacObjectProperty">
+	</owl:ObjectProperty>
+
+</rdf:RDF>

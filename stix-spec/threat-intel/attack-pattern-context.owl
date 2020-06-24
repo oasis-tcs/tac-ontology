@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY attack-pattern "http://docs.oasis-open.org/cti/ns/stix/attack-pattern#">
+	<!ENTITY attack-patternContext "http://docs.oasis-open.org/cti/ns/stix/attack-pattern-context#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stixCoreCtx "http://docs.oasis-open.org/cti/ns/stix/stix-core-context#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/attack-pattern-context"
+	xmlns:attack-pattern="http://docs.oasis-open.org/cti/ns/stix/attack-pattern#"
+	xmlns:attack-patternContext="http://docs.oasis-open.org/cti/ns/stix/attack-pattern-context#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stixCoreCtx="http://docs.oasis-open.org/cti/ns/stix/stix-core-context#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/attack-pattern-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/attack-pattern"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&stixCore;aliases">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;description">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;kill_chain_name">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stixCore;name">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+	</rdf:Description>
+
+</rdf:RDF>

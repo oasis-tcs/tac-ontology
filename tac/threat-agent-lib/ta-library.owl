@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY tal "http://www.intel.com/ns/ta-library#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://www.intel.com/ns/ta-library"
+	xmlns="http://www.intel.com/ns/ta-library#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:tal="http://www.intel.com/ns/ta-library#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://www.intel.com/ns/ta-library">
+		<rdfs:comment>Intel authored the conceptual notions captured in this ontological representation. Intel retains the copyright on the original work, which was published in open format in the 2007 time frame.
+
+Tim Casey and Intel Corporation were the orignal sources that inspired the members of the OASIS TAC-TC  to capture and  expand it in a formal ontology langauge, W3C&apos;s Ontology Web Language (OWL).
+
+https://pdfs.semanticscholar.org/391e/70510353ba762fa1580a6d9c002eefd2d86b.pdf
+
+https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/understanding-cyberthreat-motivations-to-improve-defense-paper.pdf</rdfs:comment>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&tal;Access">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Accidental">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;AdeptSkills">
+		<rdfs:subClassOf rdf:resource="&tal;Skills"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Anarchist">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;AnyObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;AnyVisibility">
+		<rdfs:subClassOf rdf:resource="&tal;Visibility"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;BusinessAdvantageOutcome">
+		<rdfs:subClassOf rdf:resource="&tal;Outcome"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;CivilActivist">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;ClandestineVisibility">
+		<rdfs:subClassOf rdf:resource="&tal;Visibility"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;ClubResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;CodeOfConductLimits">
+		<rdfs:subClassOf rdf:resource="&tal;Limits"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Coercion">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Competitor">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;ContestResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;CopyObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;CorruptGovernmentOfficial">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;CovertVisibility">
+		<rdfs:subClassOf rdf:resource="&tal;Visibility"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DamageObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DamageOutcome">
+		<rdfs:subClassOf rdf:resource="&tal;Outcome"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DataMiner">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DefiningAttribute">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DenyObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DestroyObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;DisgruntledEmployee">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Disgruntlement">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Dominance">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;EmbarrassmentOutcome">
+		<rdfs:subClassOf rdf:resource="&tal;Outcome"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;ExternalAccess">
+		<rdfs:subClassOf rdf:resource="&tal;Access"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;GovernmentCyberWarrior">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;GovernmentResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;GovernmentSpy">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;HostileThreatActor">
+		<rdfs:subClassOf rdf:resource="&tal;ThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Ideology">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;IndividualResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;InformationPartner">
+		<rdfs:subClassOf rdf:resource="&tal;NonHostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;InternalAccess">
+		<rdfs:subClassOf rdf:resource="&tal;Access"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;InternalSpy">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;IrrationalIndividual">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;LegalAdversary">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;LegalLimits">
+		<rdfs:subClassOf rdf:resource="&tal;Limits"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Limits">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;MajorExtraLegalLimits">
+		<rdfs:subClassOf rdf:resource="&tal;Limits"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;MinimalSkills">
+		<rdfs:subClassOf rdf:resource="&tal;Skills"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;MinorExtraLegalLimits">
+		<rdfs:subClassOf rdf:resource="&tal;Limits"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Mobster">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Motivation">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;NoSkills">
+		<rdfs:subClassOf rdf:resource="&tal;Skills"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;NonHostileThreatActor">
+		<rdfs:subClassOf rdf:resource="&tal;ThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Notoriety">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Objective">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;OperationalSkills">
+		<rdfs:subClassOf rdf:resource="&tal;Skills"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;OrganizationResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;OrganizationalGain">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Outcome">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;OvertVisibility">
+		<rdfs:subClassOf rdf:resource="&tal;Visibility"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;PersonalFinancialGain">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;PersonalSatisfaction">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;RadicalActivist">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;RecklessEmployee">
+		<rdfs:subClassOf rdf:resource="&tal;NonHostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Resources">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Sensationalist">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Skills">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;TakeObjective">
+		<rdfs:subClassOf rdf:resource="&tal;Objective"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;TeamResources">
+		<rdfs:subClassOf rdf:resource="&tal;Resources"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;TechAdvantageOutcome">
+		<rdfs:subClassOf rdf:resource="&tal;Outcome"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Terrorist">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;TheftOutcome">
+		<rdfs:subClassOf rdf:resource="&tal;Outcome"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Thief">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;ThreatActor">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasAccessAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Access"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasBindingMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasCoMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasDefiningMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasLimitsAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Limits"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasMotivationAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasObjectiveAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Objective"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasOutcomeAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Outcome"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasPersonalMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasResourcesAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Resources"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasSkillsAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Skills"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasSubordinateMotivation"/>
+				<owl:someValuesFrom rdf:resource="&tal;Motivation"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tal;hasVisibilityAttribute"/>
+				<owl:someValuesFrom rdf:resource="&tal;Visibility"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Unpredictable">
+		<rdfs:subClassOf rdf:resource="&tal;Motivation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;UntrainedEmployee">
+		<rdfs:subClassOf rdf:resource="&tal;NonHostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Vandal">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Vendor">
+		<rdfs:subClassOf rdf:resource="&tal;HostileThreatActor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tal;Visibility">
+		<rdfs:subClassOf rdf:resource="&tal;DefiningAttribute"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasAccessAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+		<rdfs:range rdf:resource="&tal;ExternalAccess"/>
+		<rdfs:range rdf:resource="&tal;InternalAccess"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasBindingMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+		<rdfs:range rdf:resource="&tal;Motivation"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasCoMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+		<rdfs:range rdf:resource="&tal;Motivation"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasDefiningAttribute">
+		<rdfs:range rdf:resource="&tal;DefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasDefiningMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasLimitsAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+		<rdfs:range rdf:resource="&tal;CodeOfConductLimits"/>
+		<rdfs:range rdf:resource="&tal;LegalLimits"/>
+		<rdfs:range rdf:resource="&tal;MajorExtraLegalLimits"/>
+		<rdfs:range rdf:resource="&tal;MinorExtraLegalLimits"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasMotivationAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasObjectiveAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasOutcomeAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasPersonalMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasResourcesAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasSkillsAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasSubordinateMotivation">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasMotivationAttribute"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tal;hasVisibilityAttribute">
+		<rdfs:subPropertyOf rdf:resource="&tal;hasDefiningAttribute"/>
+	</owl:ObjectProperty>
+
+</rdf:RDF>

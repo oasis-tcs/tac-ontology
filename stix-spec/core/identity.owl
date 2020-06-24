@@ -33,7 +33,7 @@
 	
 	<owl:DatatypeProperty rdf:about="&identity;identity_class">
 		<rdfs:label>identity_class</rdfs:label>
-		<rdfs:comment xml:lang="en-us">a bogus comment</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">provides a vocabulary of terms describing the nature of the type of Identity</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
 				<owl:unionOf rdf:parseType="Collection">
@@ -54,7 +54,7 @@
 	
 	<owl:DatatypeProperty rdf:about="&identity;sectors">
 		<rdfs:label>sectors</rdfs:label>
-		<rdfs:comment xml:lang="en-us">a bogus comment</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">terms of industry this identity is in</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
 				<owl:unionOf rdf:parseType="Collection">

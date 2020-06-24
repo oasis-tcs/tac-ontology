@@ -123,7 +123,7 @@
 	
 	<rdfs:Datatype rdf:about="&vocab;IdentityClassOpenVocab">
 		<rdfs:label>identity-class-ov-open</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures tthe type of entity that the Identity represents.</rdfs:comment>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the type of entity that the Identity represents.</rdfs:comment>
 		<owl:equivalentClass>
 			<rdfs:Datatype>
 				<owl:oneOf>
@@ -183,7 +183,7 @@
 	
 	<rdfs:Datatype rdf:about="&vocab;IndustrySectorOpenVocab">
 		<rdfs:label>industry-sector-ov-open</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the types of industrial, commercial, and government sectors.  It is intended to be holistic; it has been derived from serveral other lists and is not limited to &quot;critical infrastructure&quot; sectors.</rdfs:comment>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the types of industrial, commercial, and government sectors.  It is intended to be holistic; it has been derived from serveral other lists and is not limited to critical infrastructure sectors.</rdfs:comment>
 		<owl:equivalentClass>
 			<rdfs:Datatype>
 				<owl:oneOf>

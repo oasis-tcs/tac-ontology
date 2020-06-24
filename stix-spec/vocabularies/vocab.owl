@@ -456,7 +456,7 @@
 	
 	<rdfs:Datatype rdf:about="&vocab;IndustrySectorVocab">
 		<rdfs:label>industry-sector-ov</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the types of industrial, commercial, and government sectors.  It is intended to be holistic; it has been derived from serveral other lists and is not limited to &quot;critical infrastructure&quot; sectors.</rdfs:comment>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the types of industrial, commercial, and government sectors.  It is intended to be holistic; it has been derived from serveral other lists and is not limited to critical infrastructure sectors.</rdfs:comment>
 		<owl:equivalentClass>
 			<rdfs:Datatype>
 				<owl:oneOf>

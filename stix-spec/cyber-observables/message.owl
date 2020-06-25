@@ -2,7 +2,7 @@
 <!DOCTYPE rdf:RDF [
 	<!ENTITY artifact "http://docs.oasis-open.org/cti/ns/stix/artifact#">
 	<!ENTITY email-addr "http://docs.oasis-open.org/cti/ns/stix/email-address#">
-	<!ENTITY message "http://docs.oasis-open.org/cti/ns/stix/email-message#">
+	<!ENTITY message "http://docs.oasis-open.org/cti/ns/stix/message#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
@@ -13,7 +13,7 @@
 <rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/message"
 	xmlns:artifact="http://docs.oasis-open.org/cti/ns/stix/artifact#"
 	xmlns:email-addr="http://docs.oasis-open.org/cti/ns/stix/email-address#"
-	xmlns:message="http://docs.oasis-open.org/cti/ns/stix/email-message#"
+	xmlns:message="http://docs.oasis-open.org/cti/ns/stix/message#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"

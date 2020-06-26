@@ -29,6 +29,9 @@
 		<rdfs:comment xml:lang="en-us">A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context). A Grouping object should not be confused with an intelligence product, which should be conveyed via a STIX Report.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&stix;Identity">
+	</owl:Class>
+	
 	<owl:Class rdf:about="&stix;Note">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
 		<rdfs:label>Note</rdfs:label>
@@ -506,17 +509,23 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:comment xml:lang="en-us">Identifies the version of the STIX specification used to represent this object.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:oneOf>
-					<rdf:List>
-						<rdf:first>2.0</rdf:first>
-						<rdf:rest>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&xsd;string">
+					</rdf:Description>
+					<rdfs:Datatype>
+						<owl:oneOf>
 							<rdf:List>
-								<rdf:first>2.1</rdf:first>
-								<rdf:rest rdf:resource="&rdf;nil"/>
+								<rdf:first>2.0</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>2.1</rdf:first>
+										<rdf:rest rdf:resource="&rdf;nil"/>
+									</rdf:List>
+								</rdf:rest>
 							</rdf:List>
-						</rdf:rest>
-					</rdf:List>
-				</owl:oneOf>
+						</owl:oneOf>
+					</rdfs:Datatype>
+				</owl:unionOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>

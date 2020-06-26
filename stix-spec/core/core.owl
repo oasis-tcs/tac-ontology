@@ -509,23 +509,17 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:comment xml:lang="en-us">Identifies the version of the STIX specification used to represent this object.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&xsd;string">
-					</rdf:Description>
-					<rdfs:Datatype>
-						<owl:oneOf>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>2.0</rdf:first>
+						<rdf:rest>
 							<rdf:List>
-								<rdf:first>2.0</rdf:first>
-								<rdf:rest>
-									<rdf:List>
-										<rdf:first>2.1</rdf:first>
-										<rdf:rest rdf:resource="&rdf;nil"/>
-									</rdf:List>
-								</rdf:rest>
+								<rdf:first>2.1</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
 							</rdf:List>
-						</owl:oneOf>
-					</rdfs:Datatype>
-				</owl:unionOf>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>

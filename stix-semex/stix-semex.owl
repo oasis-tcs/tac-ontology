@@ -14,8 +14,8 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/sro-props"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props"/>
 	</owl:Ontology>
 
 </rdf:RDF>

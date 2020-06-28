@@ -1,9 +1,9 @@
 # STIX 2.1 Represented as a Semantic Graph
 
 ## Overview Documents
-1. [STIX Specification Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-spec.md)
-2. [STIX Semantic Extension Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-semex.md)
-3. [Threat Actor Context Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/tac.md)
+1. ![STIX Specification Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-spec.md)
+2. ![STIX Semantic Extension Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-semex.md)
+3. ![Threat Actor Context Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/tac.md)
 
 # Overview
 A primary reason for representing STIX 2.1 as a semantic graph is that knowledgebases can be examined by a Description Logics Reasoner. This means that known facts asserted into a knowledgebase can be used in combination with domain knowledge to infer new facts. This is known as [entailment](https://www.vocabulary.com/dictionary/entailment#:~:text=An%20entailment%20is%20a%20deduction,the%20others%20are%20also%20true.).

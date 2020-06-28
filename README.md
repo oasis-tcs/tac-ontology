@@ -23,6 +23,12 @@ The *OASIS Threat Actor Context Technical Committee* (TAC-TC) is chartered to cr
 
 This repositiory is for TAC-TC members to collaborate on the development of the ontologies necessary for supporting Threat Analysts to assert facts into a graph knowledgebase and formally reason over those facts.
 
+## Overview Documents
+1. [STIX Specification Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-spec.md)
+2. [STIX Semantic Extension Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/stix-semex.md)
+3. [Threat Actor Context Ontology](https://github.com/oasis-tcs/tac-ontology/docs/gh-docs/tac.md)
+
+
 ## Embrace & Extend
 In order to extend the STIX 2.1 standard in a *semantically interoperable* way, the TAC-TC will develop and use a formal ontological representation of the specification. This representation will expose multiple levels of semantics.
 

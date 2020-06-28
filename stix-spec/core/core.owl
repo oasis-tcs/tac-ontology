@@ -29,6 +29,9 @@
 		<rdfs:comment xml:lang="en-us">A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context). A Grouping object should not be confused with an intelligence product, which should be conveyed via a STIX Report.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&stix;Identity">
+	</owl:Class>
+	
 	<owl:Class rdf:about="&stix;Note">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
 		<rdfs:label>Note</rdfs:label>

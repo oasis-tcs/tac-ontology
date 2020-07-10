@@ -130,7 +130,7 @@
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&adversary;threat_action_types">
+	<owl:DatatypeProperty rdf:about="&adversary;threat_actor_types">
 		<rdfs:label>threat_action_types</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies te type(s) of this threat actor.\n\nThe values for this property SHOULD come from the threat-actor-type-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>

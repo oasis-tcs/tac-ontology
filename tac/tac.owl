@@ -36,6 +36,9 @@
 		<rdfs:comment>The Casebook class is a container class. It is a receptical of the set of objects that provide information about a specific tac:Adversary. The Casebook holds infromation about a stix:IntrusionSet or a stix:ThreatActor. The &quot;Threat Actor&quot; may be an individual or an organization.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&tac;ThreatActorProfile">
+	</owl:Class>
+	
 	<owl:ObjectProperty rdf:about="&tac;hasAdversary">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
 		<rdfs:range rdf:resource="&tac;Adversary"/>

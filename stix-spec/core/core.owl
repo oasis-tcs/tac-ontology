@@ -57,27 +57,30 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stixCore;ExternalReference">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXAbstractType"/>
 		<rdfs:label>ExternalReference</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Used to describe pointers to information represented outside of STIX. For example, a Malware object could use an external reference to indicate an ID for that malware in an external database or a report could use references to represent source material.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stixCore;Hash">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXAbstractType"/>
 		<rdfs:label>Hash</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Represents a cryptographic hashes, as a special set of key/value pairs.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stixCore;KeyValuePair">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXAbstractType"/>
 		<rdfs:label>KeyValue</rdfs:label>
 		<rdfs:comment xml:lang="en-us">A key-value pair (KVP) is a set of two linked data items: a key, which is a unique identifier for some item of data, and the value, which is either the data that is identified or a pointer to the location of that data. The key MUST be unique in each dictionary, MUST be in ASCII, and are limited to the characters a-z (lowercase ASCII), A-Z (uppercase ASCII), numerals 0-9, hyphen (-), and underscore (_). Dictionary keys MUST be no longer than 250 ASCII characters in length and SHOULD be lowercase.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stixCore;KillChainPhase">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;STIXAbstractType"/>
 		<rdfs:label>KillChainPhase</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Represents a phase in a kill chain, which describes the various phases an attacker may undertake in order to achieve their objectives.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stixCore;STIXAbstractType">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stixCore;STIXCyberObservableObject">
@@ -528,6 +531,10 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:label>start_time</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Represents the earliest date and time at which the Relationship between the objects exists. If this property is a future timestamp, at the time the start_time property is defined, then this represents an estimate by the producer of the intelligence of the earliest time at which relationship will be asserted to be true.\n\nIf it is not specified, then the earliest time at which the relationship between the objects exists is not defined.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;stix_abstract_type_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;stop_time">

@@ -46,16 +46,7 @@
 	<owl:DatatypeProperty rdf:about="&location;region">
 		<rdfs:label>region</rdfs:label>
 		<rdfs:comment xml:lang="en-us">The region that this Location describes.\n\nThe value for this property SHOULD come from the region-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WorldRegionOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WorldRegionVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 
 </rdf:RDF>

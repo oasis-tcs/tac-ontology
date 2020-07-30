@@ -32,16 +32,7 @@
 	<owl:DatatypeProperty rdf:about="&tool;tool_types">
 		<rdfs:label>tool_types</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the kind(s) of tool(s) being described.\n\nThe values for this property SHOULD come from the tool-type-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ToolTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ToolTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&tool;tool_version">

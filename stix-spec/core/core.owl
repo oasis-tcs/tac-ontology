@@ -80,6 +80,34 @@
 		<rdfs:comment xml:lang="en-us">Represents a phase in a kill chain, which describes the various phases an attacker may undertake in order to achieve their objectives.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;MD5_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-1_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SSDEEP_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:Class rdf:about="&stixCore;STIXAbstractType">
 	</owl:Class>
 	
@@ -100,6 +128,10 @@
 		<rdfs:label>STIXObject</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Abstract base object from which all STIX objects are derived.</rdfs:comment>
 	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;TLSH_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;abstract">
 		<rdfs:label>abstract</rdfs:label>

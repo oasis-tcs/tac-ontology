@@ -80,6 +80,34 @@
 		<rdfs:comment xml:lang="en-us">Represents a phase in a kill chain, which describes the various phases an attacker may undertake in order to achieve their objectives.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;MD5_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-1_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SSDEEP_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:Class rdf:about="&stixCore;STIXAbstractType">
 	</owl:Class>
 	
@@ -100,6 +128,10 @@
 		<rdfs:label>STIXObject</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Abstract base object from which all STIX objects are derived.</rdfs:comment>
 	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;TLSH_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;abstract">
 		<rdfs:label>abstract</rdfs:label>
@@ -191,16 +223,7 @@
 	<owl:DatatypeProperty rdf:about="&stixCore;context">
 		<rdfs:label>context</rdfs:label>
 		<rdfs:comment xml:lang="en-us">A short descriptor of the particular context shared by the content referenced by the Grouping.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#GroupingContextOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#GroupingContextVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;count">
@@ -278,16 +301,7 @@
 	<owl:DatatypeProperty rdf:about="&stixCore;hash_algorithm">
 		<rdfs:label>hash_algorithm</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Represents the cryptographic hash algorithm used.\n\nThe name of the cryptographic hash algorithm used SHOULD come from one of the values defined in the hash-algorithm-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#HashAlgorithmOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#HashAlgorithmVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;hash_value">
@@ -465,16 +479,7 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 	<owl:DatatypeProperty rdf:about="&stixCore;report_types">
 		<rdfs:label>report_types</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the primary type(s) of content found in this report.\n\nThe values for this property SHOULD come from the report-type-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ReportTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ReportTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;revoked">

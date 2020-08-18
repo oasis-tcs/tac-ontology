@@ -18,8 +18,6 @@
 	
 	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/core">
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/marking"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	

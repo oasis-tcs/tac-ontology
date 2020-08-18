@@ -77,11 +77,19 @@
 		<rdfs:range rdf:resource="&marking;MarkingDefinition"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&marking;marking_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&marking;object_marking_refs">
 		<rdfs:label>object_marking_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies a list of id properties of marking-definition objects that apply to this object.\n\nIn some cases, though uncommon, marking definitions themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same Marking Definition object (i.e., it cannot contain any circular references).</rdfs:comment>
 		<rdfs:range rdf:resource="&marking;MarkingDefinition"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&marking;object_marking_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&marking;selectors">
 		<rdfs:label>selectors</rdfs:label>

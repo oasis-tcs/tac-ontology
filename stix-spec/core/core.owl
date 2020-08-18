@@ -163,6 +163,10 @@
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;analysis_sco_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&stixCore;analysis_started">
 		<rdfs:label>analysis_started</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the date and time that the analysis was initiated.</rdfs:comment>
@@ -214,6 +218,10 @@
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;contains_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&stixCore;content">
 		<rdfs:label>content</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the content of the note.</rdfs:comment>
@@ -249,6 +257,10 @@
 		<rdfs:comment xml:lang="en-us">Specifies the id property of the identity object that describes the entity that created this object.\n\nIf this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;Identity"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;created_by_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;ctime">
 		<rdfs:label>ctime</rdfs:label>
@@ -417,11 +429,19 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:range rdf:resource="&stixCore;STIXObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;object_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&stixCore;object_refs">
 		<rdfs:label>object_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies a list of STIX Objects that are referred to by this entity.</rdfs:comment>
 		<rdfs:range rdf:resource="&stixCore;STIXObject"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;object_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;opinion">
 		<rdfs:label>opinion</rdfs:label>
@@ -494,11 +514,18 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;sample_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&stixCore;sample_refs">
 		<rdfs:label>sample_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the sample_refs property specifies a list of identifiers of the Cyber Observable objects associated with this entity.</rdfs:comment>
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;sample_refs_id">
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;sid">
 		<rdfs:label>sid</rdfs:label>

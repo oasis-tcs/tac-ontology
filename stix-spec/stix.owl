@@ -44,8 +44,6 @@
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/tool"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/uri"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vulnerability"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/x509-certificate"/>

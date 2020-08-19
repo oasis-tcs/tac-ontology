@@ -10,6 +10,7 @@
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/ip-address"
+	xmlns="http://docs.oasis-open.org/cti/ns/stix/ip-address#"
 	xmlns:ip-addr="http://docs.oasis-open.org/cti/ns/stix/ip-address#"
 	xmlns:mac-addr="http://docs.oasis-open.org/cti/ns/stix/mac-address#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -29,31 +30,39 @@
 	<owl:Class rdf:about="&stix;IPv4Address">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
 		<rdfs:label>IPv4Address</rdfs:label>
-		<rdfs:comment xml:lang="en-US">The IPv4 Address object represents one or more IPv4 addresses expressed using CIDR notation.</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">The IPv4 Address object represents one or more IPv4 addresses expressed using CIDR notation.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stix;IPv6Address">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
 		<rdfs:label>IPv6Address</rdfs:label>
-		<rdfs:comment xml:lang="en-US">The IPv6 Address object represents one or more IPv6 addresses expressed using CIDR notation.</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">The IPv6 Address object represents one or more IPv6 addresses expressed using CIDR notation.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&ip-addr;belongs_to_refs">
 		<rdfs:label>belongs_to_refs</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies a list of references to one or more autonomous systems (AS) that the IPv4/IPv6 address belongs to.\n\nThe objects referenced in this list MUST be of type autonomous-system.</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">Specifies a list of references to one or more autonomous systems (AS) that the IPv4/IPv6 address belongs to.\n\nThe objects referenced in this list MUST be of type autonomous-system.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;AutonomousSystem"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&ip-addr;belongs_to_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&ip-addr;resolved_to_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&ip-addr;resolves_to_refs">
 		<rdfs:label>resolved_to_refs</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies a list of references to one or more Layer 2 Media Access Control (MAC) addresses that the IPv4/IPv6 address resolves to.
+		<rdfs:comment xml:lang="en-us">Specifies a list of references to one or more Layer 2 Media Access Control (MAC) addresses that the IPv4/IPv6 address resolves to.
 The objects referenced in this list MUST be of type mac-addr.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;MACAddress"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&ip-addr;value">
 		<rdfs:label>value</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the values of one or more IP addresses expressed using CIDR notation.\n\nIf a given IPv4 Address object represents a single IPv4 address, the CIDR /32 suffix MAY be omitted. \n\nIf a given IPv6 Address object represents a single IPv6 address, the CIDR /128 suffix MAY be omitted.</rdfs:comment>
+		<rdfs:comment xml:lang="en-us">Specifies the values of one or more IP addresses expressed using CIDR notation.\n\nIf a given IPv4 Address object represents a single IPv4 address, the CIDR /32 suffix MAY be omitted. \n\nIf a given IPv6 Address object represents a single IPv6 address, the CIDR /128 suffix MAY be omitted.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 

@@ -26,6 +26,7 @@
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/domain-name"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/email-address"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/identity"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/indicator"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/infrastructure"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/ip-address"/>

@@ -27,9 +27,6 @@
 		<rdfs:comment xml:lang="en-us">A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context). A Grouping object should not be confused with an intelligence product, which should be conveyed via a STIX Report.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&stix;Identity">
-	</owl:Class>
-	
 	<owl:Class rdf:about="&stix;Note">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
 		<rdfs:label>Note</rdfs:label>
@@ -253,7 +250,6 @@
 	<owl:ObjectProperty rdf:about="&stixCore;created_by_ref">
 		<rdfs:label>created_by_ref</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the id property of the identity object that describes the entity that created this object.\n\nIf this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.</rdfs:comment>
-		<rdfs:range rdf:resource="&stix;Identity"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;created_by_ref_id">

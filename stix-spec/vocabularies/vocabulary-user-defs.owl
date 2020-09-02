@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY open-vocab "http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY vocab "http://docs.oasis-open.org/cti/ns/stix/vocabulary#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"
+	xmlns:open-vocab="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:vocab="http://docs.oasis-open.org/cti/ns/stix/vocabulary#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs">
+		<rdfs:label>User Open Vocabulary</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Contains the various vocabularies defined by users as custom RDF datatypes</rdfs:comment>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdfs:Datatype rdf:about="&vocab;AccountTypeOpenVocab">
+		<rdfs:label>account-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open vocabulary for types of user account.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;AttackMotivationOpenVocab">
+		<rdfs:label>attack-motivation-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary for capturing a Threat Actor or Intrusion Set&apos;s motivation for attacking.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;AttackResourceLevelOpenVocab">
+		<rdfs:label>attack-resource-level-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the general level of resources that a threat actor, intrusion set, or campaign might have access to.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;GroupingContextOpenVocab">
+		<rdfs:label>grouping-context-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the type of context for the grouping.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;HashAlgorithmOpenVocab">
+		<rdfs:label>hash-algorithm-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open vocabulary of hashing algorithms.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;IdentityClassOpenVocab">
+		<rdfs:label>identity-class-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the type of entity that the Identity represents.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ImplementationLanguageOpenVocab">
+		<rdfs:label xml:lang="en-US">implementation-language-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary of implementation programming languages.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;IndicatorTypeOpenVocab">
+		<rdfs:label xml:lang="en-US">indicator-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to categorize Indicators.  It is intended to be high-level to promote consistent practices.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;IndustrySectorOpenVocab">
+		<rdfs:label>industry-sector-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the types of industrial, commercial, and government sectors.  It is intended to be holistic; it has been derived from serveral other lists and is not limited to critical infrastructure sectors.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;InfrastructureTypeOpenVocab">
+		<rdfs:label xml:lang="en-US">infrastructure-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to categorize Indicators.  It is intended to be high-level to promote consistent practices.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;MalwareCapabilityOpenVocab">
+		<rdfs:label>malware-capabilities-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capturing capabilities that may be exhibited by a malware instance or family.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;MalwareResultOpenVocab">
+		<rdfs:label xml:lang="en-US">malware-result-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to ccommon types of scanner or tool analysis process results.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;MalwareTypeOpenVocab">
+		<rdfs:label>malware-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocbulary that captures the different types and functions of malware.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;MarkingDefinitionTypeOpenVocab">
+		<rdfs:label xml:lang="en-US">marking-definition-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the type of the marking definition.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;PatternTypeOpenVocab">
+		<rdfs:label xml:lang="en-US">pattern-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture common pattern languages and is intended to characterize the pattern language that the indicator pattern is expressed in.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ProcessorArchitectureOpenVocab">
+		<rdfs:label>processor-architecture-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open vocabulary for capturing common processor architectures and is intended to characterize the architectures that a malware instance or family may be able to execute on.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ReportTypeOpenVocab">
+		<rdfs:label xml:lang="en-US">report-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the primary purpose or subject of a report.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ThreatActorRoleOpenVocab">
+		<rdfs:label>threat-actor-role-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the different roles that a threat actor can play.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ThreatActorSophisticationOpenVocab">
+		<rdfs:label>threat-actor-sophistication-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the skill level of a threat actor.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ThreatActorTypeOpenVocab">
+		<rdfs:label>threat-actor-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture what type of threat actor the individual or group is.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;ToolTypeOpenVocab">
+		<rdfs:label>tool-label-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the categories of tools that can be used to perform attacks.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;WinPEBinaryTypeOpenVocab">
+		<rdfs:label>windows-pebinary-type-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary used to capture the types of Windows PE files</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+	
+	<rdfs:Datatype rdf:about="&vocab;WorldRegionOpenVocab">
+		<rdfs:label>region-ov-open</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Defines an open-vocabulary that captures the world regions based on the United Nations geoscheme.</rdfs:comment>
+		<owl:equivalentClass>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>user-definition-01</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>user-definition-02</rdf:first>
+								<rdf:rest rdf:resource="&rdf;nil"/>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</owl:equivalentClass>
+	</rdfs:Datatype>
+
+</rdf:RDF>

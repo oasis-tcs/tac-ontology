@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY message "http://docs.oasis-open.org/cti/ns/stix/email-message#">
+	<!ENTITY messageCtx "http://docs.oasis-open.org/cti/ns/stix/message-context#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/message-context"
+	xmlns:message="http://docs.oasis-open.org/cti/ns/stix/email-message#"
+	xmlns:messageCtx="http://docs.oasis-open.org/cti/ns/stix/message-context#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/message-context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/message"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#EmailMessage">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;is_multipart"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#type"/>
+				<owl:hasValue>email-message</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;body"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;content_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;date"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;from_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;message_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;raw_email_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;sender_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;subject"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;MimePart">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;body"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;body_raw_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;content_disposition"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&message;content_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;additional_header_fields">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;bcc_refs">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;body">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+		<rdfs:domain rdf:resource="&message;MimePart"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;body_multipart">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;body_raw_ref">
+		<rdfs:domain rdf:resource="&message;MimePart"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;cc_refs">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;content_disposition">
+		<rdfs:domain rdf:resource="&message;MimePart"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;content_type">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+		<rdfs:domain rdf:resource="&message;MimePart"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;date">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;from_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;is_multipart">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;message_id">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;raw_email_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;recevied_lines">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;sender_ref">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;subject">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&message;to_refs">
+		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix#EmailMessage"/>
+	</rdf:Description>
+
+</rdf:RDF>

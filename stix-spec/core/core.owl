@@ -29,9 +29,6 @@
 		<rdfs:comment xml:lang="en-us">A Grouping object explicitly asserts that the referenced STIX Objects have a shared context, unlike a STIX Bundle (which explicitly conveys no context). A Grouping object should not be confused with an intelligence product, which should be conveyed via a STIX Report.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&stix;Identity">
-	</owl:Class>
-	
 	<owl:Class rdf:about="&stix;Note">
 		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
 		<rdfs:label>Note</rdfs:label>
@@ -80,6 +77,34 @@
 		<rdfs:comment xml:lang="en-us">Represents a phase in a kill chain, which describes the various phases an attacker may undertake in order to achieve their objectives.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;MD5_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-1_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-256_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SHA3-512_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;SSDEEP_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:Class rdf:about="&stixCore;STIXAbstractType">
 	</owl:Class>
 	
@@ -100,6 +125,10 @@
 		<rdfs:label>STIXObject</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Abstract base object from which all STIX objects are derived.</rdfs:comment>
 	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;TLSH_hash_value">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;abstract">
 		<rdfs:label>abstract</rdfs:label>
@@ -130,6 +159,10 @@
 		<rdfs:comment xml:lang="en-us">Specifies the references to the STIX Cyber-observable Objects that were captured during the analysis process.</rdfs:comment>
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;analysis_sco_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;analysis_started">
 		<rdfs:label>analysis_started</rdfs:label>
@@ -182,6 +215,10 @@
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;contains_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&stixCore;content">
 		<rdfs:label>content</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the content of the note.</rdfs:comment>
@@ -191,16 +228,7 @@
 	<owl:DatatypeProperty rdf:about="&stixCore;context">
 		<rdfs:label>context</rdfs:label>
 		<rdfs:comment xml:lang="en-us">A short descriptor of the particular context shared by the content referenced by the Grouping.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#GroupingContextOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#GroupingContextVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;count">
@@ -226,6 +254,10 @@
 		<rdfs:comment xml:lang="en-us">Specifies the id property of the identity object that describes the entity that created this object.\n\nIf this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;Identity"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;created_by_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;ctime">
 		<rdfs:label>ctime</rdfs:label>
@@ -278,16 +310,7 @@
 	<owl:DatatypeProperty rdf:about="&stixCore;hash_algorithm">
 		<rdfs:label>hash_algorithm</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Represents the cryptographic hash algorithm used.\n\nThe name of the cryptographic hash algorithm used SHOULD come from one of the values defined in the hash-algorithm-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#HashAlgorithmOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#HashAlgorithmVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;hash_value">
@@ -403,11 +426,19 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:range rdf:resource="&stixCore;STIXObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;object_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&stixCore;object_refs">
 		<rdfs:label>object_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies a list of STIX Objects that are referred to by this entity.</rdfs:comment>
 		<rdfs:range rdf:resource="&stixCore;STIXObject"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;object_refs_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;opinion">
 		<rdfs:label>opinion</rdfs:label>
@@ -465,16 +496,7 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 	<owl:DatatypeProperty rdf:about="&stixCore;report_types">
 		<rdfs:label>report_types</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the primary type(s) of content found in this report.\n\nThe values for this property SHOULD come from the report-type-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ReportTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ReportTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;revoked">
@@ -489,11 +511,18 @@ Dictionary keys MUST come from one of the entries listed in the hash-algorithm-o
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stixCore;sample_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&stixCore;sample_refs">
 		<rdfs:label>sample_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the sample_refs property specifies a list of identifiers of the Cyber Observable objects associated with this entity.</rdfs:comment>
 		<rdfs:range rdf:resource="&stixCore;STIXCyberObservableObject"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stixCore;sample_refs_id">
+	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&stixCore;sid">
 		<rdfs:label>sid</rdfs:label>

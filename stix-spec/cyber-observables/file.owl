@@ -127,6 +127,10 @@
 		<rdfs:range rdf:resource="&stix;Artifact"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&file;content_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&file;dll_characteristics_hex">
 		<rdfs:label>dll_characteristics_hex</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the flags that characterize the PE binary.</rdfs:comment>
@@ -295,6 +299,10 @@
 		<rdfs:range rdf:resource="&stix;Directory"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&file;parent_directory_ref_id">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&file;pdfid0">
 		<rdfs:label>pdfid0</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the first file identifier found for the PDF file.</rdfs:comment>
@@ -309,16 +317,7 @@
 	<owl:DatatypeProperty rdf:about="&file;pe_type">
 		<rdfs:label>pe_type</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the type of the PE binary. This is an open vocabulary and values SHOULD come from the windows-pebinary-type-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WinPEBinaryTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#WinPEBinaryTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&file;pointer_to_symbol_table_hex">

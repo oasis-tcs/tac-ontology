@@ -34,16 +34,7 @@
 	<owl:DatatypeProperty rdf:about="&identity;identity_class">
 		<rdfs:label>identity_class</rdfs:label>
 		<rdfs:comment xml:lang="en-us">provides a vocabulary of terms describing the nature of the type of Identity</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&identity;roles">
@@ -55,16 +46,7 @@
 	<owl:DatatypeProperty rdf:about="&identity;sectors">
 		<rdfs:label>sectors</rdfs:label>
 		<rdfs:comment xml:lang="en-us">terms of industry this identity is in</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 
 </rdf:RDF>

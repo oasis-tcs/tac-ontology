@@ -28,16 +28,7 @@
 	<owl:DatatypeProperty rdf:about="&indicator;indicator_types">
 		<rdfs:label>indicator types</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies A set of categorizations for this indicator.\n\nThe values for this property SHOULD come from the indicator-type-ov open vocabulary.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndicatorTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndicatorTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;pattern">
@@ -49,16 +40,7 @@
 	<owl:DatatypeProperty rdf:about="&indicator;pattern_type">
 		<rdfs:label>pattern_type</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies the pattern language used in this indicator.\n\nThe value for this property SHOULD come from the pattern-type-ov open vocabulary.\n\nThe value of this property MUST match the type of pattern data included in the pattern property.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#PatternTypeOpenVocab">
-					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#PatternTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;pattern_version">

@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY langCnt "http://docs.oasis-open.org/cti/ns/stix/language-content#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY langCnt "http://docs.oasis-open.org/ns/cti/stix/language-content#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/language-content"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/language-content#"
-	xmlns:langCnt="http://docs.oasis-open.org/cti/ns/stix/language-content#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/language-content"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:langCnt="http://docs.oasis-open.org/ns/cti/stix/language-content#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/language-content">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/language-content">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;LanguageContent">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXObject"/>
-		<rdfs:label>LanguageContent</rdfs:label>
-		<rdfs:comment xml:lang="en-us">The Language Content object represents text content for STIX Objects represented in languages other than that of the original object. Language content may be a translation of the original object by a third-party, a first-source translation by the original publisher, or additional official language content provided at the time of creation.\n\nFor each key in the nested dictionary:\n  * If the original property is a string, the corresponding property in the language content object MUST contain a string with the content for that property in the language of the top-level key\n.  * If the original property is a list, the corresponding property in the translation object must also be a list. Each item in this list recursively maps to the item at the same position in the list contained in the target object. The lists MUST have the same length.\n  * In the event that translations are only provided for some list items, the untranslated list items MUST be represented by an empty string (&quot;&quot;). This indicates to a consumer of the Language Content object that they should interpolate the translated list items in the Language Content object with the corresponding (untranslated) list items from the original object as indicated by the object_ref property.\n  * If the original property is an object (including dictionaries), the corresponding location in the translation object must also be an object. Each key/value field in this object recursively maps to the object with the same key in the original.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&stixCore;MetaObject"/>
+		<rdfs:label xml:lang="en-US">LanguageContent</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Language Content object represents text content for STIX Objects represented in languages other than that of the original object. Language content may be a translation of the original object by a third-party, a first-source translation by the original publisher, or additional official language content provided at the time of creation.\n\nFor each key in the nested dictionary:\n  * If the original property is a string, the corresponding property in the language content object MUST contain a string with the content for that property in the language of the top-level key\n.  * If the original property is a list, the corresponding property in the translation object must also be a list. Each item in this list recursively maps to the item at the same position in the list contained in the target object. The lists MUST have the same length.\n  * In the event that translations are only provided for some list items, the untranslated list items MUST be represented by an empty string (&quot;&quot;). This indicates to a consumer of the Language Content object that they should interpolate the translated list items in the Language Content object with the corresponding (untranslated) list items from the original object as indicated by the object_ref property.\n  * If the original property is an object (including dictionaries), the corresponding location in the translation object must also be an object. Each key/value field in this object recursively maps to the object with the same key in the original.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&langCnt;contents">
-		<rdfs:label>contents</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the contains the actual Language Content (translation).\n\nThe keys in the dictionary MUST be RFC 5646 language codes for which language content is being provided [RFC5646]. The values each consist of a dictionary that mirrors the properties in the target object (identified by object_ref and object_modified). For example, to provide a translation of the name property on the target object the key in the dictionary would be name.</rdfs:comment>
-		<rdfs:range rdf:resource="&stixCore;KeyValuePair"/>
+		<rdfs:label xml:lang="en-US">contents</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the contains the actual Language Content (translation).\n\nThe keys in the dictionary MUST be RFC 5646 language codes for which language content is being provided [RFC5646]. The values each consist of a dictionary that mirrors the properties in the target object (identified by object_ref and object_modified). For example, to provide a translation of the name property on the target object the key in the dictionary would be name.</rdfs:comment>
+		<rdfs:range rdf:resource="&cti;KeyValuePair"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&langCnt;object_modified">
-		<rdfs:label>object_modified</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Identifies the modified data and time of the object that this Language Content applies to. It MUST be an exact match for the modified time of the STIX Object being referenced.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">object_modified</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identifies the modified data and time of the object that this Language Content applies to. It MUST be an exact match for the modified time of the STIX Object being referenced.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 

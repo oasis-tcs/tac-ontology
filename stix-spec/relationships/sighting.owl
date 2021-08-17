@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY sighting "http://docs.oasis-open.org/ns/cti/stix/sighting#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/sighting"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:sighting="http://docs.oasis-open.org/ns/cti/stix/sighting#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/sighting">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Sighting">
+		<rdfs:subClassOf rdf:resource="&stixCore;RelationshipObject"/>
+		<rdfs:label xml:lang="en-US">Sighting</rdfs:label>
+		<rdfs:comment xml:lang="en-US">A Sighting denotes the belief that something in CTI (e.g., an indicator, malware, tool, threat actor, etc.) was seen. Sightings are used to track who and what are being targeted, how attacks are carried out, and to track trends in attack behavior.\n\nThe Sighting relationship object is a special type of SRO; it is a relationship that contains extra properties not present on the Generic Relationship object. These extra properties are included to represent data specific to sighting relationships (e.g., count, representing how many times something was seen), but for other purposes a Sighting can be thought of as a Relationship with a name of &quot;sighting-of&quot;. Sighting is captured as a relationship because you cannot have a sighting unless you have something that has been sighted. Sighting does not make sense without the relationship to what was sighted.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&sighting;observed_data_refs">
+		<rdfs:label xml:lang="en-US">observed_data_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of references to the Observed Data objects that contain the raw cyber data for this Sighting.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;ObservedData"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sighting;observed_data_refs_id">
+		<rdfs:label xml:lang="en-US">observed_data_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of identifiers of the Observed Data objects that contain the raw cyber data for this Sighting.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&sighting;sighting_of_ref">
+		<rdfs:label xml:lang="en-US">sighting_of_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a reference to the SDO that was sighted (e.g., Indicator or Malware).</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;DomainObject"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sighting;sighting_of_ref_id">
+		<rdfs:label xml:lang="en-US">sighting_of_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the identifier of the SDO that was sighted (e.g., Indicator or Malware).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sighting;summary">
+		<rdfs:label xml:lang="en-US">summary</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Indicates whether the Sighting should be considered summary data. Summary data is an aggregation of previous Sightings reports and should not be considered primary source data. Default value is false.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&sighting;where_sighted_refs">
+		<rdfs:label xml:lang="en-US">where_sighted_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of references to the Identity or Location objects describing the entities or types of entities that saw the sighting.\n\nOmitting the where_sighted_refs property does not imply that the sighting was seen by the object creator. To indicate that the sighting was seen by the object creator, an Identity representing the object creator should be listed in where_sighted_refs.\n\nThis property MUST reference only Identity or Location SDOs.</rdfs:comment>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&stix;Identity">
+					</rdf:Description>
+					<rdf:Description rdf:about="&stix;Location">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sighting;where_sighted_refs_id">
+		<rdfs:label xml:lang="en-US">where_sighted_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of identifiers of the Identity or Location objects describing the entities or types of entities that saw the sighting.\n\nOmitting the where_sighted_refs_id property does not imply that the sighting was seen by the object creator. To indicate that the sighting was seen by the object creator, an Identity representing the object creator should be listed in where_sighted_refs_id.\n\nThis property MUST refer to only Identity or Location SDOs</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

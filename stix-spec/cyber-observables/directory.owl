@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY directory "http://docs.oasis-open.org/cti/ns/stix/directory#">
-	<!ENTITY file "http://docs.oasis-open.org/cti/ns/stix/file#">
+	<!ENTITY directory "http://docs.oasis-open.org/ns/cti/stix/directory#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/directory"
-	xmlns:directory="http://docs.oasis-open.org/cti/ns/stix/directory#"
-	xmlns:file="http://docs.oasis-open.org/cti/ns/stix/file#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/directory"
+	xmlns:directory="http://docs.oasis-open.org/ns/cti/stix/directory#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/directory">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/directory">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/file"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;Directory">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
 		<rdfs:label>Directory</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The Directory object represents the properties common to a file system directory.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:DatatypeProperty rdf:about="&directory;path">
-		<rdfs:label>path</rdfs:label>
+		<rdfs:label xml:lang="en-US">path</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the path, as originally observed, to the directory on the file system.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&directory;path_enc">
-		<rdfs:label>path_enc</rdfs:label>
+		<rdfs:label xml:lang="en-US">path_enc</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the observed encoding for the path. The value MUST be specified if the path is stored in a non-Unicode encoding. This value MUST be specified using the corresponding name from the 2013-12-20 revision of the IANA character set registry. If the preferred MIME name for a character set is defined, this value MUST be used; if it is not defined, then the Name value from the registry MUST be used instead.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>

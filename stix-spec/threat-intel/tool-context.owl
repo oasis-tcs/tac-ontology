@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
-	<!ENTITY tool "http://docs.oasis-open.org/cti/ns/stix/tool#">
-	<!ENTITY tool-context "http://docs.oasis-open.org/cti/ns/stix/tool-context#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY tool "http://docs.oasis-open.org/ns/cti/stix/tool#">
+	<!ENTITY toolCtx "http://docs.oasis-open.org/ns/cti/stix/tool/context#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/tool-context"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/tool/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
-	xmlns:tool="http://docs.oasis-open.org/cti/ns/stix/tool#"
-	xmlns:tool-context="http://docs.oasis-open.org/cti/ns/stix/tool-context#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:tool="http://docs.oasis-open.org/ns/cti/stix/tool#"
+	xmlns:toolCtx="http://docs.oasis-open.org/ns/cti/stix/tool/context#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/tool-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/tool"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/tool/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/tool"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;description">
+		<rdfs:domain rdf:resource="&stix;Tool"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&stix;Tool"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;version">
+		<rdfs:domain rdf:resource="&stix;Tool"/>
+	</rdf:Description>
 	
 	<rdf:Description rdf:about="&stix;Tool">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;created"/>
+				<owl:onProperty rdf:resource="&cti;created"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;modified"/>
+				<owl:onProperty rdf:resource="&cti;modified"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>tool</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;confidence"/>
+				<owl:onProperty rdf:resource="&cti;confidence"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;created_by_ref"/>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;description"/>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;lang"/>
+				<owl:onProperty rdf:resource="&cti;description"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;revoked"/>
+				<owl:onProperty rdf:resource="&cti;lang"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&tool;tool_version"/>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;description">
-		<rdfs:domain rdf:resource="&stix;Tool"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;name">
-		<rdfs:domain rdf:resource="&stix;Tool"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&tool;tool_types">
-		<rdfs:domain rdf:resource="&stix;Tool"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&tool;tool_version">
 		<rdfs:domain rdf:resource="&stix;Tool"/>
 	</rdf:Description>
 

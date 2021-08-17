@@ -1,88 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY file "http://docs.oasis-open.org/cti/ns/stix/file#">
-	<!ENTITY fileCtx "http://docs.oasis-open.org/cti/ns/stix/file-context#">
+	<!ENTITY archiveExt "http://docs.oasis-open.org/ns/cti/stix/ext/archive-file#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY file "http://docs.oasis-open.org/ns/cti/stix/file#">
+	<!ENTITY fileCtx "http://docs.oasis-open.org/ns/cti/stix/file/context#">
+	<!ENTITY ntfsExt "http://docs.oasis-open.org/ns/cti/stix/ext/ntfs-file#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY pdfExt "http://docs.oasis-open.org/ns/cti/stix/ext/pdf-file#">
+	<!ENTITY rasterImgExt "http://docs.oasis-open.org/ns/cti/stix/ext/raster-image-file#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY winPEExt "http://docs.oasis-open.org/ns/cti/stix/ext/windows-pebinary-file#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/file-context"
-	xmlns:file="http://docs.oasis-open.org/cti/ns/stix/file#"
-	xmlns:fileCtx="http://docs.oasis-open.org/cti/ns/stix/file-context#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/file/context"
+	xmlns:archiveExt="http://docs.oasis-open.org/ns/cti/stix/ext/archive-file#"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:file="http://docs.oasis-open.org/ns/cti/stix/file#"
+	xmlns:fileCtx="http://docs.oasis-open.org/ns/cti/stix/file/context#"
+	xmlns:ntfsExt="http://docs.oasis-open.org/ns/cti/stix/ext/ntfs-file#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:pdfExt="http://docs.oasis-open.org/ns/cti/stix/ext/pdf-file#"
+	xmlns:rasterImgExt="http://docs.oasis-open.org/ns/cti/stix/ext/raster-image-file#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:winPEExt="http://docs.oasis-open.org/ns/cti/stix/ext/windows-pebinary-file#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/file-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/file/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/file"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;atime">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;ctime">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;hashes">
+		<rdfs:domain rdf:resource="&stix;File"/>
+		<rdfs:domain rdf:resource="&ntfsExt;AlternateDataStream"/>
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPESection"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;mime_type">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;mtime">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&stix;File"/>
+		<rdfs:domain rdf:resource="&ntfsExt;AlternateDataStream"/>
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPESection"/>
+	</rdf:Description>
 	
 	<rdf:Description rdf:about="&stix;File">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>file</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;atime"/>
+				<owl:onProperty rdf:resource="&cti;atime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;ctime"/>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;mime_type"/>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;mtime"/>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
@@ -106,88 +163,8 @@
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size"/>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;extensions"/>
-				<owl:someValuesFrom>
-					<owl:Class>
-						<owl:oneOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&file;ArchiveExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&file;NtfsExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&file;PDFExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&file;RasterImageExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&file;WinPEBinaryExtension">
-							</rdf:Description>
-						</owl:oneOf>
-					</owl:Class>
-				</owl:someValuesFrom>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;atime">
-		<rdfs:domain rdf:resource="&stix;File"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;comment">
-		<rdfs:domain rdf:resource="&file;ArchiveExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;contains_refs">
-		<rdfs:domain rdf:resource="&stix;File"/>
-		<rdfs:domain rdf:resource="&file;ArchiveExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;ctime">
-		<rdfs:domain rdf:resource="&stix;File"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;hashes">
-		<rdfs:domain rdf:resource="&stix;File"/>
-		<rdfs:domain rdf:resource="&file;AlternateDataStream"/>
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-		<rdfs:domain rdf:resource="&file;WindowsPESection"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;machine_hex">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;mime_type">
-		<rdfs:domain rdf:resource="&stix;File"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;mtime">
-		<rdfs:domain rdf:resource="&stix;File"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;name">
-		<rdfs:domain rdf:resource="&stix;File"/>
-		<rdfs:domain rdf:resource="&file;AlternateDataStream"/>
-		<rdfs:domain rdf:resource="&file;WindowsPESection"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;sid">
-		<rdfs:domain rdf:resource="&file;NtfsExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;version">
-		<rdfs:domain rdf:resource="&file;PDFExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;AlternateDataStream">
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
-				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
@@ -198,226 +175,956 @@
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;ArchiveExtension">
+	<rdf:Description rdf:about="&stix;contains_refs">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stix;contains_refs_id">
+		<rdfs:domain rdf:resource="&stix;File"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&archiveExt;ArchiveFile">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;contains_refs"/>
-				<owl:allValuesFrom>
-					<owl:Class>
-						<owl:oneOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&stix;File">
-							</rdf:Description>
-							<rdf:Description rdf:about="&stix;Directory">
-							</rdf:Description>
-						</owl:oneOf>
-					</owl:Class>
-				</owl:allValuesFrom>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>archive-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;comment"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>file</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;atime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&archiveExt;comment"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;magic_number_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;name_enc"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&archiveExt;contains_refs"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&archiveExt;contains_refs_id"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&archiveExt;comment">
+		<rdfs:domain rdf:resource="&archiveExt;ArchiveFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&archiveExt;contains_refs">
+		<rdfs:domain rdf:resource="&archiveExt;ArchiveFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&archiveExt;contains_refs_id">
+		<rdfs:domain rdf:resource="&archiveExt;ArchiveFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&ntfsExt;AlternateDataStream">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;NtfsExtension">
+	<rdf:Description rdf:about="&ntfsExt;NtfsFile">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>ntsf-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;sid"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>file</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;atime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&ntfsExt;sid"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;magic_number_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;name_enc"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;PDFExtension">
+	<rdf:Description rdf:about="&ntfsExt;alternative_data_streams">
+		<rdfs:domain rdf:resource="&ntfsExt;NtfsFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&ntfsExt;sid">
+		<rdfs:domain rdf:resource="&ntfsExt;NtfsFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&pdfExt;PDFFile">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>pdf-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;version"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>file</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;atime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;is_optimized"/>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;pdfid0"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;pdfid1"/>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&pdfExt;is_optimized"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&pdfExt;pdfid0"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&pdfExt;pdfid1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&pdfExt;version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;magic_number_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;name_enc"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;RasterImageExtension">
+	<rdf:Description rdf:about="&pdfExt;document_info_dict">
+		<rdfs:domain rdf:resource="&pdfExt;PDFFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&pdfExt;is_optimized">
+		<rdfs:domain rdf:resource="&pdfExt;PDFFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&pdfExt;pdfid0">
+		<rdfs:domain rdf:resource="&pdfExt;PDFFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&pdfExt;pdfid1">
+		<rdfs:domain rdf:resource="&pdfExt;PDFFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&pdfExt;version">
+		<rdfs:domain rdf:resource="&pdfExt;PDFFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&rasterImgExt;RasterImageFile">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>raster-image-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;bits_per_pixel"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>file</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;atime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;image_height"/>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;image_width"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rasterImgExt;bits_per_pixel"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rasterImgExt;image_height"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rasterImgExt;image_width"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;magic_number_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;name_enc"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;WinPEBinaryExtension">
+	<rdf:Description rdf:about="&rasterImgExt;bits_per_pixel">
+		<rdfs:domain rdf:resource="&rasterImgExt;RasterImageFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&rasterImgExt;exif_tags">
+		<rdfs:domain rdf:resource="&rasterImgExt;RasterImageFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&rasterImgExt;image_height">
+		<rdfs:domain rdf:resource="&rasterImgExt;RasterImageFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&rasterImgExt;image_width">
+		<rdfs:domain rdf:resource="&rasterImgExt;RasterImageFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;WindowsPEBinaryFile">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;pe_type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>windows-pebinary-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&winPEExt;pe_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;machine_hex"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>file</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;atime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;characteristics_hex"/>
+				<owl:onProperty rdf:resource="&cti;ctime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;imphash"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;number_of_symbols"/>
+				<owl:onProperty rdf:resource="&cti;mime_type"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;number_of_symbols"/>
+				<owl:onProperty rdf:resource="&cti;mtime"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;optional_header"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;pointer_to_symbol_table_hex"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_optional_header"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;time_date_stamp"/>
+				<owl:onProperty rdf:resource="&winPEExt;characteristics_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;file_header_hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;imphash"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;machine_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;number_of_sections"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;number_of_symbols"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;optional_header"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;pointer_to_symbol_table_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_optional_header"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;time_date_stamp"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;content_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;magic_number_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;name_enc"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;parent_directory_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;size"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;WindowsPEOptionalHeader">
+	<rdf:Description rdf:about="&winPEExt;WindowsPEOptionalHeader">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;address_of_entry_point"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;base_of_code"/>
+				<owl:onProperty rdf:resource="&winPEExt;address_of_entry_point"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;base_of_data"/>
+				<owl:onProperty rdf:resource="&winPEExt;base_of_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;base_of_data"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;dll_characteristics_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;file_alignment"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;image_base"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;loader_flags_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;magic_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;major_image_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;major_linker_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;major_os_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;major_subsystem_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;minor_image_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;minor_linker_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;minor_os_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;minor_subsystem_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;number_of_rva_and_sizes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;section_alignment"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_headers"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_heap_commit"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_heap_reserve"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_image"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_initialized_data"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_stack_commit"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_stack_reserve"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;size_of_uninitialized_data"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;subsystem_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&winPEExt;win32_version_value_hex"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
@@ -427,174 +1134,24 @@
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;dll_characteristics_hex"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;file_alignment"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;image_base"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;loader_flags_hex"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;magic_hex"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;major_image_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;major_linker_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;major_os_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;major_subsystem_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;minor_image_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;minor_linker_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;minor_os_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;minor_subsystem_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;number_of_rva_and_sizes"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;section_alignment"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_code"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_headers"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_heap_commit"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_heap_reserve"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_image"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_initialized_data"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_stack_commit"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_stack_reserve"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;size_of_uninitialized_data"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;subsystem_hex"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;win32_version_value_hex"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;WindowsPESection">
+	<rdf:Description rdf:about="&winPEExt;WindowsPESection">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&file;entryopy"/>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&file;entropy"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
@@ -606,231 +1163,206 @@
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;address_of_entry_point">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+	<rdf:Description rdf:about="&winPEExt;address_of_entry_point">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;alternative_data_streams">
-		<rdfs:domain rdf:resource="&file;NtfsExtension"/>
+	<rdf:Description rdf:about="&winPEExt;base_of_code">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;base_of_code">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+	<rdf:Description rdf:about="&winPEExt;base_of_data">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;base_of_data">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+	<rdf:Description rdf:about="&winPEExt;characteristics_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;bits_per_pixel">
-		<rdfs:domain rdf:resource="&file;RasterImageExtension"/>
+	<rdf:Description rdf:about="&winPEExt;dll_characteristics_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;characteristics_hex">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
+	<rdf:Description rdf:about="&winPEExt;file_alignment">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;file_header_hashes">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;image_base">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;imphash">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;loader_flags_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;machine_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;magic_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;major_image_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;major_linker_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;major_os_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;major_subsystem_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;minor_image_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;minor_linker_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;minor_os_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;minor_subsystem_version">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;number_of_rva_and_sizes">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;number_of_sections">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;number_of_symbols">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;optional_header">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;pe_type">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;pointer_to_symbol_table_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;section_alignment">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;sections">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_code">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_headers">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_heap_commit">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_heap_reserve">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_image">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_initialized_data">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_optional_header">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_stack_commit">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_stack_reserve">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;size_of_uninitialized_data">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;subsystem_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;time_date_stamp">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEBinaryFile"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&winPEExt;win32_version_value_hex">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&file;checksum_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPEOptionalHeader"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&file;content_ref">
 		<rdfs:domain rdf:resource="&stix;File"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;dll_characteristics_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+	<rdf:Description rdf:about="&file;content_ref_id">
+		<rdfs:domain rdf:resource="&stix;File"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;document_info_dict">
-		<rdfs:domain rdf:resource="&file;PDFExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;entryopy">
-		<rdfs:domain rdf:resource="&file;WindowsPESection"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;exif_tags">
-		<rdfs:domain rdf:resource="&file;RasterImageExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;file_alignment">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;file_header_hashes">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;image_base">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;image_height">
-		<rdfs:domain rdf:resource="&file;RasterImageExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;image_width">
-		<rdfs:domain rdf:resource="&file;RasterImageExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;imphash">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;is_optimized">
-		<rdfs:domain rdf:resource="&file;PDFExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;loader_flags_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;magic_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+	<rdf:Description rdf:about="&file;entropy">
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPESection"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&file;magic_number_hex">
 		<rdfs:domain rdf:resource="&stix;File"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;major_image_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;major_linker_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;major_os_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;major_subsystem_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;minor_image_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;minor_linker_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;minor_os_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;minor_subsystem_version">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
 	<rdf:Description rdf:about="&file;name_enc">
 		<rdfs:domain rdf:resource="&stix;File"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;number_of_rva_and_sizes">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;number_of_sections">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;number_of_symbols">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;optional_header">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&file;parent_directory_ref">
 		<rdfs:domain rdf:resource="&stix;File"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&file;pdfid0">
-		<rdfs:domain rdf:resource="&file;PDFExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;pdfid1">
-		<rdfs:domain rdf:resource="&file;PDFExtension"/>
-		<rdfs:range rdf:resource="&xsd;string"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;pe_type">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;pointer_to_symbol_table_hex">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;section_alignment">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;sections">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
+	<rdf:Description rdf:about="&file;parent_directory_ref_id">
+		<rdfs:domain rdf:resource="&stix;File"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&file;size">
 		<rdfs:domain rdf:resource="&stix;File"/>
-		<rdfs:domain rdf:resource="&file;AlternateDataStream"/>
-		<rdfs:domain rdf:resource="&file;WindowsPESection"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_code">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_headers">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_heap_commit">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_heap_reserve">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_image">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_initialized_data">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_optional_header">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_stack_commit">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_stack_reserve">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;size_of_uninitialized_data">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;subsystem_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;time_date_stamp">
-		<rdfs:domain rdf:resource="&file;WinPEBinaryExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&file;win32_version_value_hex">
-		<rdfs:domain rdf:resource="&file;WindowsPEOptionalHeader"/>
+		<rdfs:domain rdf:resource="&ntfsExt;AlternateDataStream"/>
+		<rdfs:domain rdf:resource="&winPEExt;WindowsPESection"/>
 	</rdf:Description>
 
 </rdf:RDF>

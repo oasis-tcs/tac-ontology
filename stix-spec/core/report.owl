@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY report "http://docs.oasis-open.org/ns/cti/stix/report#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/report"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:report="http://docs.oasis-open.org/ns/cti/stix/report#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/report">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Report">
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Report</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Reports are collections of threat intelligence focused on one or more topics, such as a description of a threat actor, malware, or attack technique, including context and related details. They are used to group related threat intelligence together so that it can be published as a comprehensive cyber threat story.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&report;report_types">
+		<rdfs:label xml:lang="en-US">report_types</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the primary type(s) of content found in this report.\n\nThe values for this property SHOULD come from the report-type-ov open vocabulary.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>attack-pattern</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>campaign</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>identity</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>indicator</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>intrusion-set</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>malware</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>observed-data</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>threat-actor</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>threat-report</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>tool</rdf:first>
+																								<rdf:rest>
+																									<rdf:Description>
+																										<rdf:first>vulnerability</rdf:first>
+																										<rdf:rest rdf:resource="&rdf;nil"/>
+																									</rdf:Description>
+																								</rdf:rest>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -3,17 +3,17 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY vocab "http://docs.oasis-open.org/cti/ns/stix/vocabulary#">
+	<!ENTITY vocab "http://docs.oasis-open.org/ns/cti/stix/vocabulary#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/vocabulary"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/vocabulary"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:vocab="http://docs.oasis-open.org/cti/ns/stix/vocabulary#"
+	xmlns:vocab="http://docs.oasis-open.org/ns/cti/stix/vocabulary#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary">
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/vocabulary">
 		<rdfs:label>STIX Vocabulary</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Contains the various vocabularies defined by STIX as custom RDF datatypes</rdfs:comment>
 		<owl:versionInfo>2.1.0</owl:versionInfo>

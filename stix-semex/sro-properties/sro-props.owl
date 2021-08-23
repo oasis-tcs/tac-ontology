@@ -3,103 +3,103 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix-props "http://docs.oasis-open.org/cti/ns/stix-semex/sro-props#">
+	<!ENTITY stix-props "http://docs.oasis-open.org/ns/cti/stix-semex/sro-props#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix-props="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props#"
+	xmlns:stix-props="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix-semex"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix-semex"/>
 	</owl:Ontology>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#analysis-of">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#analysis-of">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#attributed-to">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#attributed-to">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#authored-by">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#authored-by">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#based-on">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#based-on">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#beacons-to">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#beacons-to">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#characterizes">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#characterizes">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#communicates-with">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#communicates-with">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#compromises">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#compromises">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#consists-of">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#consists-of">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#controls">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#controls">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#delivers">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#delivers">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#downloads">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#downloads">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#drops">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#drops">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#dynamic-analysis-of">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#dynamic-analysis-of">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#exfiltrate-to">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#exfiltrate-to">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#exploits">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#exploits">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#has">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#has">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#hosts">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#hosts">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#indicates">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#indicates">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#investigates">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#investigates">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#located-at">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#located-at">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#mitigates">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#mitigates">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#originates-from">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#originates-from">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#owns">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#owns">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#static-analysis-of">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#static-analysis-of">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#targets">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#targets">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#uses">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#uses">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex#variant-of">
+	<owl:ObjectProperty rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex#variant-of">
 	</owl:ObjectProperty>
 
 </rdf:RDF>

@@ -10,6 +10,7 @@
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/software"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix/software#"
 	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -26,28 +27,18 @@
 	
 	<owl:Class rdf:about="&stix;Software">
 		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
-		<rdfs:label xml:lang="en-US">Software</rdfs:label>
-		<rdfs:comment xml:lang="en-US">The Software object represents high-level properties associated with software, including software products.</rdfs:comment>
+		<rdfs:label xml:lang="en-us">Software</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The Software object represents high-level properties associated with software, including software products.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:DatatypeProperty rdf:about="&software;cpe">
-		<rdfs:label xml:lang="en-US">cpe</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the Common Platform Enumeration (CPE) entry for the software, if available. The value for this property MUST be a CPE v2.3 entry from the official NVD CPE Dictionary.\n\nWhile the CPE dictionary does not contain entries for all software, whenever it does contain an identifier for a given instance of software, this property SHOULD be present.</rdfs:comment>
-		<rdfs:range>
-			<rdfs:Datatype>
-				<owl:onDatatype rdf:resource="&xsd;string"/>
-				<owl:withRestrictions rdf:parseType="Collection">
-					<rdf:Description>
-						<xsd:pattern>cpe:2\\.3:[aho\\*\\-](:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\&quot;#$$%&amp;&apos;\\(\\)\\+,/:;&lt;=&gt;@\\[\\]\\^`\\{\\|}~]))+(\\?*|\\*?))|[\\*\\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\\*\\-]))(:(((\\?*|\\*?)([a-zA-Z0-9\\-\\._]|(\\\\[\\\\\\*\\?!\&quot;#$$%&amp;&apos;\\(\\)\\+,/:;&lt;=&gt;@\\[\\]\\^`\\{\\|}~]))+(\\?*|\\*?))|[\\*\\-])){4}</xsd:pattern>
-					</rdf:Description>
-				</owl:withRestrictions>
-			</rdfs:Datatype>
-		</rdfs:range>
+		<rdfs:label xml:lang="en-us">cpe</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the Common Platform Enumeration (CPE) entry for the software, if available. The value for this property MUST be a CPE v2.3 entry from the official NVD CPE Dictionary.\n\nWhile the CPE dictionary does not contain entries for all software, whenever it does contain an identifier for a given instance of software, this property SHOULD be present.</rdfs:comment>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&software;swid">
-		<rdfs:label xml:lang="en-US">swid</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the Software Identification (SWID) Tags entry for the software, if available. The tag attribute, tagId, a globally unique identifier, SHOULD be used as a proxy identifier of the tagged product.</rdfs:comment>
+		<rdfs:label xml:lang="en-us">swid</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the Software Identification (SWID) Tags entry for the software, if available. The tag attribute, tagId, a globally unique identifier, SHOULD be used as a proxy identifier of the tagged product.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 

@@ -58,12 +58,6 @@
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&cti;modified"/>
-				<owl:someValuesFrom rdf:resource="&xsd;dateTme"/>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
 				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:someValuesFrom rdf:resource="&xsd;string"/>
 			</owl:Restriction>
@@ -528,8 +522,6 @@
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&cti;modified">
-		<rdfs:label xml:lang="en-us">modified</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Represents the date and time that this particular version of the object was last modified.\n\nThe object creator can use the time it deems most appropriate as the time this version of the object was modified. The minimum precision MUST be milliseconds (three digits after the decimal place in seconds), but MAY be more precise.\n\nObject creators MUST set the modified property when creating a new version of an object if the created property was set.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	

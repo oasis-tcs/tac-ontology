@@ -793,8 +793,5 @@
 		<rdfs:comment xml:lang="en-us">Specifies the version of the entity.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
-	
-	<owl:Class rdf:about="&xsd;dateTme">
-	</owl:Class>
 
 </rdf:RDF>

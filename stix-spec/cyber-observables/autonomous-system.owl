@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY autonomous-system "http://docs.oasis-open.org/cti/ns/stix/autonomous-system#">
+	<!ENTITY as "http://docs.oasis-open.org/ns/cti/stix/autonomous-system#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/autonomous-system"
-	xmlns:autonomous-system="http://docs.oasis-open.org/cti/ns/stix/autonomous-system#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/autonomous-system"
+	xmlns:as="http://docs.oasis-open.org/ns/cti/stix/autonomous-system#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/autonomous-system">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/autonomous-system">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;AutonomousSystem">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>AutonomousSystem</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">AutonomousSystem</rdfs:label>
 		<rdfs:comment xml:lang="en-US">This object represents the properties of an Autonomous System (AS).</rdfs:comment>
 	</owl:Class>
 	
-	<owl:DatatypeProperty rdf:about="&autonomous-system;number">
-		<rdfs:label>number</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&as;number">
+		<rdfs:label xml:lang="en-US">number</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the number assigned to the AS. Such assignments are typically performed by a Regional Internet Registry (RIR).</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;positiveInteger"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&autonomous-system;rir">
-		<rdfs:label>rir</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&as;rir">
+		<rdfs:label xml:lang="en-US">rir</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the name of the Regional Internet Registry (RIR) that assigned the number to the AS.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>

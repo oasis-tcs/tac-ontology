@@ -1,77 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY software "http://docs.oasis-open.org/cti/ns/stix/software#">
-	<!ENTITY softwareCtx "http://docs.oasis-open.org/cti/ns/stix/software-context#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY software "http://docs.oasis-open.org/ns/cti/stix/software#">
+	<!ENTITY softwareCtx "http://docs.oasis-open.org/ns/cti/stix/software/context#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/software-context"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/software-context#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/software/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:software="http://docs.oasis-open.org/cti/ns/stix/software#"
-	xmlns:softwareCtx="http://docs.oasis-open.org/cti/ns/stix/software-context#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:software="http://docs.oasis-open.org/ns/cti/stix/software#"
+	xmlns:softwareCtx="http://docs.oasis-open.org/ns/cti/stix/software/context#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/software-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/software"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/software/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;languages">
+		<rdfs:domain rdf:resource="&stix;Software"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&stix;Software"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;vendor">
+		<rdfs:domain rdf:resource="&stix;Software"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;version">
+		<rdfs:domain rdf:resource="&stix;Software"/>
+	</rdf:Description>
 	
 	<rdf:Description rdf:about="&stix;Software">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>software</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&cti;vendor"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;vendor"/>
+				<owl:onProperty rdf:resource="&cti;version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;version"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
@@ -89,25 +104,8 @@
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&stixCore;languages">
-		<rdfs:domain rdf:resource="&stix;Software"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;name">
-		<rdfs:domain rdf:resource="&stix;Software"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;vendor">
-		<rdfs:domain rdf:resource="&stix;Software"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;version">
-		<rdfs:domain rdf:resource="&stix;Software"/>
-	</rdf:Description>
-	
 	<rdf:Description rdf:about="&software;cpe">
 		<rdfs:domain rdf:resource="&stix;Software"/>
-		<rdfs:range rdf:resource="&xsd;string"/>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&software;swid">

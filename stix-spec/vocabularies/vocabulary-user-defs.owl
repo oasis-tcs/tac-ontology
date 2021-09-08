@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY open-vocab "http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs#">
+	<!ENTITY open-vocab "http://docs.oasis-open.org/ns/cti/stix/vocabulary-user-defs#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY vocab "http://docs.oasis-open.org/cti/ns/stix/vocabulary#">
+	<!ENTITY vocab "http://docs.oasis-open.org/ns/cti/stix/vocabulary#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"
-	xmlns:open-vocab="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/vocabulary-user-defs"
+	xmlns:open-vocab="http://docs.oasis-open.org/ns/cti/stix/vocabulary-user-defs#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:vocab="http://docs.oasis-open.org/cti/ns/stix/vocabulary#"
+	xmlns:vocab="http://docs.oasis-open.org/ns/cti/stix/vocabulary#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs">
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/vocabulary-user-defs">
 		<rdfs:label>User Open Vocabulary</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Contains the various vocabularies defined by users as custom RDF datatypes</rdfs:comment>
 		<owl:versionInfo>2.1.0</owl:versionInfo>

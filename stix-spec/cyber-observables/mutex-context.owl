@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY mutex "http://docs.oasis-open.org/cti/ns/stix/mutex#">
-	<!ENTITY mutexCtx "http://docs.oasis-open.org/cti/ns/stix/mutex-context#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY mutex "http://docs.oasis-open.org/ns/cti/stix/mutex#">
+	<!ENTITY mutexCtx "http://docs.oasis-open.org/ns/cti/stix/mutex/context#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/mutex-context"
-	xmlns:mutex="http://docs.oasis-open.org/cti/ns/stix/mutex#"
-	xmlns:mutexCtx="http://docs.oasis-open.org/cti/ns/stix/mutex-context#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/mutex/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:mutex="http://docs.oasis-open.org/ns/cti/stix/mutex#"
+	xmlns:mutexCtx="http://docs.oasis-open.org/ns/cti/stix/mutex/context#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/mutex-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mutex"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/mutex/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mutex"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&stix;Mutex"/>
+	</rdf:Description>
 	
 	<rdf:Description rdf:about="&stix;Mutex">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>mutex</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>mutext</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;name">
-		<rdfs:domain rdf:resource="&stix;Mutex"/>
 	</rdf:Description>
 
 </rdf:RDF>

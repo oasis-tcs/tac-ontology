@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY relationship "http://docs.oasis-open.org/ns/cti/stix/relationship#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/relationship"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:relationship="http://docs.oasis-open.org/ns/cti/stix/relationship#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/relationship">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Relationship">
+		<rdfs:subClassOf rdf:resource="&stixCore;RelationshipObject"/>
+		<rdfs:label xml:lang="en-US">Relationship</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Relationship object is used to link together two SDOs or SCOs in order to describe how they are related to each other. If SDOs and SCOs are considered &quot;nodes&quot; or &quot;vertices&quot; in the graph, the Relationship Objects (SROs) represent &quot;edges&quot;.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&relationship;relationship_type">
+		<rdfs:label xml:lang="en-US">relationship_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The name used to identify the type of Relationship. This value SHOULD be an exact value listed in the relationships for the source and target SDO, but MAY be any string. The value of this property MUST be in ASCII and is limited to characters a–z (lowercase ASCII), 0–9, and hyphen (-).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&relationship;source_ref">
+		<rdfs:label xml:lang="en-US">source_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a reference to the source (from) object. The value MUST be a reference to an SDO or SCO (i.e., it cannot point to an SRO, Bundle, Language Content, or Marking Definition).</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:range rdf:resource="&stixCore;DomainObject"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&relationship;source_ref_id">
+		<rdfs:label xml:lang="en-US">source_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the identifier of the source (from) object. The value MUST be the identifier of a SDO or SCO (i.e., it cannot point to an SRO, Bundle, Language Content, or Marking Definition).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&relationship;target_ref">
+		<rdfs:label xml:lang="en-US">target_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a reference to the target (to) object. The value MUST be reference to an SDO or SCO (i.e., it cannot point to an SRO, Bundle, Language Content, or Marking Definition).</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:range rdf:resource="&stixCore;DomainObject"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&relationship;target_ref_id">
+		<rdfs:label xml:lang="en-US">target_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the identifier of the target (to) object. The value MUST be the identifier of a SDO or SCO (i.e., it cannot point to an SRO, Bundle, Language Content, or Marking Definition).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

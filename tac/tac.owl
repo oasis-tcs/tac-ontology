@@ -40,6 +40,15 @@
 	<owl:Class rdf:about="&tac;ThreatActorProfile">
 	</owl:Class>
 	
+	<owl:Class rdf:about="&tac;ThreatEvent">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tac;ThreatEventPattern">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tac;ThreatScenario">
+	</owl:Class>
+	
 	<owl:ObjectProperty rdf:about="&tac;hasAdversary">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
 		<rdfs:range rdf:resource="&tac;Adversary"/>

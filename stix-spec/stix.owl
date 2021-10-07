@@ -59,6 +59,156 @@
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
+	<rdf:Description rdf:about="&stix;Incident">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;criticality"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;detection_methods"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;determination"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;extension_type"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;external_impacts"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;functional_impact"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;incident_types"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;investigation_status"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<owl:DatatypeProperty rdf:about="&stix;attcker_activities">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;criticality">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;defender_activities">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>containment-completed</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>containment-started</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>declared</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>detected</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>eradication-completed</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>eradication-started</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>escalated</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>recovery-completed</rdf:first>
+																				<rdf:rest>
+																					<rdf:List>
+																						<rdf:first>recovery-started</rdf:first>
+																						<rdf:rest>
+																							<rdf:List>
+																								<rdf:first>reported</rdf:first>
+																								<rdf:rest rdf:resource="&rdf;nil"/>
+																							</rdf:List>
+																						</rdf:rest>
+																					</rdf:List>
+																				</rdf:rest>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;detection_methods">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>automated-tool</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>human-review</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>message-from-attacker</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>system-outage</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>user-reporting</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&stix;determination">
 		<rdfs:range>
 			<rdfs:Datatype>
@@ -120,6 +270,140 @@
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
+	<owl:DatatypeProperty rdf:about="&stix;external_impacts">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>civil-liberties</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>economic</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>foreign-relations</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>national-security</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>public-confidence</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>public-health</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;functional_impact">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>denial</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>loss-of-control</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>minimal</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>none</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>significant</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;incident_types">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>blocked</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>compromised-system</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>destruction</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>equipment-loss</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>failed-attempt</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>major</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>supply-chain-customer</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>supply-chain-vendor</rdf:first>
+																				<rdf:rest>
+																					<rdf:List>
+																						<rdf:first>unauthorized-access</rdf:first>
+																						<rdf:rest>
+																							<rdf:List>
+																								<rdf:first>unauthorized-release</rdf:first>
+																								<rdf:rest>
+																									<rdf:List>
+																										<rdf:first>under-investigation</rdf:first>
+																										<rdf:rest rdf:resource="&rdf;nil"/>
+																									</rdf:List>
+																								</rdf:rest>
+																							</rdf:List>
+																						</rdf:rest>
+																					</rdf:List>
+																				</rdf:rest>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&stix;investigation_status">
 		<rdfs:range>
 			<rdfs:Datatype>
@@ -141,6 +425,13 @@
 				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;mitigation">
+		<rdfs:comment>A description of the steps taken to mitigate this incident.
+
+If available this can be further detailed within defender activity, but this captures a high-level narrative of what has been done instead of a more step by step chain of action.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix/core#Object">

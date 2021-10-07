@@ -7,6 +7,7 @@
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix-semex"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix-semex#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -17,5 +18,122 @@
 		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props"/>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix#Incident">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasAttackerActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;AttackerActivity"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasDefenderActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;DefenderActivity"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasInformationalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;InformationalImpact"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<owl:Class rdf:about="&stix-semex;Activity">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;AttackerActivity">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Activity"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;DefenderActivity">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Activity"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;FunctionalImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;Impact">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;InformationalImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;RecoverabilityImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasActivity">
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;Activity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasAttackerActivity">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasActivity"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasAttackerActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;AttackerActivity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasDefenderActivity">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasActivity"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasDefenderActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;DefenderActivity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasFunctionalImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasFunctionalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;FunctionalImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasImpact">
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;Impact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasInformationalImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasInformationalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;InformationalImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasRecoverabilityImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasRecoverabilityImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;RecoverabilityImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
 
 </rdf:RDF>

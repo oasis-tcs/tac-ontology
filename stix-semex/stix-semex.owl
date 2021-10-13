@@ -82,6 +82,10 @@
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
+	<owl:Class rdf:about="&stix-semex;Action">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
 	<owl:Class rdf:about="&stix-semex;Activity">
 		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
 	</owl:Class>
@@ -302,6 +306,10 @@
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasAction">
+		<rdfs:range rdf:resource="&stix-semex;Action"/>
+	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&stix-semex;hasActivity">
 		<rdfs:range>

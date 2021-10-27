@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY ip-addr "http://docs.oasis-open.org/cti/ns/stix/ip-address#">
-	<!ENTITY mac-addr "http://docs.oasis-open.org/cti/ns/stix/mac-address#">
+	<!ENTITY as "http://docs.oasis-open.org/ns/cti/stix/autonomous-system#">
+	<!ENTITY ipAddr "http://docs.oasis-open.org/ns/cti/stix/ip-address#">
+	<!ENTITY macAddr "http://docs.oasis-open.org/ns/cti/stix/mac-address#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/ip-address"
-	xmlns:ip-addr="http://docs.oasis-open.org/cti/ns/stix/ip-address#"
-	xmlns:mac-addr="http://docs.oasis-open.org/cti/ns/stix/mac-address#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/ip-address"
+	xmlns:as="http://docs.oasis-open.org/ns/cti/stix/autonomous-system#"
+	xmlns:ipAddr="http://docs.oasis-open.org/ns/cti/stix/ip-address#"
+	xmlns:macAddr="http://docs.oasis-open.org/ns/cti/stix/mac-address#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/ip-address">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/autonomous-system"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mac-address"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/ip-address">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/autonomous-system"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mac-address"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;IPv4Address">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>IPv4Address</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">IPv4Address</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The IPv4 Address object represents one or more IPv4 addresses expressed using CIDR notation.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stix;IPv6Address">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>IPv6Address</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">IPv6Address</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The IPv6 Address object represents one or more IPv6 addresses expressed using CIDR notation.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:ObjectProperty rdf:about="&ip-addr;belongs_to_refs">
-		<rdfs:label>belongs_to_refs</rdfs:label>
+	<owl:ObjectProperty rdf:about="&ipAddr;belongs_to_refs">
+		<rdfs:label xml:lang="en-US">belongs_to_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a list of references to one or more autonomous systems (AS) that the IPv4/IPv6 address belongs to.\n\nThe objects referenced in this list MUST be of type autonomous-system.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;AutonomousSystem"/>
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="&ip-addr;resolves_to_refs">
-		<rdfs:label>resolved_to_refs</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&ipAddr;belongs_to_refs_id">
+		<rdfs:label xml:lang="en-US">belongs_to_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of identifiers to one or more SCO Autonomous Systems (AS) objects that the IPv4/IPv6 address belongs to.\n\nThe identifiers of the objects specified in this list MUST be of type autonomous-system</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&ipAddr;resolves_to_refs">
+		<rdfs:label xml:lang="en-US">resolved_to_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a list of references to one or more Layer 2 Media Access Control (MAC) addresses that the IPv4/IPv6 address resolves to.
 The objects referenced in this list MUST be of type mac-addr.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;MACAddress"/>
 	</owl:ObjectProperty>
 	
-	<owl:DatatypeProperty rdf:about="&ip-addr;value">
-		<rdfs:label>value</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&ipAddr;resolves_to_refs_id">
+		<rdfs:label xml:lang="en-US">resolved_to_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of identifiers to one or more Layer 2 Media Access Control (MAC) addresses objects that the IPv4/IPv6 address resolves to.\n\nThe identifiers of the objects specified in this list MUST be of type mac-addr.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&ipAddr;value">
+		<rdfs:label xml:lang="en-US">value</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the values of one or more IP addresses expressed using CIDR notation.\n\nIf a given IPv4 Address object represents a single IPv4 address, the CIDR /32 suffix MAY be omitted. \n\nIf a given IPv6 Address object represents a single IPv6 address, the CIDR /128 suffix MAY be omitted.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>

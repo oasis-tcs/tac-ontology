@@ -1,201 +1,731 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY location "http://docs.oasis-open.org/cti/ns/stix/location#">
-	<!ENTITY locationContext "http://docs.oasis-open.org/cti/ns/stix/location-context#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY location "http://docs.oasis-open.org/ns/cti/stix/location#">
+	<!ENTITY locationCtx "http://docs.oasis-open.org/ns/cti/stix/location/context#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/location-context"
-	xmlns:location="http://docs.oasis-open.org/cti/ns/stix/location#"
-	xmlns:locationContext="http://docs.oasis-open.org/cti/ns/stix/location-context#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/location/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:location="http://docs.oasis-open.org/ns/cti/stix/location#"
+	xmlns:locationCtx="http://docs.oasis-open.org/ns/cti/stix/location/context#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/location-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/location"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/location/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;administrative_area">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;city">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;country">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;description">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;latitude">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;longitude">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;postal_code">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;precision">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;region">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;street_address">
+		<rdfs:domain rdf:resource="&stix;Location"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stix;CivicLocation">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>civic-location</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;administrative_area"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;city"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;country"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;latitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;longitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;postal_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;precision"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;region"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;street_address"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&location;building_details"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&location;network_details"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stix;Country">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;country"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>country</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;administrative_area"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;city"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;latitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;longitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;postal_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;precision"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;region"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;street_address"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&stix;GlobalPosition">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;latitude"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;longitude"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>global-position</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;administrative_area"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;city"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;country"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;postal_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;precision"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;region"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;street_address"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
 	
 	<rdf:Description rdf:about="&stix;Location">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;created"/>
+				<owl:onProperty rdf:resource="&cti;created"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;modified"/>
+				<owl:onProperty rdf:resource="&cti;modified"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>location</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;administrative_area"/>
+				<owl:onProperty rdf:resource="&cti;administrative_area"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;city"/>
+				<owl:onProperty rdf:resource="&cti;city"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;country"/>
+				<owl:onProperty rdf:resource="&cti;country"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;created"/>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;created_by_ref"/>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;description"/>
+				<owl:onProperty rdf:resource="&cti;description"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;lang"/>
+				<owl:onProperty rdf:resource="&cti;lang"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;name"/>
+				<owl:onProperty rdf:resource="&cti;latitude"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;postal_code"/>
+				<owl:onProperty rdf:resource="&cti;longitude"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;revoked"/>
+				<owl:onProperty rdf:resource="&cti;name"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;street_address"/>
+				<owl:onProperty rdf:resource="&cti;postal_code"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&location;latitude"/>
+				<owl:onProperty rdf:resource="&cti;precision"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&location;longitude"/>
+				<owl:onProperty rdf:resource="&cti;region"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&location;precision"/>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&location;region"/>
+				<owl:onProperty rdf:resource="&cti;street_address"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&stixCore;administrative_area">
-		<rdfs:domain rdf:resource="&stix;Location"/>
+	<rdf:Description rdf:about="&stix;Region">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;region"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>region</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;administrative_area"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;city"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;country"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;lang"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;latitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;longitude"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;postal_code"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;precision"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;street_address"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&stixCore;city">
-		<rdfs:domain rdf:resource="&stix;Location"/>
+	<rdf:Description rdf:about="&location;building_details">
+		<rdfs:domain rdf:resource="&stix;CivicLocation"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&stixCore;country">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;description">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;name">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;postal_code">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&stixCore;street_address">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&location;latitude">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&location;longitude">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&location;precision">
-		<rdfs:domain rdf:resource="&stix;Location"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&location;region">
-		<rdfs:domain rdf:resource="&stix;Location"/>
+	<rdf:Description rdf:about="&location;network_details">
+		<rdfs:domain rdf:resource="&stix;CivicLocation"/>
 	</rdf:Description>
 
 </rdf:RDF>

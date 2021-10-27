@@ -1,45 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY infrastructure "http://docs.oasis-open.org/cti/ns/stix/infrastructure#">
+	<!ENTITY infra "http://docs.oasis-open.org/ns/cti/stix/infrastructure#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/infrastructure"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/infrastructure#"
-	xmlns:infrastructure="http://docs.oasis-open.org/cti/ns/stix/infrastructure#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/infrastructure"
+	xmlns:infra="http://docs.oasis-open.org/ns/cti/stix/infrastructure#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/infrastructure">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/infrastructure">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;Infrastructure">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
-		<rdfs:label>Infrastructure</rdfs:label>
-		<rdfs:comment xml:lang="en-us">The Infrastructure SDO represents a type of TTP and describes any systems, software services and any associated physical or virtual resources intended to support some purpose (e.g., C2 servers used as part of an attack, device or server that are part of defense, database servers targeted by an attack, etc.). While elements of an attack can be represented by other SDOs or SCOs, the Infrastructure SDO represents a named group of related data that constitutes the infrastructure.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Infrastructure</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The Infrastructure SDO represents a type of TTP and describes any systems, software services and any associated physical or virtual resources intended to support some purpose (e.g., C2 servers used as part of an attack, device or server that are part of defense, database servers targeted by an attack, etc.). While elements of an attack can be represented by other SDOs or SCOs, the Infrastructure SDO represents a named group of related data that constitutes the infrastructure.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:DatatypeProperty rdf:about="&infrastructure;infrastructure_types">
-		<rdfs:label>infrastructure_types</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the type of infrastructure being described. The values for this property SHOULD come from the infrastructure-type-ov open vocabulary.</rdfs:comment>
+	<owl:DatatypeProperty rdf:about="&infra;infrastructure_types">
+		<rdfs:label xml:lang="en-US">infrastructure_types</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the type of infrastructure being described. The values for this property SHOULD come from the infrastructure-type-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#InfrastructureTypeOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>amplification</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>anonymization</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>botnet</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>command-and-control</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>exfiltration</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>hostig-malware</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>hosting-target-lists</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>phishing</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>reconnaissance</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>staging</rdf:first>
+																								<rdf:rest>
+																									<rdf:Description>
+																										<rdf:first>undefined</rdf:first>
+																										<rdf:rest rdf:resource="&rdf;nil"/>
+																									</rdf:Description>
+																								</rdf:rest>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#InfrastructureTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>

@@ -1,155 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY artifact "http://docs.oasis-open.org/cti/ns/stix/artifact#">
-	<!ENTITY email-addr "http://docs.oasis-open.org/cti/ns/stix/email-address#">
-	<!ENTITY message "http://docs.oasis-open.org/cti/ns/stix/message#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY message "http://docs.oasis-open.org/ns/cti/stix/message#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/message"
-	xmlns:artifact="http://docs.oasis-open.org/cti/ns/stix/artifact#"
-	xmlns:email-addr="http://docs.oasis-open.org/cti/ns/stix/email-address#"
-	xmlns:message="http://docs.oasis-open.org/cti/ns/stix/message#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/message"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:message="http://docs.oasis-open.org/ns/cti/stix/message#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/message">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/artifact"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/email-address"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/message">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/artifact"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/email-address"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/file"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;EmailMessage">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>EmailMessage</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">EmailMessage</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The Email Message object represents an instance of an email message, corresponding to the internet message format described in [RFC5322] and related RFCs.\n\nHeader field values that have been encoded as described in section 2 of [RFC2047] MUST be decoded before inclusion in Email Message object properties. For example, this is some text MUST be used instead of =?iso-8859-1?q?this=20is=20some=20text?=. Any characters in the encoded value which cannot be decoded into Unicode SHOULD be replaced with the &apos;REPLACEMENT CHARACTER&apos; (U+FFFD). If it is necessary to capture the header value as observed, this can be achieved by referencing an Artifact object through the raw_email_ref property.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&message;MimePart">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
-		<rdfs:label>MimePart</rdfs:label>
+	<owl:Class rdf:about="&message;EmailMimePart">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-US">MimePart</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies one component of a multi-part body.\n\nThere is no property to capture the value of the “Content-Transfer-Encoding” header field, since the body MUST be decoded before being represented in the body property.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&message;additional_header_fields">
-		<rdfs:label>additional header fields</rdfs:label>
+		<rdfs:label xml:lang="en-US">additional header fields</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies any other header fields (except for date, received_lines, content_type, from_ref, sender_ref, to_refs, cc_refs, bcc_refs, and subject) found in the email message, as a dictionary.\n\nEach key/value pair in the dictionary represents the name/value of a single header field or names/values of a header field that occurs more than once. Each dictionary key SHOULD be a case-preserved version of the header field name. The corresponding value for each dictionary key MUST always be a list of type string to support when a header field is repeated.</rdfs:comment>
-		<rdfs:range rdf:resource="&stixCore;KeyValuePair"/>
+		<rdfs:range rdf:resource="&cti;KeyValuePair"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;bcc_refs">
-		<rdfs:label>bcc_refs</rdfs:label>
+		<rdfs:label xml:lang="en-US">bcc_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the mailboxes that are “BCC:” recipients of the email message.\n\nAs per [RFC5322], the absence of this property should not be interpreted as semantically equivalent to an absent BCC header on the message being characterized.\n\nThe objects referenced in this list MUST be of type email-address.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;EmailAddress"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;bcc_refs_id">
+		<rdfs:label xml:lang="en-US">bcc_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the mailboxes that are “BCC:” recipients of the email message.\n\nAs per [RFC5322], the absence of this property should not be interpreted as semantically equivalent to an absent BCC header on the message being characterized.\n\nThe identifiers specifed in this list MUST be of type email-address.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&message;body">
-		<rdfs:label>body</rdfs:label>
+		<rdfs:label xml:lang="en-US">body</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a string containing the body. \n\nIn an EmailMessage, this property MUST NOT be used if is_multipart is true.\n\nIn a MIME Part, specifies the contents of the MIME part if the content_type is not provided or starts with text/ (e.g., in the case of plain text or HTML email). For inclusion in this property, the contents MUST be decoded to Unicode. Note that the charset provided in content_type is for informational usage and not for decoding of this property.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;body_multipart">
-		<rdfs:label>body_multipart</rdfs:label>
+		<rdfs:label xml:lang="en-US">body_multipart</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a list of the MIME parts that make up the email body. This property MUST NOT be used if is_multipart is false.</rdfs:comment>
-		<rdfs:range rdf:resource="&message;MimePart"/>
+		<rdfs:range rdf:resource="&message;EmailMimePart"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;body_raw_ref">
-		<rdfs:label>body_raw_ref</rdfs:label>
+		<rdfs:label xml:lang="en-US">body_raw_ref</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the contents of non-textual MIME parts, that is those whose content_type does not start with text/, as a reference to an Artifact object or File object.\n\nThe object referenced in this property MUST be of type artifact or file. For use cases where conveying the actual data contained in the MIME part is of primary importance, artifact SHOULD be used. Otherwise, for use cases where conveying metadata about the file-like properties of the MIME part is of primary importance, file SHOULD be used.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&stix;Artifact">
-					</rdf:Description>
-					<rdf:Description rdf:about="&stix;File">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&stix;Artifact"/>
+		<rdfs:range rdf:resource="&stix;File"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;body_raw_ref_id">
+		<rdfs:label xml:lang="en-US">body_raw_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the contents of non-textual MIME parts, that is those whose content_type does not start with text/, as the identifier to an Artifact object or File object.\n\nThe object referenced in this property MUST be of type artifact or file. For use cases where conveying the actual data contained in the MIME part is of primary importance, artifact SHOULD be used. Otherwise, for use cases where conveying metadata about the file-like properties of the MIME part is of primary importance, file SHOULD be used.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:ObjectProperty rdf:about="&message;cc_refs">
-		<rdfs:label>cc_refs</rdfs:label>
+		<rdfs:label xml:lang="en-US">cc_refs</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the mailboxes that are “CC:” recipients of the email message.\n\nThe objects referenced in this list MUST be of type email-address.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;EmailAddress"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;cc_refs_id">
+		<rdfs:label xml:lang="en-US">cc_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the mailboxes that are “CC:” recipients of the email message.\n\nThe identifiers specified in this list MUST be for objects of type email-address.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&message;content_disposition">
-		<rdfs:label>content_disposition</rdfs:label>
+		<rdfs:label xml:lang="en-US">content_disposition</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the value of the “Content-Disposition” header field of the MIME part.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&message;content_type">
-		<rdfs:label>content_type</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the value of the “Content-Type” header of the email message or MIME part.\n\n</rdfs:comment>
+		<rdfs:label xml:lang="en-US">content_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the value of the “Content-Type” header of the email message or MIME part.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&message;date">
-		<rdfs:label>date</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&message;date_sent">
+		<rdfs:label xml:lang="en-US">date</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the date/time that the email message was sent.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;from_ref">
-		<rdfs:label>from_ref</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the value of the “From:” header of the email message. The &quot;From:&quot; field specifies the author of the message, that is, the mailbox(es) of the person or system responsible for the writing of the message.\n\nThe object referenced in this property MUST be of type email-address.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">from_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a reference to a SCO EmailAddress object of the “From:” header of the email message. The &quot;From:&quot; field specifies the author of the message, that is, the mailbox(es) of the person or system responsible for the writing of the message.\n\nThe object referenced in this property MUST be of type email-address.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;EmailAddress"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;from_ref_id">
+		<rdfs:label xml:lang="en-US">from_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies an identifier of a SCO EmailAddress object of the “From:” header of the email message. The &quot;From:&quot; field specifies the author of the message, that is, the mailbox(es) of the person or system responsible for the writing of the message.\n\nThe object referenced in this property MUST be of type email-address.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&message;is_multipart">
-		<rdfs:label>is_multipart</rdfs:label>
+		<rdfs:label xml:lang="en-US">is_multipart</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Indicates whether the email body contains multiple MIME parts.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;boolean"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&message;message_id">
-		<rdfs:label>message_id</rdfs:label>
+		<rdfs:label xml:lang="en-US">message_id</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the Message-ID field of the email message.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;raw_email_ref">
-		<rdfs:label>raw_email_ref</rdfs:label>
+		<rdfs:label xml:lang="en-US">raw_email_ref</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the raw binary contents of the email message, including both the headers and body, as a reference to an Artifact object.\n\nThe object referenced in this property MUST be of type artifact.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;Artifact"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;raw_email_ref_id">
+		<rdfs:label xml:lang="en-US">raw_email_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the raw binary contents of the email message, including both the headers and body, as the identifer of an Artifact object.\n\nThe object referenced in this property MUST be of type artifact.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&message;recevied_lines">
-		<rdfs:label>recevied_lines</rdfs:label>
+		<rdfs:label xml:lang="en-US">recevied_lines</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies one or more &quot;Received&quot; header fields that may be included in the email headers.\n\nList values MUST appear in the same order as present in the email message.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;sender_ref">
-		<rdfs:label>sender_ref</rdfs:label>
+		<rdfs:label xml:lang="en-US">sender_ref</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the value of the “Sender” field of the email message. The &quot;Sender:&quot; field specifies the mailbox of the agent responsible for the actual transmission of the message.\n\nThe object referenced in this property MUST be of type email-address.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;EmailAddress"/>
 	</owl:ObjectProperty>
 	
+	<owl:DatatypeProperty rdf:about="&message;sender_ref_id">
+		<rdfs:label xml:lang="en-US">sender_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the value of the “Sender” field of the email message. The &quot;Sender:&quot; field specifies the mailbox of the agent responsible for the actual transmission of the message.\n\nThe identifier specified MUST be for an object of type email-address.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&message;subject">
-		<rdfs:label>subject</rdfs:label>
+		<rdfs:label xml:lang="en-US">subject</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the subject of the message.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&message;to_refs">
-		<rdfs:label>to_refs</rdfs:label>
-		<rdfs:comment xml:lang="en-US">Specifies the mailboxes that are “To:” recipients of the email message.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">to_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of references to SCO EmailAddress objects that represents the mailboxes that are “To:” recipients of the email message.</rdfs:comment>
 		<rdfs:range rdf:resource="&stix;EmailAddress"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&message;to_refs_id">
+		<rdfs:label xml:lang="en-US">to_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of identifiers of SCO EmailAddress objects that represents the mailboxes that are “To:” recipients of the email message</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 
 </rdf:RDF>

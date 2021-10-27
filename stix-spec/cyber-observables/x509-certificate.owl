@@ -1,199 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
-	<!ENTITY x509-cert "http://docs.oasis-open.org/cti/ns/stix/x509-certificate#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY x509Cert "http://docs.oasis-open.org/ns/cti/stix/x509-certificate#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/x509-certificate"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/x509-certificate"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
-	xmlns:x509-cert="http://docs.oasis-open.org/cti/ns/stix/x509-certificate#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:x509Cert="http://docs.oasis-open.org/ns/cti/stix/x509-certificate#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/x509-certificate">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/x509-certificate">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;X509Certificate">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>X509Certificate</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">X509Certificate</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The X.509 Certificate object represents the properties of an X.509 certificate, as defined by ITU recommendation X.509 [X.509]. An X.509 Certificate object MUST contain at least one object specific property (other than type) from this object.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&x509-cert;X509v3Extensions">
-		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
-		<rdfs:label>X509v3Extensions</rdfs:label>
+	<owl:Class rdf:about="&x509Cert;X509v3Extensions">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-US">X509v3Extensions</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The X.509 v3 Extensions type captures properties associated with X.509 v3 extensions, which serve as a mechanism for specifying additional information such as alternative subject names. An object using the X.509 v3 Extensions type MUST contain at least one property from this type.\n\nNote that the use of the term &quot;extensions&quot; in this context refers to the X.509 v3 Extensions type and is not a STIX Cyber Observables extension. Therefore, it is a type that describes X.509 extensions.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;authority_key_identifier">
-		<rdfs:label>authority_key_identifier</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;authority_key_identifier">
+		<rdfs:label xml:lang="en-US">authority_key_identifier</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the identifier that provides a means of identifying the public key corresponding to the private key used to sign a certificate. Also equivalent to the object ID (OID) value of 2.5.29.35.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;basic_constraints">
-		<rdfs:label>basic_constraints</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;basic_constraints">
+		<rdfs:label xml:lang="en-US">basic_constraints</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a multi-valued extension which indicates whether a certificate is a CA certificate. The first (mandatory) name is CA followed by TRUE or FALSE. If CA is TRUE, then an optional pathlen name followed by a non-negative value can be included. Also equivalent to the object ID (OID) value of 2.5.29.19.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;certificate_policies">
-		<rdfs:label>certificate_policies</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;certificate_policies">
+		<rdfs:label xml:lang="en-US">certificate_policies</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. Also equivalent to the object ID (OID) value of 2.5.29.32.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;crl_distribution_points">
-		<rdfs:label>crl_distribution_points</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;crl_distribution_points">
+		<rdfs:label xml:lang="en-US">crl_distribution_points</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies how CRL information is obtained. Also equivalent to the object ID (OID) value of 2.5.29.31.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;extended_key_usage">
-		<rdfs:label>extended_key_usage</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;extended_key_usage">
+		<rdfs:label xml:lang="en-US">extended_key_usage</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a list of usages indicating purposes for which the certificate public key can be used for. Also equivalent to the object ID (OID) value of 2.5.29.37.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;inhibit_any_policy">
-		<rdfs:label>inhibit_any_policy</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;inhibit_any_policy">
+		<rdfs:label xml:lang="en-US">inhibit_any_policy</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the number of additional certificates that may appear in the path before anyPolicy is no longer permitted. Also equivalent to the object ID (OID) value of 2.5.29.54.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;is_self_signed">
-		<rdfs:label>is_self_signed</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;is_self_signed">
+		<rdfs:label xml:lang="en-US">is_self_signed</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies whether the certificate is self-signed, i.e., whether it is signed by the same entity whose identity it certifies.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;boolean"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;issuer">
-		<rdfs:label>issuer</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;issuer">
+		<rdfs:label xml:lang="en-US">issuer</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the name of the Certificate Authority that issued the certificate.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;issuer_alternative_name">
-		<rdfs:label>issuer_alternative_name</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;issuer_alternative_name">
+		<rdfs:label xml:lang="en-US">issuer_alternative_name</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the additional identities to be bound to the issuer of the certificate. Also equivalent to the object ID (OID) value of 2.5.29.18.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;key_usage">
-		<rdfs:label>key_usage</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;key_usage">
+		<rdfs:label xml:lang="en-US">key_usage</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a multi-valued extension consisting of a list of names of the permitted key usages. Also equivalent to the object ID (OID) value of 2.5.29.15.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;name_constraints">
-		<rdfs:label>name_constraints</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;name_constraints">
+		<rdfs:label xml:lang="en-US">name_constraints</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies a namespace within which all subject names in subsequent certificates in a certification path MUST be located. Also equivalent to the object ID (OID) value of 2.5.29.30.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;policy_constraints">
-		<rdfs:label>policy_constraints</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;policy_constraints">
+		<rdfs:label xml:lang="en-US">policy_constraints</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies any constraints on path validation for certificates issued to CAs. Also equivalent to the object ID (OID) value of 2.5.29.36.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;policy_mappings">
-		<rdfs:label>policy_mappings</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;policy_mappings">
+		<rdfs:label xml:lang="en-US">policy_mappings</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies one or more pairs of OIDs; each pair includes an issuerDomainPolicy and a subjectDomainPolicy. The pairing indicates whether the issuing CA considers its issuerDomainPolicy equivalent to the subject CA&apos;s subjectDomainPolicy. Also equivalent to the object ID (OID) value of 2.5.29.33.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;private_key_usage_period_not_after">
-		<rdfs:label>private_key_usage_period_not_after</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;private_key_usage_period_not_after">
+		<rdfs:label xml:lang="en-US">private_key_usage_period_not_after</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the date on which the validity period ends for the private key, if it is different from the validity period of the certificate.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;private_key_usage_period_not_before">
-		<rdfs:label>private_key_usage_period_not_before</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;private_key_usage_period_not_before">
+		<rdfs:label xml:lang="en-US">private_key_usage_period_not_before</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the date on which the validity period begins for the private key, if it is different from the validity period of the certificate.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;serial_number">
-		<rdfs:label>serial_number</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;serial_number">
+		<rdfs:label xml:lang="en-US">serial_number</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the unique identifier for the certificate, as issued by a specific Certificate Authority.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;signature_algorithm">
-		<rdfs:label>signature_algorithm</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;signature_algorithm">
+		<rdfs:label xml:lang="en-US">signature_algorithm</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the name of the algorithm used to sign the certificate.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject">
-		<rdfs:label>subject</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject">
+		<rdfs:label xml:lang="en-US">subject</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the name of the entity associated with the public key stored in the subject public key field of the certificate.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_alternative_name">
-		<rdfs:label>subject_alternative_name</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_alternative_name">
+		<rdfs:label xml:lang="en-US">subject_alternative_name</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the additional identities to be bound to the subject of the certificate. Also equivalent to the object ID (OID) value of 2.5.29.17.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_directory_attributes">
-		<rdfs:label>subject_directory_attributes</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_directory_attributes">
+		<rdfs:label xml:lang="en-US">subject_directory_attributes</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the identification attributes (e.g., nationality) of the subject. Also equivalent to the object ID (OID) value of 2.5.29.9.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_key_identifier">
-		<rdfs:label>subject_key_identifier</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_key_identifier">
+		<rdfs:label xml:lang="en-US">subject_key_identifier</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the identifier that provides a means of identifying certificates that contain a particular public key. Also equivalent to the object ID (OID) value of 2.5.29.14.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_public_key_algorithm">
-		<rdfs:label>subject_public_key_algorithm</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_public_key_algorithm">
+		<rdfs:label xml:lang="en-US">subject_public_key_algorithm</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the name of the algorithm with which to encrypt data being sent to the subject.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_public_key_exponent">
-		<rdfs:label>subject_public_key_exponent</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_public_key_exponent">
+		<rdfs:label xml:lang="en-US">subject_public_key_exponent</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the exponent portion of the subject’s public RSA key, as an integer.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;positiveInteger"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;subject_public_key_modulus">
-		<rdfs:label>subject_public_key_modulus</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;subject_public_key_modulus">
+		<rdfs:label xml:lang="en-US">subject_public_key_modulus</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the modulus portion of the subject’s public RSA key.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;validity_not_after">
-		<rdfs:label>validity_not_after</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;validity_not_after">
+		<rdfs:label xml:lang="en-US">validity_not_after</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the date on which the certificate validity period ends.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
-	<owl:DatatypeProperty rdf:about="&x509-cert;validity_not_before">
-		<rdfs:label>validity_not_before</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&x509Cert;validity_not_before">
+		<rdfs:label xml:lang="en-US">validity_not_before</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the date on which the certificate validity period begins.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
-	<owl:ObjectProperty rdf:about="&x509-cert;x509_v3_extensions">
-		<rdfs:label>x509_v3_extensions</rdfs:label>
+	<owl:ObjectProperty rdf:about="&x509Cert;x509_v3_extensions">
+		<rdfs:label xml:lang="en-US">x509_v3_extensions</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies any standard X.509 v3 extensions that may be used in the certificate.</rdfs:comment>
-		<rdfs:range rdf:resource="&x509-cert;X509v3Extensions"/>
+		<rdfs:range rdf:resource="&x509Cert;X509v3Extensions"/>
 	</owl:ObjectProperty>
 
 </rdf:RDF>

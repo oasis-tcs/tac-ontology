@@ -3,53 +3,116 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix">
-		<rdfs:comment xml:lang="en-US">This ontology is the master ontology  for the STIX 2.1.0.  It imports all the various STIX ontologies files to create an unified ontology based on the various component ontologies that make up STIX.</rdfs:comment>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/CourseOfAction"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/artifact"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/attack-pattern"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/autonomous-system"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/campaign"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/directory"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/domain-name"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/email-address"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/indicator"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/infrastructure"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/ip-address"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/language-content"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/location"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mac-address"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/malware"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/message"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mutex"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/network-traffic"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/observed-data"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/process"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/relationship"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/sighting"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/software"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/tool"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/uri"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vulnerability"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/x509-certificate"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix">
+		<rdfs:comment xml:lang="en-us">This ontology is the master ontology  for the STIX 2.1.0.  It imports all the various STIX ontologies files to create an unified ontology based on the various component ontologies that make up STIX.</rdfs:comment>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/adversary"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/artifact"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/attack-pattern"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/autonomous-system"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/campaign"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/directory"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/domain-name"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/email-address"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/file"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/grouping"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/incident"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/indicator"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/ip-address"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/language-content"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mac-address"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/malware"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/message"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mutex"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/network-traffic"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/note"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/opinion"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/process"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/relationship"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/report"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/sighting"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/tool"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/uri"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/user-account"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/vulnerability"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/windows-registry"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/x509-certificate"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&stix;Incident">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;extension_type"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<owl:DatatypeProperty rdf:about="&stix;extension_type">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>legacy</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>new-sco</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>new-sdo</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>new-sro</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>property-extension</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>toplevel-property-extension</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix/core#Object">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
 
 </rdf:RDF>

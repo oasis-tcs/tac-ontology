@@ -1,68 +1,300 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY identity "http://docs.oasis-open.org/cti/ns/stix/identity#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY identity "http://docs.oasis-open.org/ns/cti/stix/identity#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/identity"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/identity#"
-	xmlns:identity="http://docs.oasis-open.org/cti/ns/stix/identity#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/identity"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:identity="http://docs.oasis-open.org/ns/cti/stix/identity#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/identity">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/identity">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
-	<owl:Class rdf:about="http://docs.oasis-open.org/cti/ns/stix#Identity">
-		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#STIXDomainObject"/>
-		<rdfs:label>Identity</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Identities can represent actual individuals, organizations, or groups (e.g., ACME, Inc.) as well as classes of individuals, organizations, systems or groups (e.g., the finance sector).</rdfs:comment>
+	<owl:Class rdf:about="&stix;Group">
+		<rdfs:subClassOf rdf:resource="&stix;Identity"/>
+		<rdfs:label xml:lang="en-US">Group</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identitfies an informal collection of people, without formal governance.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&stix;Individual"/>
+		<owl:disjointWith rdf:resource="&stix;IndustrySector"/>
+		<owl:disjointWith rdf:resource="&stix;Organization"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix;Identity">
+		<rdfs:subClassOf rdf:resource="&cti;Identity"/>
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">STIX Identity</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identities can represent actual individuals, organizations, or groups (e.g., ACME, Inc.) as well as classes of individuals, organizations, systems or groups (e.g., the finance sector).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix;Individual">
+		<rdfs:subClassOf rdf:resource="&stix;Identity"/>
+		<rdfs:label xml:lang="en-US">Individual</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identitfies an actual individual.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&stix;Group"/>
+		<owl:disjointWith rdf:resource="&stix;IndustrySector"/>
+		<owl:disjointWith rdf:resource="&stix;Organization"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix;IndustrySector">
+		<rdfs:subClassOf rdf:resource="&stix;Identity"/>
+		<rdfs:label xml:lang="en-US">Industy Sector</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identifies an industry sector.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&stix;Group"/>
+		<owl:disjointWith rdf:resource="&stix;Individual"/>
+		<owl:disjointWith rdf:resource="&stix;Organization"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix;Organization">
+		<rdfs:subClassOf rdf:resource="&stix;Identity"/>
+		<rdfs:label xml:lang="en-US">Organization</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Identifies an actual formal organization of people, with governance, such as a company.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&stix;Group"/>
+		<owl:disjointWith rdf:resource="&stix;Individual"/>
+		<owl:disjointWith rdf:resource="&stix;IndustrySector"/>
 	</owl:Class>
 	
 	<owl:DatatypeProperty rdf:about="&identity;contact_information">
-		<rdfs:label>contact_information</rdfs:label>
-		<rdfs:comment xml:lang="en-us">The contact information (e-mail, phone number, etc.) for this Identity. No format for this information is currently defined by this specification.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">contact_information</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The contact information (e-mail, phone number, etc.) for this Identity. No format for this information is currently defined by this specification.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&identity;identity_class">
-		<rdfs:label>identity_class</rdfs:label>
-		<rdfs:comment xml:lang="en-us">provides a vocabulary of terms describing the nature of the type of Identity</rdfs:comment>
+		<rdfs:label xml:lang="en-US">identity_class</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The type of entity that this Identity describes, e.g., an individual or organization.\n\nThe value for this property SHOULD come from the identity-class-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>individual</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>group</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>system</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>organization</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>class</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>unknown</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IdentityClassVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&identity;roles">
-		<rdfs:label>roles</rdfs:label>
-		<rdfs:comment xml:lang="en-us">The list of roles that this Identity performs (e.g., CEO, Domain Administrators, Doctors, Hospital, or Retailer). No open vocabulary is yet defined for this property.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">roles</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The list of roles that this Identity performs (e.g., CEO, Domain Administrators, Doctors, Hospital, or Retailer). No open vocabulary is yet defined for this property.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&identity;sectors">
-		<rdfs:label>sectors</rdfs:label>
-		<rdfs:comment xml:lang="en-us">terms of industry this identity is in</rdfs:comment>
+		<rdfs:label xml:lang="en-US">sectors</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The list of industry sectors that this Identity belongs to.\n\nThe values for this property SHOULD come from the industry-sector-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>agriculture</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>aerospace</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>automotive</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>chemical</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>commercial</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>communications</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>construction</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>defense</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>education</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>energy</rdf:first>
+																								<rdf:rest>
+																									<rdf:Description>
+																										<rdf:first>entertainment</rdf:first>
+																										<rdf:rest>
+																											<rdf:Description>
+																												<rdf:first>financial-services</rdf:first>
+																												<rdf:rest>
+																													<rdf:Description>
+																														<rdf:first>government</rdf:first>
+																														<rdf:rest>
+																															<rdf:Description>
+																																<rdf:first>emergency-services</rdf:first>
+																																<rdf:rest>
+																																	<rdf:Description>
+																																		<rdf:first>government-local</rdf:first>
+																																		<rdf:rest>
+																																			<rdf:Description>
+																																				<rdf:first>government-national</rdf:first>
+																																				<rdf:rest>
+																																					<rdf:Description>
+																																						<rdf:first>government-public-services</rdf:first>
+																																						<rdf:rest>
+																																							<rdf:Description>
+																																								<rdf:first>government-regional</rdf:first>
+																																								<rdf:rest>
+																																									<rdf:Description>
+																																										<rdf:first>healthcare</rdf:first>
+																																										<rdf:rest>
+																																											<rdf:Description>
+																																												<rdf:first>hospitality-leisure</rdf:first>
+																																												<rdf:rest>
+																																													<rdf:Description>
+																																														<rdf:first>infrastructure</rdf:first>
+																																														<rdf:rest>
+																																															<rdf:Description>
+																																																<rdf:first>dams</rdf:first>
+																																																<rdf:rest>
+																																																	<rdf:Description>
+																																																		<rdf:first>nuclear</rdf:first>
+																																																		<rdf:rest>
+																																																			<rdf:Description>
+																																																				<rdf:first>water</rdf:first>
+																																																				<rdf:rest>
+																																																					<rdf:Description>
+																																																						<rdf:first>insurance</rdf:first>
+																																																						<rdf:rest>
+																																																							<rdf:Description>
+																																																								<rdf:first>manufacturing</rdf:first>
+																																																								<rdf:rest>
+																																																									<rdf:Description>
+																																																										<rdf:first>mining</rdf:first>
+																																																										<rdf:rest>
+																																																											<rdf:Description>
+																																																												<rdf:first>non-profit</rdf:first>
+																																																												<rdf:rest>
+																																																													<rdf:Description>
+																																																														<rdf:first>pharmaceuticals</rdf:first>
+																																																														<rdf:rest>
+																																																															<rdf:Description>
+																																																																<rdf:first>retail</rdf:first>
+																																																																<rdf:rest>
+																																																																	<rdf:Description>
+																																																																		<rdf:first>technology</rdf:first>
+																																																																		<rdf:rest>
+																																																																			<rdf:Description>
+																																																																				<rdf:first>telecommunications</rdf:first>
+																																																																				<rdf:rest>
+																																																																					<rdf:Description>
+																																																																						<rdf:first>transportation</rdf:first>
+																																																																						<rdf:rest>
+																																																																							<rdf:Description>
+																																																																								<rdf:first>utilities</rdf:first>
+																																																																								<rdf:rest rdf:resource="&rdf;nil"/>
+																																																																							</rdf:Description>
+																																																																						</rdf:rest>
+																																																																					</rdf:Description>
+																																																																				</rdf:rest>
+																																																																			</rdf:Description>
+																																																																		</rdf:rest>
+																																																																	</rdf:Description>
+																																																																</rdf:rest>
+																																																															</rdf:Description>
+																																																														</rdf:rest>
+																																																													</rdf:Description>
+																																																												</rdf:rest>
+																																																											</rdf:Description>
+																																																										</rdf:rest>
+																																																									</rdf:Description>
+																																																								</rdf:rest>
+																																																							</rdf:Description>
+																																																						</rdf:rest>
+																																																					</rdf:Description>
+																																																				</rdf:rest>
+																																																			</rdf:Description>
+																																																		</rdf:rest>
+																																																	</rdf:Description>
+																																																</rdf:rest>
+																																															</rdf:Description>
+																																														</rdf:rest>
+																																													</rdf:Description>
+																																												</rdf:rest>
+																																											</rdf:Description>
+																																										</rdf:rest>
+																																									</rdf:Description>
+																																								</rdf:rest>
+																																							</rdf:Description>
+																																						</rdf:rest>
+																																					</rdf:Description>
+																																				</rdf:rest>
+																																			</rdf:Description>
+																																		</rdf:rest>
+																																	</rdf:Description>
+																																</rdf:rest>
+																															</rdf:Description>
+																														</rdf:rest>
+																													</rdf:Description>
+																												</rdf:rest>
+																											</rdf:Description>
+																										</rdf:rest>
+																									</rdf:Description>
+																								</rdf:rest>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndustrySectorVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>

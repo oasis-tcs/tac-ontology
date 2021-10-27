@@ -1,445 +1,1437 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY network-traffic "http://docs.oasis-open.org/cti/ns/stix/network-traffic#">
-	<!ENTITY networkTrafficCtx "http://docs.oasis-open.org/cti/ns/stix/network-traffic-context#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY networkTraffic "http://docs.oasis-open.org/ns/cti/stix/network-traffic#">
+	<!ENTITY networkTrafficCtx "http://docs.oasis-open.org/ns/cti/stix/network-traffic/context#">
+	<!ENTITY networkTrafficExt "http://docs.oasis-open.org/ns/cti/stix/ext/network-traffic#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/network-traffic-context"
-	xmlns:network-traffic="http://docs.oasis-open.org/cti/ns/stix/network-traffic#"
-	xmlns:networkTrafficCtx="http://docs.oasis-open.org/cti/ns/stix/network-traffic-context#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/network-traffic/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:networkTraffic="http://docs.oasis-open.org/ns/cti/stix/network-traffic#"
+	xmlns:networkTrafficCtx="http://docs.oasis-open.org/ns/cti/stix/network-traffic/context#"
+	xmlns:networkTrafficExt="http://docs.oasis-open.org/ns/cti/stix/ext/network-traffic#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/network-traffic-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/network-traffic"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/network-traffic/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/network-traffic"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<rdf:Description rdf:about="&stix;NetworkTraffic">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>network-traffic</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_byte_count"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_byte_count"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_packets"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_packets"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_payload_ref"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_port"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_ref"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_port"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;encapsulated_by_ref"/>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;end"/>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;is_active"/>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_byte_count"/>
+				<owl:onProperty rdf:resource="&networkTraffic;end"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_packets"/>
+				<owl:onProperty rdf:resource="&networkTraffic;is_active"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_payload_ref"/>
+				<owl:onProperty rdf:resource="&networkTraffic;src_byte_count"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_port"/>
+				<owl:onProperty rdf:resource="&networkTraffic;src_packets"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_ref"/>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;start"/>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;extensions"/>
-				<owl:someValuesFrom>
-					<owl:Class>
-						<owl:oneOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&network-traffic;HttpRequestExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&network-traffic;IcmpExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&network-traffic;SocketExtension">
-							</rdf:Description>
-							<rdf:Description rdf:about="&network-traffic;TcpExtension">
-							</rdf:Description>
-						</owl:oneOf>
-					</owl:Class>
-				</owl:someValuesFrom>
+				<owl:onProperty rdf:resource="&networkTraffic;src_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;start"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;HttpRequestExtension">
+	<rdf:Description rdf:about="&networkTrafficExt;HttpRequest">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;request_value"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>http-request-ext</owl:hasValue>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;message_body_data_ref"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;message_body_length"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;request_method"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;request_version"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;IcmpExtension">
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&networkTrafficExt;request_method"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;icmp_code_hex"/>
+				<owl:onProperty rdf:resource="&networkTrafficExt;request_value"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;icmp_type_hex"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>network-traffic</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;message_body_data_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;message_body_data_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;message_body_length"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;request_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;end"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;is_active"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;start"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;IcmpNetworkTraffic">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>icmp-ext</owl:hasValue>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;SocketExtension">
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;address_family"/>
+				<owl:onProperty rdf:resource="&networkTrafficExt;icmp_code_hex"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>socket-ext</owl:hasValue>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;is_blocking"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;is_listening"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;socket_descriptor"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;socket_handle"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;socket_type"/>
-				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;TcpExtension">
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&networkTrafficExt;icmp_type_hex"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>tcp-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>network-traffic</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;dst_flags_hex"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&network-traffic;src_flags_hex"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;end"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;is_active"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;start"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;address_family">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
+	<rdf:Description rdf:about="&networkTrafficExt;NetworkSocket">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;address_family"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>network-traffic</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;is_blocking"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;is_listening"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;socket_descriptor"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;socket_handle"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;socket_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;end"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;is_active"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;start"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;dst_byte_count">
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ACCEPTCONN">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ATTACH_BPF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ATTACH_FILTER">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ATTACH_REUSEPORT_CBPF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ATTACH_REUSEPORT_EBPF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_BINDTODEVICE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_BROADCAST">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_BSDCOMPAT">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_BUSY_POLL">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_DEBUG">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_DETACH_BPF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_DETACH_FILTER">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_DOMAIN">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_DONTROUTE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_ERROR">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_INCOMING_CPU">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_INCOMING_NAPI_ID">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_KEEPALIVE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_LINGER">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_LOCK_FILTER">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_MARK">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_OOBINLINE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PASSCRED">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PASSSEC">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PEEK_OFF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PEERCRED">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PEERSEC">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PRIORITY">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_PROTOCOL">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_RCVBUF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_RCVBUFFORCE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_RCVLOWAT">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_RCVTIMEO">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_REUSEADDR">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_REUSEPORT">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_RXQ_OVFL">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_SELECT_ERR_QUEUE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_SNDBUF">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_SNDBUFFORCE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_SNDLOWAT">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_SNDTIMEO">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_TIMESTAMP">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_TIMESTAMPNS">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SO_TYPE">
+		<rdfs:domain rdf:resource="&networkTrafficExt;SocketOptions"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;SocketOptions">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ACCEPTCONN"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ATTACH_BPF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ATTACH_FILTER"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ATTACH_REUSEPORT_CBPF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ATTACH_REUSEPORT_EBPF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_BINDTODEVICE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_BROADCAST"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_BSDCOMPAT"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_BUSY_POLL"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_DEBUG"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_DETACH_BPF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_DETACH_FILTER"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_DOMAIN"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_DONTROUTE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_ERROR"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_INCOMING_CPU"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_INCOMING_NAPI_ID"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_KEEPALIVE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_LINGER"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_LOCK_FILTER"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_MARK"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_OOBINLINE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PASSCRED"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PASSSEC"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PEEK_OFF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PEERCRED"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PEERSEC"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PRIORITY"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_PROTOCOL"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_RCVBUF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_RCVBUFFORCE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_RCVLOWAT"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_RCVTIMEO"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_REUSEADDR"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_REUSEPORT"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_RXQ_OVFL"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_SELECT_ERR_QUEUE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_SNDBUF"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_SNDBUFFORCE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_SNDLOWAT"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_SNDTIMEO"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_TIMESTAMP"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_TIMESTAMPNS"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;SO_TYPE"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;TcpNetworkTraffic">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>network-traffic</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;dst_flags_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTrafficExt;src_flags_hex"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;dst_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;encapsulated_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;end"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;is_active"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_byte_count"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_packets"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_payload_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_port"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;src_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&networkTraffic;start"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;address_family">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;dst_flags_hex">
+		<rdfs:domain rdf:resource="&networkTrafficExt;TcpNetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;icmp_code_hex">
+		<rdfs:domain rdf:resource="&networkTrafficExt;IcmpNetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;icmp_type_hex">
+		<rdfs:domain rdf:resource="&networkTrafficExt;IcmpNetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;is_blocking">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;is_listening">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;message_body_data_ref">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;message_body_data_ref_id">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;message_body_length">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;options">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;request_header">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;request_method">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;request_value">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;request_version">
+		<rdfs:domain rdf:resource="&networkTrafficExt;HttpRequest"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;socket_descriptor">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;socket_handle">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;socket_type">
+		<rdfs:domain rdf:resource="&networkTrafficExt;NetworkSocket"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTrafficExt;src_flags_hex">
+		<rdfs:domain rdf:resource="&networkTrafficExt;TcpNetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;dst_byte_count">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;dst_flags_hex">
-		<rdfs:domain rdf:resource="&network-traffic;TcpExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;dst_packets">
+	<rdf:Description rdf:about="&networkTraffic;dst_packets">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;dst_payload_ref">
+	<rdf:Description rdf:about="&networkTraffic;dst_payload_ref">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;dst_port">
+	<rdf:Description rdf:about="&networkTraffic;dst_payload_ref_id">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;dst_ref">
+	<rdf:Description rdf:about="&networkTraffic;dst_port">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;encapsulated_by_ref">
+	<rdf:Description rdf:about="&networkTraffic;dst_ref">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;encapsulates_refs">
+	<rdf:Description rdf:about="&networkTraffic;dst_ref_id">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;end">
+	<rdf:Description rdf:about="&networkTraffic;encapsulated_by_ref">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;icmp_code_hex">
-		<rdfs:domain rdf:resource="&network-traffic;IcmpExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;icmp_type_hex">
-		<rdfs:domain rdf:resource="&network-traffic;IcmpExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;ipfix">
+	<rdf:Description rdf:about="&networkTraffic;encapsulated_by_ref_id">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;is_active">
+	<rdf:Description rdf:about="&networkTraffic;encapsulates_refs">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;is_blocking">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;is_listening">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;message_body_data_ref">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;message_body_length">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;protocols">
+	<rdf:Description rdf:about="&networkTraffic;encapsulates_refs_id">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;request_header">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;request_method">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;request_value">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;request_version">
-		<rdfs:domain rdf:resource="&network-traffic;HttpRequestExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;socket_descriptor">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;socket_handle">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;socket_type">
-		<rdfs:domain rdf:resource="&network-traffic;SocketExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;src_byte_count">
+	<rdf:Description rdf:about="&networkTraffic;end">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;src_flags_hex">
-		<rdfs:domain rdf:resource="&network-traffic;TcpExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="&network-traffic;src_packets">
+	<rdf:Description rdf:about="&networkTraffic;ipfix">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;src_payload_ref">
+	<rdf:Description rdf:about="&networkTraffic;is_active">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;src_port">
+	<rdf:Description rdf:about="&networkTraffic;protocols">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;src_ref">
+	<rdf:Description rdf:about="&networkTraffic;src_byte_count">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="&network-traffic;start">
+	<rdf:Description rdf:about="&networkTraffic;src_packets">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;src_payload_ref">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;src_payload_ref_id">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;src_port">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;src_ref">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;src_ref_id">
+		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&networkTraffic;start">
 		<rdfs:domain rdf:resource="&stix;NetworkTraffic"/>
 	</rdf:Description>
 

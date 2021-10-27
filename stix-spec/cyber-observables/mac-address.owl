@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY mac-addr "http://docs.oasis-open.org/cti/ns/stix/mac-address#">
+	<!ENTITY macAddr "http://docs.oasis-open.org/ns/cti/stix/mac-address#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/mac-address"
-	xmlns:mac-addr="http://docs.oasis-open.org/cti/ns/stix/mac-address#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/mac-address"
+	xmlns:macAddr="http://docs.oasis-open.org/ns/cti/stix/mac-address#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/mac-address">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/mac-address">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;MACAddress">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXCyberObservableObject"/>
-		<rdfs:label>MACAddress</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&stixCore;CyberObservable"/>
+		<rdfs:label xml:lang="en-US">MACAddress</rdfs:label>
 		<rdfs:comment xml:lang="en-US">The MAC Address object represents a single Media Access Control (MAC) address.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:DatatypeProperty rdf:about="&mac-addr;value">
-		<rdfs:label>value</rdfs:label>
+	<owl:DatatypeProperty rdf:about="&macAddr;value">
+		<rdfs:label xml:lang="en-US">value</rdfs:label>
 		<rdfs:comment xml:lang="en-US">Specifies the value of a single MAC address.\n\nThe MAC address value MUST be represented as a single colon-delimited, lowercase MAC-48 address, which MUST include leading zeros for each octet.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>

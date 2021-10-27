@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY opinion "http://docs.oasis-open.org/ns/cti/stix/opinion#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/opinion"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:opinion="http://docs.oasis-open.org/ns/cti/stix/opinion#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/opinion">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&stix;Opinion">
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Opinion</rdfs:label>
+		<rdfs:comment xml:lang="en-US">An Opinion is an assessment of the correctness of the information in a STIX Object produced by a different entity. The primary property is the opinion property, which captures the level of agreement or disagreement using a fixed scale. That fixed scale also supports a numeric mapping to allow for consistent statistical operations across opinions.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&opinion;explanation">
+		<rdfs:label xml:lang="en-US">explanation</rdfs:label>
+		<rdfs:comment xml:lang="en-US">An explanation of why the producer has this Opinion.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&opinion;opinion">
+		<rdfs:label xml:lang="en-US">opinion</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the opinion that the producer has about all of the STIX Object(s) listed in the object_refs property.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>strongly-disagree</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>disagree</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>neutral</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>agree</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>strongly-agree</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
+					</rdf:Description>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

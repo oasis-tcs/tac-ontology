@@ -1,260 +1,353 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
-	<!ENTITY userAccntCtx "http://docs.oasis-open.org/cti/ns/stix/user-account-context#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY userAccnt "http://docs.oasis-open.org/ns/cti/stix/user-account#">
+	<!ENTITY userAccntCtx "http://docs.oasis-open.org/ns/cti/stix/user-account/context#">
+	<!ENTITY userAccntExt "http://docs.oasis-open.org/ns/cti/stix/ext/unix-user-account#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/user-account-context"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/user-account/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
-	xmlns:userAccntCtx="http://docs.oasis-open.org/cti/ns/stix/user-account-context#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:userAccnt="http://docs.oasis-open.org/ns/cti/stix/user-account#"
+	xmlns:userAccntCtx="http://docs.oasis-open.org/ns/cti/stix/user-account/context#"
+	xmlns:userAccntExt="http://docs.oasis-open.org/ns/cti/stix/ext/unix-user-account#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account-context">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/user-account/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/user-account"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<rdf:Description rdf:about="&stix;UserAccount">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;id"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
 				<owl:hasValue>user-account</owl:hasValue>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;defanged"/>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;spec_version"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_created"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_created"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_expires"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_expires"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_first_login"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_first_login"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_last_login"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_last_login"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_login"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_login"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#account_type"/>
+				<owl:onProperty rdf:resource="&userAccnt;account_type"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#can_escalate_privs"/>
+				<owl:onProperty rdf:resource="&userAccnt;can_escalate_privs"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#credential"/>
+				<owl:onProperty rdf:resource="&userAccnt;credential"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#credential_last_changed"/>
+				<owl:onProperty rdf:resource="&userAccnt;credential_last_changed"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#display_name"/>
+				<owl:onProperty rdf:resource="&userAccnt;display_name"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#is_disabled"/>
+				<owl:onProperty rdf:resource="&userAccnt;is_disabled"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#is_privileged"/>
+				<owl:onProperty rdf:resource="&userAccnt;is_privileged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#is_service_account"/>
+				<owl:onProperty rdf:resource="&userAccnt;is_service_account"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#user_id"/>
+				<owl:onProperty rdf:resource="&userAccnt;user_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;extensions"/>
-				<owl:someValuesFrom>
-					<owl:Class>
-						<owl:oneOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension">
-							</rdf:Description>
-						</owl:oneOf>
-					</owl:Class>
-				</owl:someValuesFrom>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension">
+	<rdf:Description rdf:about="&userAccntExt;UnixUserAccount">
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
+				<owl:onProperty rdf:resource="&cti;id"/>
 				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&stixCore;type"/>
-				<owl:hasValue>unix-account-ext</owl:hasValue>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#gid"/>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>user-account</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#home_dir"/>
+				<owl:onProperty rdf:resource="&stix;defanged"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#shell"/>
+				<owl:onProperty rdf:resource="&userAccntExt;gid"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccntExt;home_dir"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccntExt;shell"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_created"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_expires"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_first_login"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_last_login"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_login"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;account_type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;can_escalate_privs"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;credential"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;credential_last_changed"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;display_name"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;is_disabled"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;is_privileged"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;is_service_account"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&userAccnt;user_id"/>
 				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_created">
+	<rdf:Description rdf:about="&userAccntExt;gid">
+		<rdfs:domain rdf:resource="&userAccntExt;UnixUserAccount"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&userAccntExt;groups">
+		<rdfs:domain rdf:resource="&userAccntExt;UnixUserAccount"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&userAccntExt;home_dir">
+		<rdfs:domain rdf:resource="&userAccntExt;UnixUserAccount"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&userAccntExt;shell">
+		<rdfs:domain rdf:resource="&userAccntExt;UnixUserAccount"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&userAccnt;account_created">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_expires">
+	<rdf:Description rdf:about="&userAccnt;account_expires">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_first_login">
+	<rdf:Description rdf:about="&userAccnt;account_first_login">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_last_login">
+	<rdf:Description rdf:about="&userAccnt;account_last_login">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_login">
+	<rdf:Description rdf:about="&userAccnt;account_login">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#account_type">
+	<rdf:Description rdf:about="&userAccnt;account_type">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#can_escalate_privs">
+	<rdf:Description rdf:about="&userAccnt;can_escalate_privs">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#credential">
+	<rdf:Description rdf:about="&userAccnt;credential">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#credential_last_changed">
+	<rdf:Description rdf:about="&userAccnt;credential_last_changed">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#display_name">
+	<rdf:Description rdf:about="&userAccnt;display_name">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#gid">
-		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#groups">
-		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#home_dir">
-		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#is_disabled">
+	<rdf:Description rdf:about="&userAccnt;is_disabled">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#is_privileged">
+	<rdf:Description rdf:about="&userAccnt;is_privileged">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#is_service_account">
+	<rdf:Description rdf:about="&userAccnt;is_service_account">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#shell">
-		<rdfs:domain rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account#UnixAccountExtension"/>
-	</rdf:Description>
-	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/user-account#user_id">
+	<rdf:Description rdf:about="&userAccnt;user_id">
 		<rdfs:domain rdf:resource="&stix;UserAccount"/>
 	</rdf:Description>
 

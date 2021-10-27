@@ -1,69 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY indicator "http://docs.oasis-open.org/cti/ns/stix/indicator#">
+	<!ENTITY indicator "http://docs.oasis-open.org/ns/cti/stix/indicator#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/indicator"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/indicator#"
-	xmlns:indicator="http://docs.oasis-open.org/cti/ns/stix/indicator#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/indicator"
+	xmlns:indicator="http://docs.oasis-open.org/ns/cti/stix/indicator#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/indicator">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/indicator">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
-	<owl:Class rdf:about="http://docs.oasis-open.org/cti/ns/stix#Indicator">
-		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core#STIXDomainObject"/>
-		<rdfs:label>Indicator</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Indicators contain a pattern that can be used to detect suspicious or malicious cyber activity. For example, an Indicator may be used to represent a set of malicious domains and use the STIX Patterning Language to specify these domains.\n\nThe Indicator SDO contains a simple textual description, the Kill Chain Phases that it detects behavior in, a time window for when the Indicator is valid or useful, and a required pattern property to capture a structured detection pattern. Conforming STIX implementations MUST support the STIX Patterning Language.\n\nRelationships from the Indicator can describe the malicious or suspicious behavior that it directly detects (Malware, Tool, and Attack Pattern). In addition, it may also imply the presence of a Campaigns, Intrusion Sets, and Threat Actors, etc.</rdfs:comment>
+	<owl:Class rdf:about="&stix;Indicator">
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Indicator</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Indicators contain a pattern that can be used to detect suspicious or malicious cyber activity. For example, an Indicator may be used to represent a set of malicious domains and use the STIX Patterning Language to specify these domains.\n\nThe Indicator SDO contains a simple textual description, the Kill Chain Phases that it detects behavior in, a time window for when the Indicator is valid or useful, and a required pattern property to capture a structured detection pattern. Conforming STIX implementations MUST support the STIX Patterning Language.\n\nRelationships from the Indicator can describe the malicious or suspicious behavior that it directly detects (Malware, Tool, and Attack Pattern). In addition, it may also imply the presence of a Campaigns, Intrusion Sets, and Threat Actors, etc.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;indicator_types">
-		<rdfs:label>indicator types</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies A set of categorizations for this indicator.\n\nThe values for this property SHOULD come from the indicator-type-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">indicator types</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies A set of categorizations for this indicator.\n\nThe values for this property SHOULD come from the indicator-type-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndicatorTypeOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>anomalous-activity</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>anonymization</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>benign</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>compromised</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>malicious-activity</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>attribution</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>unknown</rdf:first>
+																		<rdf:rest rdf:resource="&rdf;nil"/>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#IndicatorTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;pattern">
-		<rdfs:label>pattern</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the detection pattern for this Indicator MAY be expressed as a STIX Pattern or another appropriate language such as SNORT, YARA, etc.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">pattern</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the detection pattern for this Indicator MAY be expressed as a STIX Pattern or another appropriate language such as SNORT, YARA, etc.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;pattern_type">
-		<rdfs:label>pattern_type</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the pattern language used in this indicator.\n\nThe value for this property SHOULD come from the pattern-type-ov open vocabulary.\n\nThe value of this property MUST match the type of pattern data included in the pattern property.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">pattern_type</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the pattern language used in this indicator.\n\nThe value for this property SHOULD come from the pattern-type-ov open vocabulary.\n\nThe value of this property MUST match the type of pattern data included in the pattern property.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#PatternTypeOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>stix</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>pcre</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>sigma</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>snort</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>suricata</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>yara</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#PatternTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&indicator;pattern_version">
-		<rdfs:label>pattern_version</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the version of the pattern language that is used for the data in the pattern property which MUST match the type of pattern data included in the pattern property.\n\nFor patterns that do not have a formal specification, the build or code version that the pattern is known to work with SHOULD be used.\n\nFor the STIX Pattern language, the default value is determined by the specification version of the object.\n\nFor other languages, the default value SHOULD be the latest version of the patterning language at the time of this object&apos;s creation.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">pattern_version</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the version of the pattern language that is used for the data in the pattern property which MUST match the type of pattern data included in the pattern property.\n\nFor patterns that do not have a formal specification, the build or code version that the pattern is known to work with SHOULD be used.\n\nFor the STIX Pattern language, the default value is determined by the specification version of the object.\n\nFor other languages, the default value SHOULD be the latest version of the patterning language at the time of this object&apos;s creation.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 

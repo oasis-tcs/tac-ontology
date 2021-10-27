@@ -3,57 +3,60 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stix-spec "http://docs.oasis-open.org/cti/ns/stix/stix-spec#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stix-spec "http://docs.oasis-open.org/ns/cti/stix/stix-spec#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/stix-spec"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/stix-spec"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stix-spec="http://docs.oasis-open.org/cti/ns/stix/stix-spec#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stix-spec="http://docs.oasis-open.org/ns/cti/stix/stix-spec#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/stix-spec">
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/stix-spec">
 		<rdfs:comment xml:lang="en-US">This ontology is the master ontology for the definition the concepts contained in the STIX 2.1.0 specification.  It imports all the various STIX ontologies files to create an unified ontology based on the various component ontologies that make up STIX.</rdfs:comment>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/adversary-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/artifact-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/attack-pattern-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/autonomous-system-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/campaign-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/course-of-action-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/directory-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/domain-name-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/email-address-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/file-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/identity-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/indicator-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/infrastructure-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/ip-address-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/language-content-ctx"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/location-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mac-address-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/malware-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/marking-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/message-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/mutex-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/network-traffic-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/observed-data-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/process-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/relationship-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/sighting-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/software-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/stix-core-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/tool-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/uri-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/user-account-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vocabulary-user-defs"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/vulnerability-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/windows-registry-context"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/x509-certificate-context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/adversary/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/artifact/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/attack-pattern/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/autonomous-system/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/campaign/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/course-of-action/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/directory/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/domain-name/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/email-address/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/file/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/grouping/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/identity/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/incident/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/indicator/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/infrastructure/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/ip-address/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/language-content/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/location/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mac-address/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/malware/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/message/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/mutex/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/network-traffic/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/note/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/observed-data/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/opinion/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/relationship/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/report/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/sighting/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/software/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/tool/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/uri/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/user-account/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/vulnerability/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/windows-registry/context"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/x509-certificate/context"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 

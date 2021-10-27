@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti"
+	xmlns="http://docs.oasis-open.org/ns/cti#"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti">
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&cti;ComplexType">
+		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:label xml:lang="en-us">ComplexType</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract base object from which all complex datatypes are derived.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;ExtensionDefinition">
+		<rdfs:subClassOf rdf:resource="&cti;Object"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:someValuesFrom rdf:resource="&cti;Identity"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;extension_types"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;schema"/>
+				<owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;version"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en-us">Extension Definition</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The Extension Definition object defines detailed information about the extensions that are in use in the data model content that they created.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;ExternalReference">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;external_id"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:someValuesFrom rdf:resource="&cti;Hashes"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;source_name"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;url"/>
+				<owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en-us">ExternalReference</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Used to describe pointers to information represented external to this data model. For example, a Malware object could use an external reference to indicate an ID for that malware in an external database or a report could use references to represent source material.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;Hash">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-us">Hash</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents a single cryptographic hash.  Accordingly, the name of each hashing algorithm MUST be specified as the value of the hash_algorithm property that identifies the name of the hashing algorithm used to generate the corresponding value. The value of the hashsum of the content cryptographically hashed with that algorithm MUST be specified as the value of the hash_value property.  The name of the hash algorithm SHOULD come from one of the values defined in the hash-algorithm-ov open vocabulary.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;Hashes">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-us">Hashes</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents one or more cryptographic hashes, as a special set of key/value pairs. Accordingly, the name of each hashing algorithm MUST be specified as a predicate and MUST identify the name of the hashing algorithm used to generate the corresponding value. This name SHOULD come from one of the values defined in the hash-algorithm-ov open vocabulary.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;Identity">
+		<rdfs:subClassOf rdf:resource="&cti;Object"/>
+		<rdfs:label xml:lang="en-us">CTI Identity</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents an identity</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&cti;KeyValuePair">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-us">KeyValue</rdfs:label>
+		<rdfs:comment xml:lang="en-us">A key-value pair (KVP) is a set of two linked data items: a key, which is a unique identifier for some item of data, and the value, which is either the data that is identified or a pointer to the location of that data. The key MUST be unique in each dictionary, MUST be in ASCII, and are limited to the characters a-z (lowercase ASCII), A-Z (uppercase ASCII), numerals 0-9, hyphen (-), and underscore (_). Dictionary keys MUST be no longer than 250 ASCII characters in length and SHOULD be lowercase.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&cti;MD5_hash_value">
+		<rdfs:label xml:lang="en-us">MD5 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the MD5 message digest algorithm. The corresponding hash string for this value MUST be a valid MD5 message digest as defined in [RFC1321].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:Class rdf:about="&cti;Object">
+		<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en-us">CTI Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract base object from which all Cyber Threat Intelligence objects are derived.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SHA-1_hash_value">
+		<rdfs:label xml:lang="en-us">SHA-1 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the SHA-1 (secure-hash algorithm 1) cryptographic hash function. The corresponding hash string for this value MUST be a valid SHA-1 message digest as defined in [RFC3174].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SHA-256_hash_value">
+		<rdfs:label xml:lang="en-us">SHA-256 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the SHA-256 cryptographic hash function (part of the SHA2 family). The corresponding hash string for this value MUST be a valid SHA-256 message digest as defined in [RFC6234].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SHA-512_hash_value">
+		<rdfs:label xml:lang="en-us">SHA-512 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the SHA-512 cryptographic hash function (part of the SHA2 family). The corresponding hash string for this value MUST be a valid SHA-512 message digest as defined in [RFC6234].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SHA3-256_hash_value">
+		<rdfs:label xml:lang="en-us">SHA3-256 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the SHA3-256 cryptographic hash function. The corresponding hash string for this value MUST be a valid SHA3-256 message digest as defined in [FIPS202].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SHA3-512_hash_value">
+		<rdfs:label xml:lang="en-us">SHA3-512 Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the SHA3-512 cryptographic hash function. The corresponding hash string for this value MUST be a valid SHA3-512 message digest as defined in [FIPS202].</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;SSDEEP_hash_value">
+		<rdfs:label xml:lang="en-us">SSDEEP Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the ssdeep fuzzy hashing algorithm. The corresponding hash string for this value MUST be a valid piecewise hash as defined in the [SSDEEP] specification.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;TLSH_hash_value">
+		<rdfs:label xml:lang="en-us">TLSH Hash Value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the TLSH fuzzy hashing algorithm. The corresponding hash string for this value MUST be a valid 35 byte long hash as defined in the [TLSH] specification.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;abstract">
+		<rdfs:label xml:lang="en-us">abstract</rdfs:label>
+		<rdfs:comment xml:lang="en-us">A brief summary of the content.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;administrative_area">
+		<rdfs:label xml:lang="en-us">administrative_area</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The state, province, or other sub-national administrative area that this Location describes.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;aliases">
+		<rdfs:label xml:lang="en-us">aliases</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of other names that this entity is believed to use or is referred to by.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;analysis_ended">
+		<rdfs:label xml:lang="en-us">analysis_ended</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time that the analysis ended.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;analysis_started">
+		<rdfs:label xml:lang="en-us">analysis_started</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time that the analysis was initiated.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;atime">
+		<rdfs:label xml:lang="en-us">atime</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time the directory or file was last accessed.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;authors">
+		<rdfs:label xml:lang="en-us">authors</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of the names of the author(s) of the content.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;city">
+		<rdfs:label xml:lang="en-us">city</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The name of the city.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;confidence">
+		<rdfs:label xml:lang="en-us">confidence</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Identifies the confidence that the creator has in the correctness of their data. The confidence value MUST be a number in the range of 0-100.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:onDatatype rdf:resource="&xsd;nonNegativeInteger"/>
+				<owl:withRestrictions rdf:parseType="Collection">
+					<rdf:Description>
+						<xsd:maxInclusive rdf:datatype="&xsd;nonNegativeInteger">100</xsd:maxInclusive>
+					</rdf:Description>
+				</owl:withRestrictions>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;content">
+		<rdfs:label xml:lang="en-us">content</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the content of the note.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;count">
+		<rdfs:label xml:lang="en-us">count</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a count of the number of times the something occurred.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;country">
+		<rdfs:label xml:lang="en-us">country</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The valid ISO 3166-1 ALPHA-2 Code [ISO3166-1] that is asigned to the country.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;created">
+		<rdfs:label xml:lang="en-us">created</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Idicates the date and time at which the object was originally created.\n\nThe object creator can use the time it deems most appropriate as the time the object was created. The minimum precision MUST be milliseconds (three digits after the decimal place in seconds), but MAY be more precise.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&cti;created_by_ref">
+		<rdfs:label xml:lang="en-us">created_by_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a reference to  the Identity object that describes the entity that created this object.\n\nIf this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.</rdfs:comment>
+		<rdfs:range rdf:resource="&cti;Identity"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;created_by_ref_id">
+		<rdfs:label xml:lang="en-us">created_by_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the identifier of the Identity object that describes the entity that created this object.\n\nIf this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;ctime">
+		<rdfs:label xml:lang="en-us">ctime</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time the file or directory was created.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;description">
+		<rdfs:label xml:lang="en-us">description</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a human readable description.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;extension_properties">
+		<rdfs:label xml:lang="en-us">extension_properties</rdfs:label>
+		<rdfs:comment xml:lang="en-us">This property contains the list of new property names that are added to an object by an extension.\n\nThis property MUST only be used when the extension_types property includes a value of toplevel-property-extension. In other words, when new properties are being added at the top-level of an existing object</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;extension_types">
+		<rdfs:label xml:lang="en-us">extension types</rdfs:label>
+		<rdfs:comment xml:lang="en-us">This property specifies one or more extension types contained within this extension.\n\The values for this property MUST come from the extension-type-enum enumeration.\n\nWhen this property includes toplevel-property-extension then the  extension_properties property SHOULD include one or more property names.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>legacy</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>new-sco</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>new-sdo</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>new-sro</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>property-extension</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>toplevel-property-extension</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&cti;extensions">
+		<rdfs:label xml:lang="en-us">extensions</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies any extensions of the object</rdfs:comment>
+		<rdfs:range rdf:resource="&cti;ExtensionDefinition"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;external_id">
+		<rdfs:label xml:lang="en-us">external id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">An identifier for the external reference content.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&cti;external_references">
+		<rdfs:label xml:lang="en-us">external_references</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of ExternalReferences, each of which refers to information external to the data model. This property is used to provide one or more URLs, descriptions, or IDs to records in other systems.</rdfs:comment>
+		<rdfs:range rdf:resource="&cti;ExternalReference"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;first_seen">
+		<rdfs:label xml:lang="en-us">first_seen</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time that this entity was first seen.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;hash_algorithm">
+		<rdfs:label xml:lang="en-us">hash_algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents the cryptographic hash algorithm used.\n\nThe name of the cryptographic hash algorithm used SHOULD come from one of the values defined in the hash-algorithm-ov open vocabulary.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>MD5</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>SHA-1</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>SHA-256</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>SHA-512</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>SHA3-256</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>SHA3-512</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>SSDEEP</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>TLSH</rdf:first>
+																				<rdf:rest rdf:resource="&rdf;nil"/>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;hash_value">
+		<rdfs:label xml:lang="en-us">hash_value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents the cryptographic hash value.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&cti;hashes">
+		<rdfs:label xml:lang="en-us">hashes</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a set of hashes for the contents of the url. This SHOULD be provided when the url property is present.\n\nDictionary keys MUST come from one of the entries listed in the hash-algorithm-ov open vocabulary.</rdfs:comment>
+		<rdfs:range rdf:resource="&cti;Hashes"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;id">
+		<rdfs:label xml:lang="en-us">id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Uniquely identifies this object.</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;key_identifier">
+		<rdfs:label xml:lang="en-us">key_identifier</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a unique identifer for some item of data.  The key MUST be in ASCII, and are limited to the characters a-z (lowercase ASCII), A-Z (uppercase ASCII), numerals 0-9, hyphen (-), and underscore (_). A key identifier MUST be no longer than 250 ASCII characters in length and SHOULD be lowercase.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;key_value">
+		<rdfs:label xml:lang="en-us">key_value</rdfs:label>
+		<rdfs:comment xml:lang="en-us">A key value is the data that is associated with the key identified. The values MUST be valid property base types.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;anyURI"/>
+		<rdfs:range rdf:resource="&xsd;float"/>
+		<rdfs:range rdf:resource="&xsd;integer"/>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;labels">
+		<rdfs:label xml:lang="en-us">labels</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined and their meaning is outside the scope of this specification and MAY be ignored.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;lang">
+		<rdfs:label xml:lang="en-us">lang</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Identifies the language of the text content in this object. When present, it MUST be a language code conformant to [RFC5646]. If the property is not present, then the language of the content is en (English).\n\nThis property SHOULD be present if the object type contains translatable text properties (e.g. name, description).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;languages">
+		<rdfs:label xml:lang="en-us">languages</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the languages supported by the software. The value of each list member MUST be an ISO 639-2 language code</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;last_seen">
+		<rdfs:label xml:lang="en-us">last_seen</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time that this entity was last seen.  The value MUST be greater than or equal to the timestamp in the first_seen property.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;latitude">
+		<rdfs:label xml:lang="en-us">latitude</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The WGS84 latitude of a SpatialThing (decimal degrees).\n\nPositive numbers describe latitudes north of the equator, and negative numbers describe latitudes south of the equator. The value of this property MUST be between -90.0 and 90.0, inclusive.\n\nIf the longitude property is present, this property MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;longitude">
+		<rdfs:label xml:lang="en-us">longitude</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The WGS84 longitude of a SpatialThing (decimal degrees).\n\nPositive numbers describe longitudes east of the prime meridian and negative numbers describe longitudes west of the prime meridian. The value of this property MUST be between -180.0 and 180.0, inclusive.\n\nIf the latitude property is present, this property MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;mime_type">
+		<rdfs:label xml:lang="en-us">mime_type</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the MIME type name specified for the object.\n\nWhenever feasible, this value SHOULD be one of the values defined in the Template column in the IANA media type registry [Media Types].\n\nMaintaining a comprehensive universal catalog of all extant file types is obviously not possible. When specifying a MIME Type not included in the IANA registry, implementers should use their best judgement so as to facilitate interoperability.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;modified">
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;mtime">
+		<rdfs:label xml:lang="en-us">mtime</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time the directory or file was last written to/modified.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;name">
+		<rdfs:label xml:lang="en-us">name</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the name used to identity the entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;object_type">
+		<rdfs:label xml:lang="en-us">object_type</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Identifies the type of the Object. The value of the type property MUST be the name of one of the types of Objects or the name of a custom Object.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;postal_code">
+		<rdfs:label xml:lang="en-us">postal_code</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the postal code for this location.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;precision">
+		<rdfs:label xml:lang="en-us">precision</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Defines the precision of the coordinates specified by the latitude and longitude properties. This is measured in meters. The actual Location may be anywhere up to precision meters from the defined point.\n\nIf this property is not present, then the precision is unspecified.\n\nIf this property is present, the latitude and longitude properties MUST be present.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;decimal"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;published">
+		<rdfs:label xml:lang="en-us">published</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date that this Report object was officially published by the creator of this report. The publication date (public release, legal release, etc.) may be different than the date the report was created or shared internally (the date in the created property).</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;region">
+		<rdfs:label xml:lang="en-us">region</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The region that this Location describes.\n\nThe value for this property SHOULD come from the region-ov open vocabulary.</rdfs:comment>
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>africa</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>americas</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>antarctica</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>asia</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>australia-new-zealand</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>caribbean</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>central-america</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>central-asia</rdf:first>
+																				<rdf:rest>
+																					<rdf:List>
+																						<rdf:first>eastern-africa</rdf:first>
+																						<rdf:rest>
+																							<rdf:List>
+																								<rdf:first>eastern-asia</rdf:first>
+																								<rdf:rest>
+																									<rdf:List>
+																										<rdf:first>eastern-europe</rdf:first>
+																										<rdf:rest>
+																											<rdf:List>
+																												<rdf:first>europe</rdf:first>
+																												<rdf:rest>
+																													<rdf:List>
+																														<rdf:first>latin-america-caribbean</rdf:first>
+																														<rdf:rest>
+																															<rdf:List>
+																																<rdf:first>melanesia</rdf:first>
+																																<rdf:rest>
+																																	<rdf:List>
+																																		<rdf:first>micronesia</rdf:first>
+																																		<rdf:rest>
+																																			<rdf:List>
+																																				<rdf:first>middle-africa</rdf:first>
+																																				<rdf:rest>
+																																					<rdf:List>
+																																						<rdf:first>northern-africa</rdf:first>
+																																						<rdf:rest>
+																																							<rdf:List>
+																																								<rdf:first>northern-america</rdf:first>
+																																								<rdf:rest>
+																																									<rdf:List>
+																																										<rdf:first>northern-europe</rdf:first>
+																																										<rdf:rest>
+																																											<rdf:List>
+																																												<rdf:first>oceana</rdf:first>
+																																												<rdf:rest>
+																																													<rdf:List>
+																																														<rdf:first>polynesia</rdf:first>
+																																														<rdf:rest>
+																																															<rdf:List>
+																																																<rdf:first>south-america</rdf:first>
+																																																<rdf:rest>
+																																																	<rdf:List>
+																																																		<rdf:first>south-eastern-asia</rdf:first>
+																																																		<rdf:rest>
+																																																			<rdf:List>
+																																																				<rdf:first>southern-africa</rdf:first>
+																																																				<rdf:rest>
+																																																					<rdf:List>
+																																																						<rdf:first>southern-asia</rdf:first>
+																																																						<rdf:rest>
+																																																							<rdf:List>
+																																																								<rdf:first>southern-europe</rdf:first>
+																																																								<rdf:rest>
+																																																									<rdf:List>
+																																																										<rdf:first>western-africa</rdf:first>
+																																																										<rdf:rest>
+																																																											<rdf:List>
+																																																												<rdf:first>western-asia</rdf:first>
+																																																												<rdf:rest>
+																																																													<rdf:List>
+																																																														<rdf:first>western-europe</rdf:first>
+																																																														<rdf:rest rdf:resource="&rdf;nil"/>
+																																																													</rdf:List>
+																																																												</rdf:rest>
+																																																											</rdf:List>
+																																																										</rdf:rest>
+																																																									</rdf:List>
+																																																								</rdf:rest>
+																																																							</rdf:List>
+																																																						</rdf:rest>
+																																																					</rdf:List>
+																																																				</rdf:rest>
+																																																			</rdf:List>
+																																																		</rdf:rest>
+																																																	</rdf:List>
+																																																</rdf:rest>
+																																															</rdf:List>
+																																														</rdf:rest>
+																																													</rdf:List>
+																																												</rdf:rest>
+																																											</rdf:List>
+																																										</rdf:rest>
+																																									</rdf:List>
+																																								</rdf:rest>
+																																							</rdf:List>
+																																						</rdf:rest>
+																																					</rdf:List>
+																																				</rdf:rest>
+																																			</rdf:List>
+																																		</rdf:rest>
+																																	</rdf:List>
+																																</rdf:rest>
+																															</rdf:List>
+																														</rdf:rest>
+																													</rdf:List>
+																												</rdf:rest>
+																											</rdf:List>
+																										</rdf:rest>
+																									</rdf:List>
+																								</rdf:rest>
+																							</rdf:List>
+																						</rdf:rest>
+																					</rdf:List>
+																				</rdf:rest>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;revoked">
+		<rdfs:label xml:lang="en-us">revoked</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Indicates whether the object has been revoked.\n\nRevoked objects are no longer considered valid by the object creator. Revoking an object is permanent; future versions of the object with this id MUST NOT be created.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;schema">
+		<rdfs:label xml:lang="en-us">schema</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a URL that points to a JSON schema or a location that contains information about the schema.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;anyURI"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;source_name">
+		<rdfs:label xml:lang="en-us">source name</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The name of the source that the external reference is defined within.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;spec_version">
+		<rdfs:label xml:lang="en-us">spec_version</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Identifies the version of the specification used to represent this object.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;start_time">
+		<rdfs:label xml:lang="en-us">start_time</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents the earliest date and time at which the Relationship between the objects exists. If this property is a future timestamp, at the time the start_time property is defined, then this represents an estimate by the producer of the intelligence of the earliest time at which relationship will be asserted to be true.\n\nIf it is not specified, then the earliest time at which the relationship between the objects exists is not defined.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;stop_time">
+		<rdfs:label xml:lang="en-us">stop_time</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the latest date and time at which the Relationship between the objects exists. If this property is a future timestamp, at the time the stop_time property is defined, then this represents an estimate by the producer of the intelligence of the latest time at which relationship will be asserted to be true.\n\nIf start_time and stop_time are both defined, then stop_time MUST be later than the start_time value.\n\nIf stop_time is not specified, then the latest time at which the relationship between the objects exists is either not known, not disclosed, or has no defined stop time.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;street_address">
+		<rdfs:label xml:lang="en-us">street_address</rdfs:label>
+		<rdfs:comment xml:lang="en-us">The street address that this Location describes. This property includes all aspects or parts of the street address. For example, some addresses may have multiple lines including a mailstop or apartment number.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;submitted">
+		<rdfs:label xml:lang="en-us">submitted</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time that the entity was first submitted for scanning or analysis. This value will stay constant while the scanned date can change.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;type">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;url">
+		<rdfs:label xml:lang="en-us">url</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a URL reference to an external resource</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;anyURI"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;valid_from">
+		<rdfs:label xml:lang="en-us">valid_from</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time from which this this entity is considered to be valid  for the behaviors it is related or represents.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;valid_until">
+		<rdfs:label xml:lang="en-us">valid_until</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the date and time at which this entity should no longer be considered valid for the behaviors it is related to or represents.\n\nIf the valid_until property is omitted, then there is no constraint on the latest time for which the entity is valid.\n\nThis MUST be greater than the timestamp in the valid_from property.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;vendor">
+		<rdfs:label xml:lang="en-us">vendor</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the name of the vendor of the software.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&cti;version">
+		<rdfs:label xml:lang="en-us">version</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the version of the entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -15,16 +15,17 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://docs.oasis-open.org/tac/ns/tac">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix-semex"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix-semex"/>
 		<owl:imports rdf:resource="http://docs.oasis-open.org/tac/ns/ta-classification-axioms"/>
 		<owl:imports rdf:resource="http://www.intel.com/ns/ta-library"/>
 	</owl:Ontology>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet">
+	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix#InstrusionSet">
 		<rdfs:subClassOf rdf:resource="&tac;Adversary"/>
 	</rdf:Description>
 	
-	<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix#ThreatActor">
+	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix#ThreatActor">
 		<rdfs:subClassOf rdf:resource="&tac;Adversary"/>
 	</rdf:Description>
 	
@@ -39,6 +40,35 @@
 	<owl:Class rdf:about="&tac;ThreatActorProfile">
 	</owl:Class>
 	
+	<owl:Class rdf:about="&tac;ThreatEvent">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+		<rdfs:comment>The ThreatEvent is an event or situation that has the potential for causing undesirable consequences or impact.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tac;ThreatEventPattern">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tac;hasThreatEvent"/>
+				<owl:someValuesFrom rdf:resource="&tac;ThreatEvent"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment>A ThreatEventPattern is a sibling class to the stix:AttackPattern class. A primary difference between the two classes is that the ThreatEventPattern provides the ability to sequence the ThreatEvent objects in contains, whereas an AttackPattern object does not provide the ability to order the TTPs it contains.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&tac;ThreatScenario">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&tac;hasThreatEventPattern"/>
+				<owl:someValuesFrom rdf:resource="&tac;ThreatEventPattern"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment>A ThreatScenario is a set of discrete ThreatEvent objects contained within a ThreatEventPattern object.. The ThreatScenario is associated with one or multiple threat sources. The ThreatEvents can be, but are not required to be ordered in time. Many use the term &quot;Threat Scenario&quot; as a synonym for &quot;Threat Campaign&quot;. 
+
+A ThreatScenario is a sibling class to the stix:Campaign class. The primary difference between the two is that the ThreatScenario object represents a potential threat, whereas the Campaign object represents a threat that has been sighted or has already occured.</rdfs:comment>
+	</owl:Class>
+	
 	<owl:ObjectProperty rdf:about="&tac;hasAdversary">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
 		<rdfs:range rdf:resource="&tac;Adversary"/>
@@ -46,32 +76,44 @@
 	
 	<owl:ObjectProperty rdf:about="&tac;hasAttackPattern">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#AttackPattern"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#AttackPattern"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;hasCampaign">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Campaign"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Campaign"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;hasContributor">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Identity"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Identity"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;hasIntrusionSet">
 		<rdfs:subPropertyOf rdf:resource="&tac;hasAdversary"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#InstrusionSet"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#InstrusionSet"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;hasOriginator">
 		<rdfs:subPropertyOf rdf:resource="&tac;topTacObjectProperty"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#Identity"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#Identity"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;hasThreatActor">
 		<rdfs:subPropertyOf rdf:resource="&tac;hasAdversary"/>
-		<rdfs:range rdf:resource="http://docs.oasis-open.org/cti/ns/stix#ThreatActor"/>
+		<rdfs:range rdf:resource="http://docs.oasis-open.org/ns/cti/stix#ThreatActor"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasThreatEvent">
+		<rdfs:range rdf:resource="&tac;ThreatEvent"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasThreatEventPattern">
+		<rdfs:range rdf:resource="&tac;ThreatEventPattern"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&tac;hasThreatScenario">
+		<rdfs:range rdf:resource="&tac;ThreatScenario"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&tac;topTacObjectProperty">

@@ -3,19 +3,470 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix-semex "http://docs.oasis-open.org/cti/ns/stix-semex#">
+	<!ENTITY stix-semex "http://docs.oasis-open.org/ns/cti/stix-semex#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix-semex"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix-semex"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix-semex#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix-semex="http://docs.oasis-open.org/cti/ns/stix-semex#"
+	xmlns:stix-semex="http://docs.oasis-open.org/ns/cti/stix-semex#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix-semex">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix"/>
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix-semex/sro-props"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix-semex">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix-semex/sro-props"/>
 	</owl:Ontology>
+	
+	<rdf:Description rdf:about="http://docs.oasis-open.org/ns/cti/stix#Incident">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;criticality"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;detection_methods"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;determination"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;external_impacts"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;functional_impact"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasAttackerActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;AttackerActivity"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasDefenderActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;DefenderActivity"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasInformationalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;InformationalImpact"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;incident_types"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;investigation_status"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<owl:Class rdf:about="&stix-semex;Action">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;Activity">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;AttackerActivity">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Activity"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;DefenderActivity">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Activity"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;FunctionalImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;Impact">
+		<rdfs:subClassOf rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core#DomainObject"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;InformationalImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stix-semex;RecoverabilityImpact">
+		<rdfs:subClassOf rdf:resource="&stix-semex;Impact"/>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;attacker_activities">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;criticality">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;defender_activities">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>containment-completed</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>containment-started</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>declared</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>detected</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>eradication-completed</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>eradication-started</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>escalated</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>recovery-completed</rdf:first>
+																				<rdf:rest>
+																					<rdf:List>
+																						<rdf:first>recovery-started</rdf:first>
+																						<rdf:rest>
+																							<rdf:List>
+																								<rdf:first>reported</rdf:first>
+																								<rdf:rest rdf:resource="&rdf;nil"/>
+																							</rdf:List>
+																						</rdf:rest>
+																					</rdf:List>
+																				</rdf:rest>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;detection_methods">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>automated-tool</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>human-review</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>message-from-attacker</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>system-outage</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>user-reporting</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;determination">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>confirmed</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>false-positive</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>suspected</rdf:first>
+										<rdf:rest rdf:resource="&rdf;nil"/>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;external_impacts">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>civil-liberties</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>economic</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>foreign-relations</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>national-security</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>public-confidence</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>public-health</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;functional_impact">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>denial</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>loss-of-control</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>minimal</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>none</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>significant</rdf:first>
+														<rdf:rest rdf:resource="&rdf;nil"/>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasAction">
+		<rdfs:range rdf:resource="&stix-semex;Action"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasActivity">
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;Activity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasAttackerActivity">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasActivity"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasAttackerActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;AttackerActivity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasDefenderActivity">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasActivity"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasDefenderActivity"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;DefenderActivity"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasFunctionalImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasFunctionalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;FunctionalImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasImpact">
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;Impact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasInformationalImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasInformationalImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;InformationalImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix-semex;hasRecoverabilityImpact">
+		<rdfs:subPropertyOf rdf:resource="&stix-semex;hasImpact"/>
+		<rdfs:range>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&stix-semex;hasRecoverabilityImpact"/>
+				<owl:someValuesFrom rdf:resource="&stix-semex;RecoverabilityImpact"/>
+			</owl:Restriction>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;incident_types">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>blocked</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>compromised-system</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>destruction</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first>equipment-loss</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first>failed-attempt</rdf:first>
+														<rdf:rest>
+															<rdf:List>
+																<rdf:first>major</rdf:first>
+																<rdf:rest>
+																	<rdf:List>
+																		<rdf:first>supply-chain-customer</rdf:first>
+																		<rdf:rest>
+																			<rdf:List>
+																				<rdf:first>supply-chain-vendor</rdf:first>
+																				<rdf:rest>
+																					<rdf:List>
+																						<rdf:first>unauthorized-access</rdf:first>
+																						<rdf:rest>
+																							<rdf:List>
+																								<rdf:first>unauthorized-release</rdf:first>
+																								<rdf:rest>
+																									<rdf:List>
+																										<rdf:first>under-investigation</rdf:first>
+																										<rdf:rest rdf:resource="&rdf;nil"/>
+																									</rdf:List>
+																								</rdf:rest>
+																							</rdf:List>
+																						</rdf:rest>
+																					</rdf:List>
+																				</rdf:rest>
+																			</rdf:List>
+																		</rdf:rest>
+																	</rdf:List>
+																</rdf:rest>
+															</rdf:List>
+														</rdf:rest>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;investigation_status">
+		<rdfs:range>
+			<rdfs:Datatype>
+				<owl:oneOf>
+					<rdf:List>
+						<rdf:first>closed</rdf:first>
+						<rdf:rest>
+							<rdf:List>
+								<rdf:first>new</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first>open</rdf:first>
+										<rdf:rest rdf:resource="&rdf;nil"/>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+				</owl:oneOf>
+			</rdfs:Datatype>
+		</rdfs:range>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix-semex;mitigation">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
 
 </rdf:RDF>

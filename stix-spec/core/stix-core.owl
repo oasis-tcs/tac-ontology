@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/core"
+	xmlns="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/core">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;spec_version">
+		<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+	</rdf:Description>
+	
+	<owl:Class rdf:about="&stix;KillChainPhase">
+		<rdfs:subClassOf rdf:resource="&cti;ComplexType"/>
+		<rdfs:label xml:lang="en-us">KillChainPhase</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Represents a phase in a kill chain, which describes the various phases an attacker may undertake in order to achieve their objectives.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&stix;analysis_sco_refs">
+		<rdfs:label xml:lang="en-us">analysis_sco_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies references to STIX Cyber-observable Objects that were captured during the analysis process.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;analysis_sco_refs_id">
+		<rdfs:label xml:lang="en-us">analysis_sco_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the identifiers of STIX Cyber-observable Objects that were captured during the analysis process.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;contains_refs">
+		<rdfs:label xml:lang="en-us">contains_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of references to other STIX CyberObservable Objects contained within the file or directory, such as another file that is appended to the end of the file, or an IP address that is contained somewhere in the file.\n\nThis is intended for use cases other than those targeted by the Archive extension.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;contains_refs_id">
+		<rdfs:label xml:lang="en-us">contains_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of identifiers of other STIX Cyber Observable Objects contained within the file or directory, such as another file that is appended to the end of the file, or an IP address that is contained somewhere in the file.\n\nThis is intended for use cases other than those targeted by the Archive extension</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;defanged">
+		<rdfs:label xml:lang="en-us">defanged</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies whether or not the data contained within the object has been defanged.\n\nThis property MUST only be used on STIX Cyber Observable Objects.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;boolean"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;kill_chain_name">
+		<rdfs:label xml:lang="en-us">kill_chain_name</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the name of the kill chain.\n\nThe value of this property SHOULD be all lowercase and SHOULD use hyphens instead of spaces or underscores as word separators.@{en-US}</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;kill_chain_phases">
+		<rdfs:label xml:lang="en-us">kill chain phases</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the kill chain phase(s) to which this indicator corresponds.</rdfs:comment>
+		<rdfs:range rdf:resource="&stix;KillChainPhase"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;object_ref">
+		<rdfs:label xml:lang="en-us">object_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a reference to a STIX Object that is referred to by this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;Object"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;object_ref_id">
+		<rdfs:label xml:lang="en-us">object_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the identifier of a STIX Object that is referred to by this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;object_refs">
+		<rdfs:label xml:lang="en-us">object_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of references to STIX Objects that are referred to by this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;Object"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;object_refs_id">
+		<rdfs:label xml:lang="en-us">object_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of identifiers of STIX Objects that are referred to by this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;phase_name">
+		<rdfs:label xml:lang="en-us">phase_name</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the name of the phase in the kill chain.\n\nThe value of this property SHOULD be all lowercase and SHOULD use hyphens instead of spaces or underscores as word separators.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;sample_ref">
+		<rdfs:label xml:lang="en-us">sample_ref</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a reference to the Cyber Observable object that this analysis was performed against.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;sample_ref_id">
+		<rdfs:label xml:lang="en-us">sample_ref_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies the identifier of the Cyber Observable object that this analysis was performed against.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&stix;sample_refs">
+		<rdfs:label xml:lang="en-us">sample_refs</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of references to the Cyber Observable objects associated with this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&stixCore;CyberObservable"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&stix;sample_refs_id">
+		<rdfs:label xml:lang="en-us">sample_refs_id</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Specifies a list of identifiers to the Cyber Observable objects associated with this entity.</rdfs:comment>
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:Class rdf:about="&stixCore;CyberObservable">
+		<rdfs:subClassOf rdf:resource="&stixCore;Object"/>
+		<rdfs:label xml:lang="en-us">STIX Cyber-Observable Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract base class from which all STIX Cyber-observable Object (SCOs) derive.\n\nSTIX Cyber Observables characterize observed facts about a network or host that may be used and related to higher level intelligence to form a more complete understanding of the threat landscape.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stixCore;DomainObject">
+		<rdfs:subClassOf rdf:resource="&stixCore;Object"/>
+		<rdfs:label xml:lang="en-us">STIX Domain Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract based class from which all STIX Domain Objects (SDOs) derive.\n\nSTIX Domain Objects characterize higher-level intelligence objects that represent behaviors and constructs that threat analysts would typically create or work with while understanding the threat landscape.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stixCore;MetaObject">
+		<rdfs:subClassOf rdf:resource="&stixCore;Object"/>
+		<rdfs:label xml:lang="en-us">STIX Meta Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract base class from which all STIX Meta Objects (SMO) derive.\n\nSTIX Meta Objects characterize the necessary glue and associated metadata to enrich or extend STIX Core Objects to support user and system workflows.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stixCore;Object">
+		<rdfs:subClassOf rdf:resource="&cti;Object"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;confidence"/>
+				<owl:someValuesFrom rdf:resource="&xsd;int"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;extensions"/>
+				<owl:someValuesFrom rdf:resource="&cti;ExtensionDefinition"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;external_references"/>
+				<owl:someValuesFrom rdf:resource="&cti;ExternalReference"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;labels"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;lang"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;type"/>
+				<owl:someValuesFrom rdf:resource="&xsd;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking#granular_markings"/>
+				<owl:someValuesFrom rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking#GranularMarking"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking#object_marking_refs"/>
+				<owl:someValuesFrom rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking#MarkingDefinition"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label xml:lang="en-us">STIX Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">Abstract base class from which all STIX objects are derived.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&stixCore;RelationshipObject">
+		<rdfs:subClassOf rdf:resource="&stixCore;Object"/>
+		<rdfs:label>STIX Relationship Object</rdfs:label>
+		<rdfs:comment xml:lang="en-us">A bstract base class from which all STIX Relationship objects (SROs) derive.\n\nSTIX Relationship Objects STIX Relationship Objects connect STIX Domain Objects together, STIX Cyber-observable Objects together, and connect STIX Domain Objects and STIX Cyber-observable Objects together to form a more complete understanding of the threat landscape.</rdfs:comment>
+	</owl:Class>
+
+</rdf:RDF>

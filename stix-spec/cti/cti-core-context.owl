@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
+	<!ENTITY ctiCtx "http://docs.oasis-open.org/ns/cti/context#">
+	<!ENTITY marking "http://docs.oasis-open.org/ns/cti/data-marking#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/context"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
+	xmlns:ctiCtx="http://docs.oasis-open.org/ns/cti/context#"
+	xmlns:marking="http://docs.oasis-open.org/ns/cti/data-marking#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/context">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti"/>
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/data-marking/context"/>
+		<owl:versionInfo>2.1.0</owl:versionInfo>
+	</owl:Ontology>
+	
+	<rdf:Description rdf:about="&cti;ExtensionDefinition">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;modified"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;schema"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;spec_version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;version"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;created_by_ref_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;revoked"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;extension_types"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;ExternalReference">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;source_name"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;description"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;external_id"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hashes"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;url"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;Hash">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hash_algorithm"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;hash_value"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;Hashes">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;MD5_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SHA-1_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SHA-256_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SHA-512_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SHA3-256_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SHA3-512_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;SSDEEP_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;TLSH_hash_value"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;Identity">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:hasValue>identity</owl:hasValue>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;KeyValuePair">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;key_identifier"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;key_value"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;MD5_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;Object">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;id"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&cti;object_type"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SHA-1_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SHA-256_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SHA-512_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SHA3-256_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SHA3-512_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;SSDEEP_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;TLSH_hash_value">
+		<rdfs:domain rdf:resource="&cti;Hashes"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;created">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;created_by_ref">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;created_by_ref_id">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;description">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+		<rdfs:domain rdf:resource="&cti;ExternalReference"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;extension_properties">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;extension_types">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;external_id">
+		<rdfs:domain rdf:resource="&cti;ExternalReference"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;external_references">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;hash_algorithm">
+		<rdfs:domain rdf:resource="&cti;Hash"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;hash_value">
+		<rdfs:domain rdf:resource="&cti;Hash"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;hashes">
+		<rdfs:domain rdf:resource="&cti;ExternalReference"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;id">
+		<rdfs:domain rdf:resource="&cti;Object"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;key_identifier">
+		<rdfs:domain rdf:resource="&cti;KeyValuePair"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;key_value">
+		<rdfs:domain rdf:resource="&cti;KeyValuePair"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;labels">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;modified">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;name">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;object_type">
+		<rdfs:domain rdf:resource="&cti;Object"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;revoked">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;schema">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;source_name">
+		<rdfs:domain rdf:resource="&cti;ExternalReference"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;spec_version">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;url">
+		<rdfs:domain rdf:resource="&cti;ExternalReference"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&cti;version">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&marking;granular_markings">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&marking;object_marking_refs">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&marking;object_marking_refs_id">
+		<rdfs:domain rdf:resource="&cti;ExtensionDefinition"/>
+	</rdf:Description>
+
+</rdf:RDF>

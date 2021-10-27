@@ -1,146 +1,423 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY adversary "http://docs.oasis-open.org/cti/ns/stix/adversary#">
+	<!ENTITY adversary "http://docs.oasis-open.org/ns/cti/stix/adversary#">
+	<!ENTITY cti "http://docs.oasis-open.org/ns/cti#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY stix "http://docs.oasis-open.org/cti/ns/stix#">
-	<!ENTITY stixCore "http://docs.oasis-open.org/cti/ns/stix/core#">
+	<!ENTITY stix "http://docs.oasis-open.org/ns/cti/stix#">
+	<!ENTITY stixCore "http://docs.oasis-open.org/ns/cti/stix/core#">
 	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://docs.oasis-open.org/cti/ns/stix/adversary"
-	xmlns="http://docs.oasis-open.org/cti/ns/stix/adversary#"
-	xmlns:adversary="http://docs.oasis-open.org/cti/ns/stix/adversary#"
+<rdf:RDF xml:base="http://docs.oasis-open.org/ns/cti/stix/adversary"
+	xmlns:adversary="http://docs.oasis-open.org/ns/cti/stix/adversary#"
+	xmlns:cti="http://docs.oasis-open.org/ns/cti#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:stix="http://docs.oasis-open.org/cti/ns/stix#"
-	xmlns:stixCore="http://docs.oasis-open.org/cti/ns/stix/core#"
+	xmlns:stix="http://docs.oasis-open.org/ns/cti/stix#"
+	xmlns:stixCore="http://docs.oasis-open.org/ns/cti/stix/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://docs.oasis-open.org/cti/ns/stix/adversary">
-		<owl:imports rdf:resource="http://docs.oasis-open.org/cti/ns/stix/core"/>
+	<owl:Ontology rdf:about="http://docs.oasis-open.org/ns/cti/stix/adversary">
+		<owl:imports rdf:resource="http://docs.oasis-open.org/ns/cti/stix/core"/>
 		<owl:versionInfo>2.1.0</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&stix;InstrusionSet">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
-		<rdfs:comment xml:lang="en-us">An Intrusion Set is a grouped set of adversarial behaviors and resources with common properties that is believed to be orchestrated by a single organization. An Intrusion Set may capture multiple Campaigns or other activities that are all tied together by shared attributes indicating a commonly known or unknown Threat Actor. New activity can be attributed to an Intrusion Set even if the Threat Actors behind the attack are not known. Threat Actors can move from supporting one Intrusion Set to supporting another, or they may support multiple Intrusion Sets.\n\nWhere a Campaign is a set of attacks over a period of time against a specific set of targets to achieve some objective, an Intrusion Set is the entire attack package and may be used over a very long period of time in multiple Campaigns to achieve potentially multiple purposes.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Intrusion Set</rdfs:label>
+		<rdfs:comment xml:lang="en-US">An Intrusion Set is a grouped set of adversarial behaviors and resources with common properties that is believed to be orchestrated by a single organization. An Intrusion Set may capture multiple Campaigns or other activities that are all tied together by shared attributes indicating a commonly known or unknown Threat Actor. New activity can be attributed to an Intrusion Set even if the Threat Actors behind the attack are not known. Threat Actors can move from supporting one Intrusion Set to supporting another, or they may support multiple Intrusion Sets.\n\nWhere a Campaign is a set of attacks over a period of time against a specific set of targets to achieve some objective, an Intrusion Set is the entire attack package and may be used over a very long period of time in multiple Campaigns to achieve potentially multiple purposes.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&stix;ThreatActor">
-		<rdfs:subClassOf rdf:resource="&stixCore;STIXDomainObject"/>
-		<rdfs:label>ThreatActor</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Threat Actors are actual individuals, groups, or organizations believed to be operating with malicious intent. A Threat Actor is not an Intrusion Set but may support or be affiliated with various Intrusion Sets, groups, or organizations over time.\n\nThreat Actors leverage their resources, and possibly the resources of an Intrusion Set, to conduct attacks and run Campaigns against targets.\n\nThreat Actors can be characterized by their motives, capabilities, goals, sophistication level, past activities, resources they have access to, and their role in the organization.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&stixCore;DomainObject"/>
+		<rdfs:label xml:lang="en-US">Threat Actor</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Threat Actors are actual individuals, groups, or organizations believed to be operating with malicious intent. A Threat Actor is not an Intrusion Set but may support or be affiliated with various Intrusion Sets, groups, or organizations over time.\n\nThreat Actors leverage their resources, and possibly the resources of an Intrusion Set, to conduct attacks and run Campaigns against targets.\n\nThreat Actors can be characterized by their motives, capabilities, goals, sophistication level, past activities, resources they have access to, and their role in the organization.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;goals">
-		<rdfs:label>goals</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the high-level goals of this Intrusion Set, namely, what are they trying to do. For example, they may be motivated by personal gain, but their goal is to steal credit card numbers. To do this, they may execute specific Campaigns that have detailed objectives like compromising point of sale systems at a large retailer.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">goals</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the high-level goals of this Intrusion Set, namely, what are they trying to do. For example, they may be motivated by personal gain, but their goal is to steal credit card numbers. To do this, they may execute specific Campaigns that have detailed objectives like compromising point of sale systems at a large retailer.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;personal_motivations">
-		<rdfs:label>personal_motivations</rdfs:label>
-		<rdfs:comment xml:lang="en-us">The personal reasons, motivations, or purposes of the Threat Actor regardless of organizational goals.\n\nPersonal motivation, which is independent of the organization’s goals, describes what impels an individual to carry out an attack. Personal motivation may align with the organization’s motivation—as is common with activists—but more often it supports personal goals. For example, an individual analyst may join a Data Miner corporation because his or her skills may align with the corporation’s objectives. But the analyst most likely performs his or her daily work toward those objectives for personal reward in the form of a paycheck. The motivation of personal reward may be even stronger for Threat Actors who commit illegal acts, as it is more difficult for someone to cross that line purely for altruistic reasons. The position in the list has no significance.\n\nThe values for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">personal_motivations</rdfs:label>
+		<rdfs:comment xml:lang="en-US">The personal reasons, motivations, or purposes of the Threat Actor regardless of organizational goals.\n\nPersonal motivation, which is independent of the organization’s goals, describes what impels an individual to carry out an attack. Personal motivation may align with the organization’s motivation—as is common with activists—but more often it supports personal goals. For example, an individual analyst may join a Data Miner corporation because his or her skills may align with the corporation’s objectives. But the analyst most likely performs his or her daily work toward those objectives for personal reward in the form of a paycheck. The motivation of personal reward may be even stronger for Threat Actors who commit illegal acts, as it is more difficult for someone to cross that line purely for altruistic reasons. The position in the list has no significance.\n\nThe values for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>accidental</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>coercion</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>dominance</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>ideology</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>notoriety</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>organizational-gain</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>personal-gain</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>personal-satisfaction</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>revenge</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>unpredictable</rdf:first>
+																								<rdf:rest rdf:resource="&rdf;nil"/>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;primary_motivation">
-		<rdfs:label>primary_motivation</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the primary reason, motivation, or purpose behind this Intrusion Set. The motivation is why the Intrusion Set wishes to achieve the goal (what they are trying to achieve).\n\nThe value for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">primary_motivation</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the primary reason, motivation, or purpose behind this Intrusion Set. The motivation is why the Intrusion Set wishes to achieve the goal (what they are trying to achieve).\n\nThe value for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>accidental</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>coercion</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>dominance</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>ideology</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>notoriety</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>organizational-gain</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>personal-gain</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>personal-satisfaction</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>revenge</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>unpredictable</rdf:first>
+																								<rdf:rest rdf:resource="&rdf;nil"/>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;resource_level">
-		<rdfs:label>resource_level</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the organizational level at which this Intrusion Set typically works, which in turn determines the resources available to this Intrusion Set for use in an attack.\n\nThe value for this property SHOULD come from the attack-resource-level-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">resource_level</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the organizational level at which this Intrusion Set typically works, which in turn determines the resources available to this Intrusion Set for use in an attack.\n\nThe value for this property SHOULD come from the attack-resource-level-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackResourceLevelOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>individual</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>club</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>contest</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>team</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>organization</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>government</rdf:first>
+																<rdf:rest rdf:resource="&rdf;nil"/>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackResourceLevelVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;roles">
-		<rdfs:label>roles</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies a list of roles the Threat Actor plays.\n\nThe values for this property SHOULD come from the threat-actor-role-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">roles</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies a list of roles the Threat Actor plays.\n\nThe values for this property SHOULD come from the threat-actor-role-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorRoleOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>agent</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>director</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>independent</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>infrastructure-architect</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>infrastructure-operator</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>malware-author</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>sponsor</rdf:first>
+																		<rdf:rest rdf:resource="&rdf;nil"/>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorRoleVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;secondary_motivations">
-		<rdfs:label>secondary_motivations</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the secondary reasons, motivations, or purposes behind this Intrusion Set. These motivations can exist as an equal or near-equal cause to the primary motivation. However, it does not replace or necessarily magnify the primary motivation, but it might indicate additional context. The position in the list has no significance.\n\nThe values for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">secondary_motivations</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the secondary reasons, motivations, or purposes behind this Intrusion Set. These motivations can exist as an equal or near-equal cause to the primary motivation. However, it does not replace or necessarily magnify the primary motivation, but it might indicate additional context. The position in the list has no significance.\n\nThe values for this property SHOULD come from the attack-motivation-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>accidental</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>coercion</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>dominance</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>ideology</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>notoriety</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>organizational-gain</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>personal-gain</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>personal-satisfaction</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>revenge</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>unpredictable</rdf:first>
+																								<rdf:rest rdf:resource="&rdf;nil"/>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#AttackMotivationVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;sophistication">
-		<rdfs:label>sophistication</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies the skill, specific knowledge, special training, or expertise a Threat Actor must have to perform the attack.\n\nThe value for this property SHOULD come from the threat-actor-sophistication-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">sophistication</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the skill, specific knowledge, special training, or expertise a Threat Actor must have to perform the attack.\n\nThe value for this property SHOULD come from the threat-actor-sophistication-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorSophisticationOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>none</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>minimal</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>intermediate</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>advanced</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>expert</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>innovator</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>strategic</rdf:first>
+																		<rdf:rest rdf:resource="&rdf;nil"/>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorSophisticationVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&adversary;threat_actor_types">
-		<rdfs:label>threat_action_types</rdfs:label>
-		<rdfs:comment xml:lang="en-us">Specifies te type(s) of this threat actor.\n\nThe values for this property SHOULD come from the threat-actor-type-ov open vocabulary.</rdfs:comment>
+		<rdfs:label xml:lang="en-US">threat_actor_types</rdfs:label>
+		<rdfs:comment xml:lang="en-US">Specifies the type(s) of this threat actor.\n\nThe values for this property SHOULD come from the threat-actor-type-ov open vocabulary.</rdfs:comment>
 		<rdfs:range>
 			<rdfs:Datatype>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorTypeOpenVocab">
+				<owl:oneOf>
+					<rdf:Description>
+						<rdf:first>activist</rdf:first>
+						<rdf:rest>
+							<rdf:Description>
+								<rdf:first>competitor</rdf:first>
+								<rdf:rest>
+									<rdf:Description>
+										<rdf:first>crime-syndicate</rdf:first>
+										<rdf:rest>
+											<rdf:Description>
+												<rdf:first>criminal</rdf:first>
+												<rdf:rest>
+													<rdf:Description>
+														<rdf:first>hacker</rdf:first>
+														<rdf:rest>
+															<rdf:Description>
+																<rdf:first>insider-accidential</rdf:first>
+																<rdf:rest>
+																	<rdf:Description>
+																		<rdf:first>insider-disgruntled</rdf:first>
+																		<rdf:rest>
+																			<rdf:Description>
+																				<rdf:first>nation-state</rdf:first>
+																				<rdf:rest>
+																					<rdf:Description>
+																						<rdf:first>sensationalist</rdf:first>
+																						<rdf:rest>
+																							<rdf:Description>
+																								<rdf:first>spy</rdf:first>
+																								<rdf:rest>
+																									<rdf:Description>
+																										<rdf:first>terrorist</rdf:first>
+																										<rdf:rest>
+																											<rdf:Description>
+																												<rdf:first>unknown</rdf:first>
+																												<rdf:rest rdf:resource="&rdf;nil"/>
+																											</rdf:Description>
+																										</rdf:rest>
+																									</rdf:Description>
+																								</rdf:rest>
+																							</rdf:Description>
+																						</rdf:rest>
+																					</rdf:Description>
+																				</rdf:rest>
+																			</rdf:Description>
+																		</rdf:rest>
+																	</rdf:Description>
+																</rdf:rest>
+															</rdf:Description>
+														</rdf:rest>
+													</rdf:Description>
+												</rdf:rest>
+											</rdf:Description>
+										</rdf:rest>
+									</rdf:Description>
+								</rdf:rest>
+							</rdf:Description>
+						</rdf:rest>
 					</rdf:Description>
-					<rdf:Description rdf:about="http://docs.oasis-open.org/cti/ns/stix/vocabulary#ThreatActorTypeVocab">
-					</rdf:Description>
-				</owl:unionOf>
+				</owl:oneOf>
 			</rdfs:Datatype>
 		</rdfs:range>
 	</owl:DatatypeProperty>

@@ -764,6 +764,10 @@
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
+	<owl:DatatypeProperty rdf:about="&cti;type">
+		<rdfs:range rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty>
+	
 	<owl:DatatypeProperty rdf:about="&cti;url">
 		<rdfs:label xml:lang="en-us">url</rdfs:label>
 		<rdfs:comment xml:lang="en-us">Specifies a URL reference to an external resource</rdfs:comment>
